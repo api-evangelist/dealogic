@@ -1,0 +1,111 @@
+name: Dealogic
+description: 'Dealogic is a leading global provider of investment banking software solutions, data, analytics, and insights. The platform serves financial institutions with tools for capital markets, including deal management, data analytics, and compliance solutions.
+
+  '
+url: https://www.dealogic.com
+created: 2024-01-20 00:00:00+00:00
+modified: 2024-01-20 00:00:00+00:00
+apis:
+- name: Dealogic Analytics API
+  description: 'Provides access to capital markets analytics, league tables, and market intelligence data. Enables programmatic access to deal data, market share analysis, and competitive intelligence.
+
+    '
+  baseURL: https://api.dealogic.com/v1/analytics
+  humanURL: https://www.dealogic.com/products/analytics
+  image: https://www.dealogic.com/images/analytics-icon.png
+  tags:
+  - analytics
+  - capital markets
+  - league tables
+  - market data
+  properties:
+  - type: Documentation
+    url: https://developers.dealogic.com/docs/analytics
+  - type: OpenAPI
+    url: https://api.dealogic.com/v1/analytics/openapi.json
+  - type: Authentication
+    url: https://developers.dealogic.com/docs/authentication
+- name: Dealogic Deal Data API
+  description: 'Access comprehensive deal information including M&A transactions, equity offerings, debt issuances, and syndicated loans. Real-time and historical deal data with detailed terms and conditions.
+
+    '
+  baseURL: https://api.dealogic.com/v1/deals
+  humanURL: https://www.dealogic.com/products/deal-data
+  image: https://www.dealogic.com/images/deals-icon.png
+  tags:
+  - deals
+  - M&A
+  - equity
+  - debt
+  - syndicated loans
+  properties:
+  - type: Documentation
+    url: https://developers.dealogic.com/docs/deals
+  - type: OpenAPI
+    url: https://api.dealogic.com/v1/deals/openapi.json
+  - type: Swagger
+    url: https://api.dealogic.com/v1/deals/swagger
+- name: Dealogic Entity API
+  description: 'Provides access to entity data including companies, investors, advisors, and other market participants. Includes entity relationships, contact information, and organizational hierarchies.
+
+    '
+  baseURL: https://api.dealogic.com/v1/entities
+  humanURL: https://www.dealogic.com/products/entity-data
+  image: https://www.dealogic.com/images/entity-icon.png
+  tags:
+  - entities
+  - companies
+  - investors
+  - advisors
+  - organizations
+  properties:
+  - type: Documentation
+    url: https://developers.dealogic.com/docs/entities
+  - type: OpenAPI
+    url: https://api.dealogic.com/v1/entities/openapi.json
+- name: Dealogic Market Intelligence API
+  description: 'Delivers market intelligence including trends, forecasts, and competitive analysis. Supports custom queries for market research and business development activities.
+
+    '
+  baseURL: https://api.dealogic.com/v1/intelligence
+  humanURL: https://www.dealogic.com/products/market-intelligence
+  image: https://www.dealogic.com/images/intelligence-icon.png
+  tags:
+  - market intelligence
+  - trends
+  - forecasts
+  - research
+  properties:
+  - type: Documentation
+    url: https://developers.dealogic.com/docs/intelligence
+  - type: OpenAPI
+    url: https://api.dealogic.com/v1/intelligence/openapi.json
+  - type: Rate Limits
+    url: https://developers.dealogic.com/docs/rate-limits
+common:
+- type: Portal
+  url: https://developers.dealogic.com
+- type: Authentication
+  url: https://developers.dealogic.com/docs/authentication
+- type: Getting Started
+  url: https://developers.dealogic.com/docs/getting-started
+- type: Terms of Service
+  url: https://www.dealogic.com/terms-of-service
+- type: Privacy Policy
+  url: https://www.dealogic.com/privacy-policy
+- type: Support
+  url: https://support.dealogic.com
+- type: Status
+  url: https://status.dealogic.com
+- type: Contact
+  url: https://www.dealogic.com/contact
+maintainers:
+- name: Dealogic API Team
+  email: api-support@dealogic.com
+  url: https://developers.dealogic.com
+tags:
+- finance
+- investment banking
+- capital markets
+- analytics
+- financial data
