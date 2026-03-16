@@ -3,8 +3,8 @@ description: 'Dealogic is a leading global provider of investment banking softwa
 
   '
 url: https://www.dealogic.com
-created: 2024-01-20 00:00:00+00:00
-modified: 2024-01-20 00:00:00+00:00
+created: '2024-01-20'
+modified: '2026-03-16'
 apis:
 - name: Dealogic Analytics API
   description: 'Provides access to capital markets analytics, league tables, and market intelligence data. Enables programmatic access to deal data, market share analysis, and competitive intelligence.
@@ -100,9 +100,8 @@ common:
 - type: Contact
   url: https://www.dealogic.com/contact
 maintainers:
-- name: Dealogic API Team
-  email: api-support@dealogic.com
-  url: https://developers.dealogic.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 tags:
 - finance
 - investment banking
