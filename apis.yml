@@ -16,10 +16,10 @@ apis:
     humanURL: https://www.dealogic.com/products/analytics
     image: https://www.dealogic.com/images/analytics-icon.png
     tags:
-      - analytics
-      - capital markets
-      - league tables
-      - market data
+      - Analytics
+      - Capital Markets
+      - League Tables
+      - Market Data
     properties:
       - type: Documentation
         url: https://developers.dealogic.com/docs/analytics
@@ -36,11 +36,11 @@ apis:
     humanURL: https://www.dealogic.com/products/deal-data
     image: https://www.dealogic.com/images/deals-icon.png
     tags:
-      - deals
+      - Deals
+      - Debt
+      - Equity
       - M&A
-      - equity
-      - debt
-      - syndicated loans
+      - Syndicated Loans
     properties:
       - type: Documentation
         url: https://developers.dealogic.com/docs/deals
@@ -57,11 +57,11 @@ apis:
     humanURL: https://www.dealogic.com/products/entity-data
     image: https://www.dealogic.com/images/entity-icon.png
     tags:
-      - entities
-      - companies
-      - investors
-      - advisors
-      - organizations
+      - Advisors
+      - Companies
+      - Entities
+      - Investors
+      - Organizations
     properties:
       - type: Documentation
         url: https://developers.dealogic.com/docs/entities
@@ -75,10 +75,10 @@ apis:
     humanURL: https://www.dealogic.com/products/market-intelligence
     image: https://www.dealogic.com/images/intelligence-icon.png
     tags:
-      - market intelligence
-      - trends
-      - forecasts
-      - research
+      - Forecasts
+      - Market Intelligence
+      - Research
+      - Trends
     properties:
       - type: Documentation
         url: https://developers.dealogic.com/docs/intelligence
@@ -107,8 +107,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 tags:
-  - finance
-  - investment banking
-  - capital markets
-  - analytics
-  - financial data
+  - Analytics
+  - Capital Markets
+  - Finance
+  - Financial Data
+  - Investment Banking
