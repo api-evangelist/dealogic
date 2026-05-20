@@ -30,6 +30,10 @@ description: >-
   public developer portal.
 apis: []
 common:
+  - type: GitHubOrganization
+    url: https://github.com/Dealogic
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/dealogic
   - type: Website
     url: https://www.dealogic.com/
   - type: Login
