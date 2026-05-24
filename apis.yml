@@ -52,6 +52,8 @@ common:
     url: https://www.dealogic.com/products/connect/
   - type: Contact
     url: https://www.dealogic.com/contact/
+  - type: LLMsTxt
+    url: https://dealogic.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
