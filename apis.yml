@@ -52,7 +52,7 @@ common:
     url: https://www.dealogic.com/products/connect/
   - type: Contact
     url: https://www.dealogic.com/contact/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://dealogic.com/llms.txt
 maintainers:
   - FN: Kin Lane
