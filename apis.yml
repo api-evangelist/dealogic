@@ -30,6 +30,8 @@ description: >-
   public developer portal.
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/dealogic-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/Dealogic
   - type: LinkedIn
