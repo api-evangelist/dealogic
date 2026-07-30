@@ -3,9 +3,20 @@ name: Dealogic
 url: >-
   https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: Customer
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
 tags:
   - Analytics
   - Capital Markets
