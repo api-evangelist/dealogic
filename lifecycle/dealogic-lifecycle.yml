@@ -1,0 +1,64 @@
+generated: '2026-09-05'
+method: searched
+source: Searched dealogic.com (full page sitemap), the ION Analytics Data Portal at https://iongroup.com/analytics/data-portal/apis-data-feeds/,
+  and derived from the eight OpenAPI documents in openapi/.
+versioning:
+  scheme: mixed; see conventions/dealogic-conventions.yml
+  published_versions:
+  - api: Dealogic Analytics SPAC API
+    versions:
+    - '2.0'
+    - '1.0'
+    note: Both documents are served side by side from the same Swagger UI at https://spac.analytics.dealogic.com/index.html,
+      so 1.0 is still published, not retired. v2.0 is the OData read surface; v1.0 is the loader/admin
+      surface.
+  - api: Dealogic Reporting API
+    versions:
+    - v1.0
+  - api: Cortex Reporting API
+    versions:
+    - v1.2
+    build: 2.3.3.0
+    note: GET /Admin/Version returns the deployed build.
+  - api: IONA Profiles API
+    versions:
+    - v1
+  - api: Dealogic Analytics Bank / Company / Sponsor APIs
+    versions: []
+    note: No version marker in path, header or query. info.version is a build number (1.0.0.0).
+deprecation_policy:
+  published: false
+  detail: 'No deprecation or sunset policy is published on dealogic.com or on the ION Analytics Data Portal.
+    No harvested operation carries deprecated: true, and no Sunset or Deprecation response header (RFC
+    8594) is declared anywhere.'
+  rfc8594_headers: false
+deprecated_operations: []
+status_page:
+  published: false
+  detail: No status page exists. status.dealogic.com does not resolve (NXDOMAIN, checked 2026-09-05);
+    no status.iongroup.com or trust-page uptime widget is linked from dealogic.com or from the Data Portal.
+    Incident and availability communication is via the account team.
+  probes:
+  - host: status.dealogic.com
+    result: NXDOMAIN
+  - host: trust.dealogic.com
+    result: NXDOMAIN
+sla:
+  published: false
+  detail: No public SLA. https://dealogic.com/security/ describes a Managed Service with 'high availability',
+    'service continuity with seamless recovery' and '24x7 support' in prose, with no numeric target and
+    no credit regime.
+support:
+  channels:
+  - type: contact form
+    url: https://dealogic.com/about-us/contact-us/
+  - type: feed support
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/faq-and-support/
+  - type: client portal
+    url: https://iongroup.com/analytics/client-logins/
+data_freshness:
+- surface: Dealogic Primary Market Deals & Entities Feed
+  update_frequency: incremental updates up to 1x/hour
+  history: since 1995
+  point_in_time: false
+  source: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/

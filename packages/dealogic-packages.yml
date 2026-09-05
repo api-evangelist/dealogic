@@ -1,0 +1,88 @@
+generated: '2026-09-05'
+method: searched
+source: Searched registry.npmjs.org, pypi.org, api.nuget.org (azuresearch), and the GitHub organisation
+  https://github.com/Dealogic on 2026-09-05, plus the ION Analytics Data Portal documentation pages for
+  the Dealogic surfaces.
+package_count: 0
+official_sdk_count: 0
+detail: 'Dealogic ships no client SDK for any of its APIs, in any language. npm search for ''dealogic''
+  returns 0 results; the NuGet query API returns totalHits 0; pypi.org/pypi/dealogic/json is 404. The
+  public GitHub organisation github.com/Dealogic holds six repositories, all last pushed between 2018
+  and 2022, and none of them is an API client: two Azure DevOps build-task extensions (webpack-vsts-extension,
+  cloc-vsts-extension), a .NET reference-conflict analyzer task, and three Azure Service Bus helper libraries
+  (encryption, serialization, Application Insights). They are internal engineering tooling published as
+  open source, not a way to call a Dealogic API. No SDKs pointer is wired into apis.yml, because there
+  is no SDK to point at.'
+packages: []
+first_party_repos_that_are_not_sdks:
+- name: webpack-vsts-extension
+  url: https://github.com/Dealogic/webpack-vsts-extension
+  language: TypeScript
+  last_push: '2021-04-16'
+  registry: null
+  version: null
+  published: null
+  note: Azure DevOps build task. Distributed through the Visual Studio Marketplace, which has no package-metadata
+    endpoint queried here; version not recorded rather than guessed.
+- name: cloc-vsts-extension
+  url: https://github.com/Dealogic/cloc-vsts-extension
+  language: TypeScript
+  last_push: '2021-04-30'
+  registry: null
+  version: null
+  published: null
+- name: reference-conflicts-analyzer-azure-devops-task
+  url: https://github.com/Dealogic/reference-conflicts-analyzer-azure-devops-task
+  language: TypeScript
+  last_push: '2022-02-11'
+  registry: null
+  version: null
+  published: null
+- name: azure-servicebus-appinsights
+  url: https://github.com/Dealogic/azure-servicebus-appinsights
+  language: C#
+  last_push: '2018-06-01'
+  registry: nuget
+  version: null
+  published: null
+  note: 'Not found on nuget.org: a query for ''dealogic'' returns totalHits 0, and a query for Dealogic.Azure.ServiceBus
+    returns 0. version null = checked, nothing to record.'
+- name: azure-servicebus-encryption
+  url: https://github.com/Dealogic/azure-servicebus-encryption
+  language: C#
+  last_push: '2018-06-01'
+  registry: nuget
+  version: null
+  published: null
+- name: azure-servicebus-serialization
+  url: https://github.com/Dealogic/azure-servicebus-serialization
+  language: C#
+  last_push: '2018-06-01'
+  registry: nuget
+  version: null
+  published: null
+client_side_tooling:
+- name: Dealogic Data Loader
+  type: installed application
+  official: true
+  distribution: delivered to licensed feed subscribers; no public download
+  description: Client-installed application that consumes the Primary Market Deals & Entities Feed over
+    SFTP or a service-bus topic, creates a predefined MS SQL Server schema and applies incremental updates.
+  source: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/how-to-query/
+  version: null
+  published: null
+  note: version null - no registry, no public download page, and no version string is published.
+registries_searched:
+- registry: npm
+  query: dealogic
+  results: 0
+- registry: nuget
+  query: dealogic
+  results: 0
+- registry: pypi
+  query: dealogic
+  status: 404
+- registry: github
+  org: Dealogic
+  public_repos: 6
+  api_clients: 0

@@ -1,0 +1,2571 @@
+generated: '2026-09-05'
+method: derived
+source: Derived from the components.schemas $ref graph of the eight OpenAPI documents in openapi/. No
+  object-reference documentation is published — https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  renders only the Swagger UI iframe — so nothing here is enriched from prose.
+summary:
+  entities: 232
+  relationships: 235
+  root: 'SpacEntry is the aggregate root of the SPAC dataset: it carries 230 scalar fields and 35 relationship
+    fields, and every OData navigation path in dealogic-analytics-spac-v2-openapi.json hangs off it.'
+  note: 'The four analytics/reporting APIs (Bank, Company, Sponsor, Reporting, Cortex Reporting) are report-shaped
+    rather than entity-shaped: their schemas are chart/table payloads keyed by bankIdentifier, companyId,
+    sponsorId or reportId, with very few $ref links between them. The IONA Profiles API is deal-shaped
+    (DcmDeal, LoanDeal) plus market-profile payloads.'
+identifiers:
+- name: SpacEntryId
+  used_by: Dealogic Analytics SPAC API
+  note: Composite keys are used on related entities, e.g. /odata/RelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId}).
+- name: bankIdentifier
+  used_by: Dealogic Analytics Bank API
+  note: Path parameter on every operation; CheckBankProfiles confirms which identifiers resolve.
+- name: companyId
+  used_by: Dealogic Analytics Company API
+- name: sponsorId
+  used_by: Dealogic Analytics Sponsor API
+  note: CheckSponsorProfiles confirms which identifiers resolve.
+- name: reportId
+  used_by: Dealogic Reporting API and Cortex Reporting API
+  note: Paired with a validDatesType path segment on execution.
+- name: clientCode
+  used_by: IONA Profiles API
+  note: Query parameter on every deal and market-profile operation - entitlement is scoped by client,
+    not by token scope.
+entities:
+- entity: SpacEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 230
+  id_fields:
+  - id
+  - companyId
+  - ipoId
+  - mnaId
+  - companySponsorAffiliateId
+  - mnaTargetId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 71
+  id_fields:
+  - trancheId
+  - analyticsTrancheId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 63
+  id_fields:
+  - trancheId
+  - analyticsTrancheId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 42
+  id_fields:
+  - trancheId
+  - analyticsTrancheId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 42
+  id_fields:
+  - mnaTargetId
+  - companyId
+  - spacId
+  - companySponsorAffiliateId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.DealBaseDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 37
+  id_fields:
+  - dealId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.CompanyDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 33
+  id_fields:
+  - feePayerId
+  - companyId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 27
+  id_fields:
+  - feePayerId
+  - prospectusId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 24
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 23
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 23
+  id_fields: []
+- entity: Listing
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 20
+  id_fields:
+  - listingId
+  - instrumentId
+  - spacEntryId
+- entity: RelatedEcmDeal
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 20
+  id_fields:
+  - id
+  - spacEntryId
+- entity: UserInfo
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 16
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 15
+  id_fields:
+  - cortexDealId
+- entity: OwnershipDataEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 13
+  id_fields:
+  - id
+  - instrumentId
+  - listingId
+  - investorId
+  - spacEntryId
+- entity: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 13
+  id_fields: []
+- entity: WithdrawnMnaDeal
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 12
+  id_fields:
+  - id
+  - targetId
+  - spacEntryId
+- entity: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 11
+  id_fields:
+  - BaseFieldId
+- entity: SNRLite.Interfaces.V1_1.Criterias.Clause
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 11
+  id_fields:
+  - BaseFieldId
+- entity: Bank
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 10
+  id_fields:
+  - ecmDealMasterId
+  - companyMasterId
+  - companyParentMasterId
+  - parentRoleId
+  - spacEntryId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.ReportResult
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.HeaderDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 10
+  id_fields:
+  - companyId
+  - parentCompanyId
+  - privateParentCompanyId
+  - rowId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.ParentBankDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 10
+  id_fields:
+  - bankId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.ReportResult
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 10
+  id_fields: []
+- entity: WithdrawnMnaAcquirorAdvisor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 10
+  id_fields:
+  - mnaId
+  - companyId
+  - companyParentId
+  - advisorRoleId
+  - withdrawnMnaDealId
+  - withdrawnMnaDealSpacEntryId
+- entity: WithdrawnMnaTargetAdvisor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 10
+  id_fields:
+  - mnaId
+  - companyId
+  - companyParentId
+  - advisorRoleId
+  - withdrawnMnaDealId
+  - withdrawnMnaDealSpacEntryId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.PartakerDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 9
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 9
+  id_fields:
+  - cortexDealId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 9
+  id_fields: []
+- entity: MnaAcquirorAdvisor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 9
+  id_fields:
+  - mnaId
+  - companyId
+  - companyParentId
+  - advisorRoleId
+  - spacEntryId
+- entity: MnaTargetAdvisor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 9
+  id_fields:
+  - mnaId
+  - companyId
+  - companyParentId
+  - advisorRoleId
+  - spacEntryId
+- entity: RelatedEcmDealBank
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 9
+  id_fields:
+  - ecmDealMasterId
+  - companyMasterId
+  - companyParentMasterId
+  - parentRoleId
+- entity: SNRLite.Interfaces.Request.ReportColumn
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 9
+  id_fields:
+  - FieldId
+  - ColumnId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.Criterias.Clause
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields:
+  - trancheId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields:
+  - cortexDealId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: MarketDataEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 8
+  id_fields:
+  - listingId
+  - spacEntryId
+- entity: SNRLite.Interfaces.Request.SecondaryBasis
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 8
+  id_fields:
+  - FieldId
+  - AggregateId
+- entity: SNRLite.Interfaces.V1_2.Request.Criterias.Clause
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 8
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.Criterias.Dates
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 7
+  id_fields:
+  - trancheId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: IpoAttorney
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 7
+  id_fields:
+  - id
+  - attorneyRoleId
+  - spacEntryId
+- entity: LoadError
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 7
+  id_fields:
+  - id
+  - entityId
+- entity: NewsEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 7
+  id_fields:
+  - id
+- entity: SNRLite.Interfaces.Request.RankingBasis
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 7
+  id_fields:
+  - FieldId
+  - AggregateId
+- entity: SNRLite.Interfaces.V1_1.Criterias.Dates
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.Criterias.Clause
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.Criterias.Dates
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Request.Criterias.Dates
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 7
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields:
+  - trancheId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.LoanPricesDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutSponsorTrigger
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - spacEntryId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - spacEntryId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields:
+  - companyId
+  - companyParentId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields:
+  - companyId
+  - companyParentId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: IpoPromoteScheduleTrigger
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - spacEntryId
+- entity: Location
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - parentLocationId
+- entity: MnaDivestor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 6
+  id_fields:
+  - mnaMasterId
+  - companyMasterId
+  - spacEntryId
+- entity: MnaEarnoutSponsorTrigger
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - spacEntryId
+- entity: MnaEarnoutTargetTrigger
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 6
+  id_fields:
+  - id
+  - spacEntryId
+- entity: SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 6
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.RankingColumn
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 6
+  id_fields:
+  - FieldId
+  - ColumnId
+- entity: SNRLite.Interfaces.Request.RankingRow
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 6
+  id_fields:
+  - FieldId
+  - ColumnId
+- entity: SNRLite.Interfaces.V1_1.VisualizationData
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 6
+  id_fields:
+  - ShowChangeGroupId
+- entity: CompanyRedemption
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - spacEntryId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Column
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - Id
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - RankingTableTypeColumnId
+- entity: Dealogic.Reporting.Api.Body.Column
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - Id
+- entity: Dealogic.Reporting.Api.Body.Schema
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - RankingTableTypeColumnId
+- entity: DealogicIndustry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - id
+  - groupHeadIndustryId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 5
+  id_fields:
+  - id
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 5
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 5
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 5
+  id_fields: []
+- entity: IpoLockup
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - id
+  - spacEntryId
+- entity: LoadAllStatus
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 5
+  id_fields:
+  - instanceId
+- entity: MnaFinancialSponsor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - id
+  - spacEntryId
+- entity: MnaInvPresFinancialsEBITDA
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - spacEntryId
+- entity: MnaInvPresFinancialsRevenue
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 5
+  id_fields:
+  - spacEntryId
+- entity: SNRLite.Interfaces.Request.AggregatedReportSchema
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.ReportDefinition
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.Column
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - Id
+- entity: SNRLite.Interfaces.V1_1.Schema
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 5
+  id_fields:
+  - RankingTableTypeColumnId
+- entity: SNRLite.Interfaces.V1_2.Body.Column
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 5
+  id_fields:
+  - Id
+- entity: SNRLite.Interfaces.V1_2.Body.Schema
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 5
+  id_fields:
+  - RankingTableTypeColumnId
+- entity: CompanyCornerstoneInvestor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 4
+  id_fields:
+  - id
+  - spacEntryId
+- entity: CompanyManagementEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.ResultInfo
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.VisualizationData
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.BankDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields:
+  - bankId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.SponsorDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields:
+  - sponsorId
+  - parentId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields:
+  - id
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+EBITDAEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+RevenueEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: IpoAuditor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 4
+  id_fields:
+  - id
+  - spacEntryId
+- entity: IpoFinancialSponsor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 4
+  id_fields:
+  - id
+  - spacEntryId
+- entity: MnaSponsorForfeitType
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 4
+  id_fields:
+  - id
+  - spacEntryId
+- entity: SNRLite.Interfaces.V1_2.Body.ResultInfo
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.VisualizationData
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 4
+  id_fields: []
+- entity: CompanyManagementAffiliationsEntry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 3
+  id_fields:
+  - affiliatedEntityId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - OperationId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - GroupColumnId
+  - BasisColumnId
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - ColumnId
+- entity: Dealogic.Reporting.Api.Body.ShowChangeData
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - GroupColumnId
+  - BasisColumnId
+- entity: Dealogic.Reporting.Api.Body.SummarySet
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.VisualizationHighlightId
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - ColumnId
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 3
+  id_fields:
+  - id
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry+PriceHistoryEntry
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.ShowChangeData
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - GroupColumnId
+  - BasisColumnId
+- entity: SNRLite.Interfaces.V1_1.SummarySet
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.VisualizationHighlightId
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 3
+  id_fields:
+  - ColumnId
+- entity: SNRLite.Interfaces.V1_2.Body.ShowChangeData
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 3
+  id_fields:
+  - GroupColumnId
+  - BasisColumnId
+- entity: SNRLite.Interfaces.V1_2.Body.SummarySet
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 3
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 3
+  id_fields:
+  - ColumnId
+- entity: CompanyS1Shareholder
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.CheckProfilesResult+Item
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  field_count: 2
+  id_fields:
+  - Id
+- entity: Dealogic.Analytics.Sponsor.Models.CheckProfilesResult+Item
+  source:
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 2
+  id_fields:
+  - Id
+- entity: Dealogic.Reporting.Api.Body.Criterias.Range
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.ExecutionInfo
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.ResultSet
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: GroupItem
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheCurrencyCodeDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields:
+  - trancheId
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields:
+  - trancheId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields:
+  - entityId
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.DrilldownKey
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields:
+  - FieldUniqueId
+- entity: SNRLite.Interfaces.Request.ListReportSchema
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.ListReportSchemaOptions
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.Criterias.Criteria
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.Criterias.Range
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.ExecutionInfo
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.ResultSet
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.Criterias.Range
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.ExecutionInfo
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.ResultSet
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Request.Criterias.Criteria
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Request.Criterias.Range
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: SpecialisedIndustry
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 2
+  id_fields:
+  - id
+- entity: UserInfoWithToggles
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 2
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.CheckProfilesResult
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: Dealogic.Analytics.Sponsor.Models.CheckProfilesResult
+  source:
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Body.VisualizationHighlight
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.BankListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.CompanyListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.HeaderListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.PartakerListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.SponsorListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsListDto
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: LoadAllKey
+  source:
+  - openapi/dealogic-analytics-spac-v1-openapi.json
+  field_count: 1
+  id_fields:
+  - id
+- entity: NamedPIPEInvestor
+  source:
+  - openapi/dealogic-analytics-spac-v2-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.RankingPeriodRange
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_1.VisualizationHighlight
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: SNRLite.Interfaces.V1_2.Body.VisualizationHighlight
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-company-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 1
+  id_fields: []
+- entity: Cortex.Reporting.API.Models.ValidDatesTypes
+  source:
+  - openapi/dealogic-cortex-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.BasisType
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.DateType
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.Industry
+  source:
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.Product
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Bank.Models.Region
+  source:
+  - openapi/dealogic-analytics-bank-openapi.json
+  - openapi/dealogic-analytics-sponsor-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Company.Models.DateRange
+  source:
+  - openapi/dealogic-analytics-company-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Company.Models.Industry
+  source:
+  - openapi/dealogic-analytics-company-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Company.Models.NextYearDateRange
+  source:
+  - openapi/dealogic-analytics-company-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Company.Models.Product
+  source:
+  - openapi/dealogic-analytics-company-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Analytics.Company.Models.SubsidiaryRegion
+  source:
+  - openapi/dealogic-analytics-company-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: Dealogic.Reporting.Api.Interfaces.ValidDatesType
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion
+  source:
+  - openapi/dealogic-iona-profiles-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.BreakdownByPeriod
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.Common.Apportionment
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.Common.Function
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.PeriodLength
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.ReportColumnSortMethod
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.SortDirection
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.Type
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+- entity: SNRLite.Interfaces.Request.UserBasis
+  source:
+  - openapi/dealogic-reporting-openapi.json
+  field_count: 0
+  id_fields: []
+relationships:
+- from: SNRLite.Interfaces.V1_2.Body.Schema
+  to: SNRLite.Interfaces.V1_2.Body.Column
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.VisualizationHighlight
+  to: SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId
+  kind: has_many
+  via: Rows
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.VisualizationData
+  to: SNRLite.Interfaces.V1_2.Body.ShowChangeData
+  kind: has_one
+  via: ShowChange
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.VisualizationData
+  to: SNRLite.Interfaces.V1_2.Body.VisualizationHighlight
+  kind: has_one
+  via: Highlight
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.Criterias.Range
+  to: SNRLite.Interfaces.V1_2.Body.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.Criterias.Clause
+  to: SNRLite.Interfaces.V1_2.Body.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria
+  to: SNRLite.Interfaces.V1_2.Body.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.Schema
+  kind: has_one
+  via: Schema
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.ResultSet
+  kind: has_many
+  via: ResultSet
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.SummarySet
+  kind: has_many
+  via: SummarySet
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.VisualizationData
+  kind: has_one
+  via: VisualizationData
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.ExecutionInfo
+  kind: has_one
+  via: ExecutionInfo
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: SNRLite.Interfaces.V1_2.Body.ReportResult
+  to: SNRLite.Interfaces.V1_2.Body.ResultInfo
+  kind: has_one
+  via: ResultInfo
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: Dealogic.Analytics.Bank.Models.CheckProfilesResult
+  to: Dealogic.Analytics.Bank.Models.CheckProfilesResult+Item
+  kind: has_many
+  via: Items
+  source: openapi/dealogic-analytics-bank-openapi.json
+- from: UserInfo
+  to: GroupItem
+  kind: has_many
+  via: groups
+  source: openapi/dealogic-analytics-spac-v1-openapi.json
+- from: UserInfoWithToggles
+  to: UserInfo
+  kind: has_one
+  via: userInfo
+  source: openapi/dealogic-analytics-spac-v1-openapi.json
+- from: Location
+  to: Location
+  kind: has_one
+  via: parentLocation
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: DealogicIndustry
+  to: DealogicIndustry
+  kind: has_one
+  via: parentIndustry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: IpoAttorney
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: IpoAuditor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: IpoFinancialSponsor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: IpoLockup
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: Bank
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MarketDataEntry
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MarketDataEntry
+  to: Listing
+  kind: has_one
+  via: listing
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: OwnershipDataEntry
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: OwnershipDataEntry
+  to: Listing
+  kind: has_one
+  via: listing
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: Listing
+  to: MarketDataEntry
+  kind: has_many
+  via: marketData
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: Listing
+  to: OwnershipDataEntry
+  kind: has_many
+  via: ownershipData
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: Listing
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaDivestor
+  to: Location
+  kind: has_one
+  via: nationality
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaDivestor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaFinancialSponsor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaTargetAdvisor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaSponsorForfeitType
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: RelatedEcmDealBank
+  to: RelatedEcmDeal
+  kind: has_one
+  via: relatedEcmDeal
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: RelatedEcmDeal
+  to: RelatedEcmDealBank
+  kind: has_many
+  via: syndicate
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: RelatedEcmDeal
+  to: NamedPIPEInvestor
+  kind: has_many
+  via: namedPIPEInvestors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: RelatedEcmDeal
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: NewsEntry
+  to: SpacEntry
+  kind: has_many
+  via: relatedSpacEntries
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaAcquirorAdvisor
+  to: WithdrawnMnaDeal
+  kind: has_one
+  via: withdrawnMnaDeal
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaTargetAdvisor
+  to: WithdrawnMnaDeal
+  kind: has_one
+  via: withdrawnMnaDeal
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaDeal
+  to: WithdrawnMnaAcquirorAdvisor
+  kind: has_many
+  via: acquirorAdvisors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaDeal
+  to: WithdrawnMnaTargetAdvisor
+  kind: has_many
+  via: targetAdvisors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaDeal
+  to: DealogicIndustry
+  kind: has_one
+  via: targetIndustry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaDeal
+  to: Location
+  kind: has_one
+  via: targetNationality
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: WithdrawnMnaDeal
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: MnaAcquirorAdvisor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_one
+  via: companyBusinessLocation
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: DealogicIndustry
+  kind: has_one
+  via: mnaTargetIndustry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: CompanyManagementEntry
+  kind: has_many
+  via: companyManagement
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: CompanyManagementAffiliationsEntry
+  kind: has_many
+  via: companyManagementAffiliations
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: CompanyS1Shareholder
+  kind: has_many
+  via: companyS1Shareholders
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: SpecialisedIndustry
+  kind: has_many
+  via: intendedTargetSpecialisedIndustries
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: IpoAttorney
+  kind: has_many
+  via: ipoAttorneys
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: IpoAuditor
+  kind: has_many
+  via: ipoAuditors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: IpoFinancialSponsor
+  kind: has_many
+  via: ipoFinancialSponsors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: IpoLockup
+  kind: has_many
+  via: ipoLockups
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Bank
+  kind: has_many
+  via: ipoSyndicate
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Listing
+  kind: has_many
+  via: listings
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaDivestor
+  kind: has_many
+  via: mnaDivestors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaEarnoutSponsorTrigger
+  kind: has_many
+  via: mnaEarnoutSponsorTriggers
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaEarnoutTargetTrigger
+  kind: has_many
+  via: mnaEarnoutTargetTriggers
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaFinancialSponsor
+  kind: has_many
+  via: mnaFinancialSponsors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaInvPresFinancialsEBITDA
+  kind: has_many
+  via: mnaInvPresFinancialsEBITDAs
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaInvPresFinancialsRevenue
+  kind: has_many
+  via: mnaInvPresFinancialsRevenues
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaTargetAdvisor
+  kind: has_many
+  via: mnaTargetAdvisors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaSponsorForfeitType
+  kind: has_many
+  via: mnaSponsorForfeitTypes
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: RelatedEcmDeal
+  kind: has_many
+  via: relatedEcmDeals
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: NewsEntry
+  kind: has_many
+  via: relatedNews
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: CompanyCornerstoneInvestor
+  kind: has_many
+  via: companyCornerstoneInvestors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: WithdrawnMnaDeal
+  kind: has_many
+  via: withdrawnMnaDeals
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: CompanyRedemption
+  kind: has_many
+  via: companyRedemptions
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: IpoPromoteScheduleTrigger
+  kind: has_many
+  via: ipoPromoteScheduleTriggers
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_one
+  via: companyIncorporationLocation
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_one
+  via: ipoExchangeLocation
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_one
+  via: mnaTargetNationality
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: DealogicIndustry
+  kind: has_many
+  via: intendedTargetIndustries
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_many
+  via: intendedTargetLocations
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: DealogicIndustry
+  kind: has_many
+  via: intendedTargetParentIndustries
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: Location
+  kind: has_many
+  via: intendedTargetParentLocations
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: MnaAcquirorAdvisor
+  kind: has_many
+  via: mnaAcquirorAdvisors
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: SpacEntry
+  to: SpecialisedIndustry
+  kind: has_many
+  via: mnaTargetSpecialisedIndustries
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: CompanyCornerstoneInvestor
+  to: SpacEntry
+  kind: has_one
+  via: spacEntry
+  source: openapi/dealogic-analytics-spac-v2-openapi.json
+- from: Dealogic.Analytics.Sponsor.Models.CheckProfilesResult
+  to: Dealogic.Analytics.Sponsor.Models.CheckProfilesResult+Item
+  kind: has_many
+  via: Items
+  source: openapi/dealogic-analytics-sponsor-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Column
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId
+  kind: has_many
+  via: Rows
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData
+  kind: has_one
+  via: ShowChange
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight
+  kind: has_one
+  via: Highlight
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema
+  kind: has_one
+  via: Schema
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet
+  kind: has_many
+  via: ResultSet
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet
+  kind: has_many
+  via: SummarySet
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination
+  kind: has_one
+  via: Pagination
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData
+  kind: has_one
+  via: VisualizationData
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult
+  to: Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo
+  kind: has_one
+  via: ExecutionInfo
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range
+  to: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause
+  to: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria
+  to: Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-cortex-reporting-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto
+  kind: has_many
+  via: banks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto
+  kind: has_many
+  via: companies
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto
+  kind: has_many
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto
+  kind: has_one
+  via: header
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto
+  kind: has_one
+  via: advisors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto
+  kind: has_one
+  via: banks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto
+  kind: has_one
+  via: companies
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto
+  kind: has_one
+  via: dealBase
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto
+  kind: has_one
+  via: dealDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto
+  kind: has_one
+  via: sponsors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto
+  kind: has_one
+  via: trancheBanks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto
+  kind: has_one
+  via: trancheBase
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto
+  kind: has_one
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto
+  kind: has_many
+  via: sponsorDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto
+  kind: has_many
+  via: trancheBanks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto
+  kind: has_many
+  via: trancheBaseList
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto
+  kind: has_many
+  via: dealOriginators
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto
+  kind: has_many
+  via: trancheBids
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto
+  kind: has_many
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.BankDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetails
+  kind: has_many
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.BankListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.ParentBankDto
+  kind: has_many
+  via: parentBanks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.CompanyListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.CompanyDto
+  kind: has_many
+  via: companies
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealBaseDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheCurrencyCodeDto
+  kind: has_many
+  via: trancheCurrencyCodes
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.BankListDto
+  kind: has_one
+  via: banks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.CompanyListDto
+  kind: has_one
+  via: companies
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.DealBaseDto
+  kind: has_one
+  via: dealBase
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.HeaderListDto
+  kind: has_one
+  via: headers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.PartakerListDto
+  kind: has_one
+  via: partakers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.SponsorListDto
+  kind: has_one
+  via: sponsors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseListDto
+  kind: has_one
+  via: trancheBases
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.DealDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsListDto
+  kind: has_one
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.HeaderListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.HeaderDto
+  kind: has_many
+  via: headers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.ParentBankDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.BankDto
+  kind: has_many
+  via: subsidiaryBanks
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.PartakerListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.PartakerDto
+  kind: has_many
+  via: partakers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.SponsorListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.SponsorDto
+  kind: has_many
+  via: sponsors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseDto
+  kind: has_many
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.LoanPricesDto
+  kind: has_many
+  via: loanPrices
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsListDto
+  to: IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsDto
+  kind: has_many
+  via: trancheDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant
+  kind: has_one
+  via: target
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant
+  kind: has_many
+  via: divestors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutSponsorTrigger
+  kind: has_many
+  via: sponsorTriggers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger
+  kind: has_many
+  via: targetTriggers
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation
+  kind: has_many
+  via: affiliations
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails
+  kind: has_many
+  via: syndicateDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors
+  kind: has_many
+  via: investors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry+PriceHistoryEntry
+  kind: has_many
+  via: history
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+RevenueEntry
+  kind: has_many
+  via: revenueEntries
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+EBITDAEntry
+  kind: has_many
+  via: ebitdaEntries
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials
+  kind: has_one
+  via: profileSpacFinancials
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals
+  kind: has_many
+  via: deals
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing
+  kind: has_one
+  via: profileSpacFinancing
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails
+  kind: has_many
+  via: syndicateDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails
+  kind: has_many
+  via: attorneyDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails
+  kind: has_one
+  via: profileSpacIpoDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails
+  kind: has_one
+  via: dealDetails
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor
+  kind: has_many
+  via: financialAdvisors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor
+  kind: has_many
+  via: legalAdvisors
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit
+  kind: has_many
+  via: sponsorForfeits
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup
+  kind: has_many
+  via: lockups
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout
+  kind: has_one
+  via: earnout
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources
+  kind: has_one
+  via: transactionSources
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses
+  kind: has_one
+  via: transactionUses
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma
+  kind: has_one
+  via: transactionProForma
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA
+  kind: has_one
+  via: profileSpacMNA
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry
+  kind: has_many
+  via: profileSpacCompanyManagementEntries
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry
+  kind: has_many
+  via: listings
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights
+  kind: has_one
+  via: insights
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation
+  kind: has_one
+  via: location
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation
+  kind: has_many
+  via: intendedTargetLocations
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary
+  kind: has_one
+  via: profileSpacSummary
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult
+  to: IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry
+  kind: has_many
+  via: profileSpacTimelineEntries
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection
+  to: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary
+  kind: has_many
+  via: commentaries
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult
+  to: IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection
+  kind: has_one
+  via: levFinReportSection
+  source: openapi/dealogic-iona-profiles-openapi.json
+- from: Dealogic.Reporting.Api.Body.Criterias.Clause
+  to: Dealogic.Reporting.Api.Body.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.Criterias.Range
+  to: Dealogic.Reporting.Api.Body.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria
+  to: Dealogic.Reporting.Api.Body.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.Schema
+  kind: has_one
+  via: Schema
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.ResultSet
+  kind: has_many
+  via: ResultSet
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.SummarySet
+  kind: has_many
+  via: SummarySet
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.VisualizationData
+  kind: has_one
+  via: VisualizationData
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.ExecutionInfo
+  kind: has_one
+  via: ExecutionInfo
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.ReportResult
+  to: Dealogic.Reporting.Api.Body.ResultInfo
+  kind: has_one
+  via: ResultInfo
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.Schema
+  to: Dealogic.Reporting.Api.Body.Column
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.VisualizationData
+  to: Dealogic.Reporting.Api.Body.ShowChangeData
+  kind: has_one
+  via: ShowChange
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.VisualizationData
+  to: Dealogic.Reporting.Api.Body.VisualizationHighlight
+  kind: has_one
+  via: Highlight
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Body.VisualizationHighlight
+  to: Dealogic.Reporting.Api.Body.VisualizationHighlightId
+  kind: has_many
+  via: Rows
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest
+  to: SNRLite.Interfaces.Request.DrilldownKey
+  kind: has_many
+  via: DrilldownKeys
+  source: openapi/dealogic-reporting-openapi.json
+- from: Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest
+  to: SNRLite.Interfaces.V1_1.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchema
+  to: SNRLite.Interfaces.Request.RankingRow
+  kind: has_many
+  via: Rows
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchema
+  to: SNRLite.Interfaces.Request.RankingColumn
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchema
+  to: SNRLite.Interfaces.Request.SecondaryBasis
+  kind: has_one
+  via: SecondaryBasis
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchema
+  to: SNRLite.Interfaces.Request.RankingBasis
+  kind: has_one
+  via: Basis
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchema
+  to: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  kind: has_one
+  via: Options
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  to: SNRLite.Interfaces.Request.Common.Function
+  kind: has_one
+  via: Function
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  to: SNRLite.Interfaces.Request.Common.Apportionment
+  kind: has_one
+  via: Apportionment
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  to: SNRLite.Interfaces.Request.RankingPeriodRange
+  kind: has_one
+  via: PeriodRange
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.AggregatedReportSchemaOptions
+  to: SNRLite.Interfaces.Request.PeriodLength
+  kind: has_one
+  via: PeriodLength
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest
+  to: SNRLite.Interfaces.V1_1.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ListReportSchema
+  to: SNRLite.Interfaces.Request.ReportColumn
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ListReportSchema
+  to: SNRLite.Interfaces.Request.ListReportSchemaOptions
+  kind: has_one
+  via: Options
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.RankingBasis
+  to: SNRLite.Interfaces.Request.BreakdownByPeriod
+  kind: has_one
+  via: BreakdownByPeriod
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.RankingBasis
+  to: SNRLite.Interfaces.Request.SortDirection
+  kind: has_one
+  via: SortDirection
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.RankingColumn
+  to: SNRLite.Interfaces.Request.Common.Function
+  kind: has_one
+  via: Function
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportColumn
+  to: SNRLite.Interfaces.Request.ReportColumnSortMethod
+  kind: has_one
+  via: SortMethod
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportDefinition
+  to: SNRLite.Interfaces.Request.Type
+  kind: has_one
+  via: Type
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportDefinition
+  to: SNRLite.Interfaces.Request.UserBasis
+  kind: has_one
+  via: UserBasis
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportDefinition
+  to: SNRLite.Interfaces.V1_2.Request.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportDefinition
+  to: SNRLite.Interfaces.Request.AggregatedReportSchema
+  kind: has_one
+  via: AggregatedSchema
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.ReportDefinition
+  to: SNRLite.Interfaces.Request.ListReportSchema
+  kind: has_one
+  via: ListSchema
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.SecondaryBasis
+  to: SNRLite.Interfaces.Request.BreakdownByPeriod
+  kind: has_one
+  via: BreakdownByPeriod
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.Request.SecondaryBasis
+  to: SNRLite.Interfaces.Request.SortDirection
+  kind: has_one
+  via: SortDirection
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.Criterias.Clause
+  to: SNRLite.Interfaces.V1_1.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.Criterias.Criteria
+  to: SNRLite.Interfaces.V1_1.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.Criterias.Range
+  to: SNRLite.Interfaces.V1_1.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.Schema
+  kind: has_one
+  via: Schema
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.ResultSet
+  kind: has_many
+  via: ResultSet
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.SummarySet
+  kind: has_many
+  via: SummarySet
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.VisualizationData
+  kind: has_one
+  via: VisualizationData
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.Criterias.Criteria
+  kind: has_many
+  via: Criteria
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.ReportResultV1_1
+  to: SNRLite.Interfaces.V1_1.ExecutionInfo
+  kind: has_one
+  via: ExecutionInfo
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.Schema
+  to: SNRLite.Interfaces.V1_1.Column
+  kind: has_many
+  via: Columns
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.VisualizationData
+  to: SNRLite.Interfaces.V1_1.ShowChangeData
+  kind: has_one
+  via: ShowChange
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.VisualizationData
+  to: SNRLite.Interfaces.V1_1.VisualizationHighlight
+  kind: has_one
+  via: Highlight
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_1.VisualizationHighlight
+  to: SNRLite.Interfaces.V1_1.VisualizationHighlightId
+  kind: has_many
+  via: Rows
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_2.Request.Criterias.Clause
+  to: SNRLite.Interfaces.V1_2.Request.Criterias.Range
+  kind: has_one
+  via: Range
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_2.Request.Criterias.Criteria
+  to: SNRLite.Interfaces.V1_2.Request.Criterias.Clause
+  kind: has_many
+  via: Clause
+  source: openapi/dealogic-reporting-openapi.json
+- from: SNRLite.Interfaces.V1_2.Request.Criterias.Range
+  to: SNRLite.Interfaces.V1_2.Request.Criterias.Dates
+  kind: has_one
+  via: Dates
+  source: openapi/dealogic-reporting-openapi.json

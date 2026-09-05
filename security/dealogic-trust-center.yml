@@ -1,0 +1,44 @@
+generated: '2026-09-05'
+method: searched
+source: https://dealogic.com/security/ (HTTP 200, fetched 2026-09-05)
+url: https://dealogic.com/security/
+kind: security page
+detail: 'Dealogic runs a security page rather than a trust portal: there is no document repository, no
+  downloadable report, no subprocessor list and no live compliance dashboard. What it does carry is a
+  named certification and a described control environment.'
+certifications:
+- name: ISO/IEC 27001
+  status: certified
+  scope_published: false
+  certificate_number: null
+  auditor: null
+  evidence: '''Dealogic has been certified according to the international best practice standard for Information
+    Security: ISO27001'' - https://dealogic.com/security/'
+controls_described:
+- Geographically distributed datacenters in North America, Europe and Asia with a follow-the-sun operating
+  model
+- Layered network security model; physical security of information assets; 24x7 support
+- A dedicated Security Architect over a secure development framework
+- Regular penetration testing by independent specialists
+- Continual staff security-awareness training and regular social-engineering tests (telephone, email,
+  physical)
+- Information Security escalated as a board-level priority
+- Third-party service providers held to the same information-security management standard
+- An Information Security team that works with client auditors on risk assessment and mitigation
+contact:
+  team: Dealogic Information Security team
+  method: email address published on https://dealogic.com/security/ (rendered obfuscated by the site's
+    anti-scraping filter) or via a global office listed at https://dealogic.com/about-us/locations/
+not_published:
+- SOC 2 Type II report
+- penetration test summary
+- subprocessor list
+- uptime/status dashboard
+- data processing agreement
+- bug bounty programme
+- vulnerability disclosure policy
+- security.txt
+related:
+  data_privacy: https://dealogic.com/data-privacy/
+  privacy_policy: https://dealogic.com/privacy-policy/
+  regulatory_positioning: https://dealogic.com/mifidii/

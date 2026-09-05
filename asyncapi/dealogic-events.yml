@@ -1,0 +1,43 @@
+generated: '2026-09-05'
+method: searched
+source: Searched for an AsyncAPI document, an event catalog or a webhook reference across dealogic.com
+  (full page sitemap), the ION Analytics Data Portal pages for the Dealogic surfaces, github.com/Dealogic,
+  and /asyncapi.json + /asyncapi.yaml on the API hosts (404 on api.reporting.dealogic.com, 401 on spac.analytics.dealogic.com).
+asyncapi_published: false
+webhooks_published: false
+event_surface_exists: true
+detail: 'Dealogic ships no AsyncAPI document and no webhook catalog, and none of the eight OpenAPI documents
+  declares a `webhooks` block. It does, however, operate a real push surface, described in prose only:
+  the Dealogic Data Loader ''can connect to a service bus to consume Dealogic (push) Data Messages continuously'',
+  as an alternative to pulling feed files from the secure FTP server on a schedule. The client subscribes
+  to its own topic. No topic naming convention, message schema, protocol binding (the CT record and Azure
+  hosting suggest Azure Service Bus, which is inference, not a published fact), delivery guarantee or
+  replay policy is published anywhere public. There is nothing verbatim to save and nothing that can be
+  derived without fabricating the message shapes, so no AsyncAPI document is written and no AsyncAPI or
+  Webhooks pointer is wired into apis.yml.'
+surfaces:
+- name: Dealogic Data Messages (service bus push)
+  transport: service bus topic, client-specific
+  mode: push, continuous
+  consumer: Dealogic Data Loader application, installed client-side
+  source: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/how-to-query/
+  documented_schema: false
+- name: Primary Market Deals & Entities feed files
+  transport: SFTP
+  mode: pull, scheduled
+  frequency: incremental updates up to 1x/hour
+  format: 'XML in six groups: Reference, Company, DCM, ECM, M&A, Loan'
+  source: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/data-glossary/
+  documented_schema: group-level prose only; no XSD is published
+probes:
+- url: https://api.reporting.dealogic.com/asyncapi.json
+  status: 404
+- url: https://api.reporting.dealogic.com/asyncapi.yaml
+  status: 404
+- url: https://spac.analytics.dealogic.com/asyncapi.json
+  status: 401
+- url: https://spac.analytics.dealogic.com/asyncapi.yaml
+  status: 401
+gap: 'Recommended to the provider: publish an AsyncAPI 3.0 document for the Data Messages topic and an
+  XSD for the six feed groups. Today a subscriber cannot know the message shape until Dealogic''s own
+  loader parses it for them, which is the definition of a bespoke connector.'

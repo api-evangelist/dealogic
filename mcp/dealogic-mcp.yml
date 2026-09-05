@@ -1,0 +1,191 @@
+generated: '2026-09-05'
+method: derived
+status: candidate
+source: openapi/dealogic-analytics-spac-v2-openapi.json, openapi/dealogic-analytics-bank-openapi.json,
+  openapi/dealogic-analytics-company-openapi.json, openapi/dealogic-analytics-sponsor-openapi.json, openapi/dealogic-reporting-openapi.json,
+  openapi/dealogic-iona-profiles-openapi.json
+summary: No official hosted or local MCP server exists for Dealogic. mcp.dealogic.com does not resolve
+  (NXDOMAIN, 2026-09-05); no /.well-known/ai-plugin.json is served on any of the twelve Dealogic and ION
+  hosts probed (well-known/dealogic-well-known.yml); the ION Analytics Data Portal documents no MCP surface;
+  the GitHub organisation github.com/Dealogic contains no MCP server among its six public repositories;
+  npm and PyPI return no Dealogic package. The tool list below is DERIVED from the published OpenAPI operations
+  as a proposal for an agent-facing surface. It is not published by Dealogic and no MCPServer pointer
+  is wired into apis.yml - apis.yml carries X-MCPServerCandidate instead.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: oauth
+  verified: derived
+search_result:
+  official_hosted_server: none
+  official_local_server: none
+  probes:
+  - url: https://mcp.dealogic.com/mcp
+    method: DNS
+    status: 0
+    note: NXDOMAIN
+  - url: https://dealogic.com/.well-known/ai-plugin.json
+    method: GET
+    status: 404
+  - url: https://spac.analytics.dealogic.com/.well-known/ai-plugin.json
+    method: GET
+    status: 401
+    note: whole host is behind the OAuth gate
+  - url: https://iongroup.com/.well-known/ai-plugin.json
+    method: GET
+    status: 404
+  third_party: []
+auth_if_built:
+  type: oauth2
+  issuer: https://login.dealogic.com
+  scope: dealogic
+  note: 'An MCP server would inherit the same wall the APIs have: OAuth clients are provisioned to licensed
+    customers only, so a public agent surface is not reachable without a contract.'
+candidate_tools:
+- name: list_spacs
+  maps_to: GET /odata/SpacEntry
+  api: Dealogic Analytics SPAC API
+  description: List SPAC entries, with OData $filter, $select, $orderby, $top and $skip.
+  inputs:
+  - $filter
+  - $select
+  - $orderby
+  - $top
+  - $skip
+  - $count
+- name: get_spac
+  maps_to: GET /odata/SpacEntry/{key}
+  api: Dealogic Analytics SPAC API
+  description: Fetch one SPAC entry by key, optionally expanding related entities.
+  inputs:
+  - key
+  - $select
+  - $expand
+- name: get_spac_listings
+  maps_to: GET /odata/SpacEntry({key})/Listings
+  api: Dealogic Analytics SPAC API
+  description: List the exchange listings attached to a SPAC entry.
+  inputs:
+  - key
+  - $filter
+  - $top
+- name: get_spac_ipo_syndicate
+  maps_to: GET /odata/SpacEntry({key})/IpoSyndicate
+  api: Dealogic Analytics SPAC API
+  description: List the banks in a SPAC's IPO syndicate.
+  inputs:
+  - key
+- name: get_spac_related_ecm_deals
+  maps_to: GET /odata/SpacEntry({key})/RelatedEcmDeals
+  api: Dealogic Analytics SPAC API
+  description: List ECM deals related to a SPAC entry.
+  inputs:
+  - key
+  - $filter
+  - $top
+- name: get_spac_expand_expression
+  maps_to: GET /api/SpacReader/GetAllDepthExpand
+  api: Dealogic Analytics SPAC API
+  description: Return the full-depth $expand expression for an entity, so a caller does not have to assemble
+    it.
+  inputs:
+  - entityName
+- name: get_bank_ranking
+  maps_to: GET /{bankIdentifier}/BankRanking
+  api: Dealogic Analytics Bank API
+  description: League-table ranking for a bank, scoped by region, product, date type, basis type and year.
+  inputs:
+  - bankIdentifier
+  - region
+  - product
+  - dateType
+  - basisType
+  - latestYear
+- name: get_bank_top_deals
+  maps_to: GET /{bankIdentifier}/Deals/TopDeals
+  api: Dealogic Analytics Bank API
+  description: A bank's top deals for the selected scope.
+  inputs:
+  - bankIdentifier
+  - region
+  - product
+  - dateType
+  - basisType
+  - latestYear
+- name: get_bank_top_fee_payers
+  maps_to: GET /{bankIdentifier}/Clients/TopFeePayers
+  api: Dealogic Analytics Bank API
+  description: A bank's top fee-paying clients.
+  inputs:
+  - bankIdentifier
+  - region
+  - product
+  - dateType
+  - basisType
+  - latestYear
+- name: check_bank_profiles
+  maps_to: POST /CheckBankProfiles
+  api: Dealogic Analytics Bank API
+  description: Confirm which bank identifiers have a profile before spending calls on them.
+  inputs:
+  - bankIdentifiers[]
+- name: get_company_banking_relationships
+  maps_to: GET /{companyId}/BankingRelationships
+  api: Dealogic Analytics Company API
+  description: A company's banking relationships over a date range, region and product.
+  inputs:
+  - companyId
+  - dateRange
+  - region
+  - product
+- name: get_company_debt_maturing
+  maps_to: GET /{companyId}/DebtMaturing
+  api: Dealogic Analytics Company API
+  description: A company's upcoming debt maturities.
+  inputs:
+  - companyId
+  - dateRange
+  - industry
+  - product
+- name: get_sponsor_investment_activity
+  maps_to: GET /{sponsorId}/InvestmentActivity
+  api: Dealogic Analytics Sponsor API
+  description: A financial sponsor's investment activity over time.
+  inputs:
+  - sponsorId
+- name: get_sponsor_portfolio_entries
+  maps_to: GET /{sponsorId}/PortfolioCompanies/Entry
+  api: Dealogic Analytics Sponsor API
+  description: Portfolio-company entries for a sponsor.
+  inputs:
+  - sponsorId
+- name: execute_report
+  maps_to: GET /api/v1.0/Data/{ReportId}/{ValidDatesType}
+  api: Dealogic Reporting API
+  description: Execute a saved report and return its rows.
+  inputs:
+  - ReportId
+  - ValidDatesType
+  - toleranceLevel
+- name: get_report_definition
+  maps_to: GET /api/v1.0/ReportDefinition/{ReportId}
+  api: Dealogic Reporting API
+  description: Fetch a saved report's definition so an agent knows the columns before executing it.
+  inputs:
+  - ReportId
+- name: get_levfin_market_profile
+  maps_to: GET /v1/MarketProfile/USLevfin/HY/PricedDeals
+  api: IONA Profiles API
+  description: US leveraged-finance high-yield priced deals (one of sixteen market-profile sections).
+  inputs:
+  - clientCode
+  - region
+- name: get_dcm_deal
+  maps_to: GET /v1/Deal/Dcm/{id}
+  api: IONA Profiles API
+  description: Fetch a debt capital markets deal profile by id.
+  inputs:
+  - id
+  - clientCode

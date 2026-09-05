@@ -1,0 +1,84 @@
+generated: '2026-09-05'
+method: searched
+source: Harvested OpenAPI documents in openapi/, the OIDC discovery document at https://login.dealogic.com/.well-known/openid-configuration,
+  and https://dealogic.com/security/
+entries:
+- id: oauth2
+  conforms: true
+  evidence: Every harvested spec declares components.securitySchemes.oauth2 with an implicit flow against
+    https://login.dealogic.com/as/authorization.oauth2; https://login.dealogic.com/.well-known/oauth-authorization-server
+    returns RFC 8414 authorization-server metadata (HTTP 200).
+- id: oidc
+  conforms: true
+  evidence: https://login.dealogic.com/.well-known/openid-configuration returns a complete OpenID Connect
+    discovery document (HTTP 200) with issuer, authorization/token/userinfo/jwks endpoints and scopes_supported
+    [openid, profile, dealogic, email].
+- id: rfc7662-token-introspection
+  conforms: true
+  evidence: introspection_endpoint https://login.dealogic.com/as/introspect.oauth2 declared in the discovery
+    document.
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint https://login.dealogic.com/as/revoke_token.oauth2 declared in the discovery
+    document.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported: [plain, S256] in the discovery document. Note the published
+    Swagger UIs set usePkceWithAuthorizationCodeGrant: false, so the server supports PKCE but the vendor''s
+    own console does not use it.'
+- id: odata
+  conforms: true
+  evidence: 'openapi/dealogic-analytics-spac-v2-openapi.json: 77 of 78 operations sit under /odata/ and
+    declare the OData v4 system query options $select, $expand, $filter, $orderby, $apply, $top, $skip
+    and $count as parameters; response schemas are named ODataValueOf<Entity>Array; entity keys use OData
+    key-in-parentheses syntax, e.g. /odata/SpacEntry((key)) and /odata/RelatedEcmSyndicate(EcmDealMasterId=(k1),CompanyMasterId=(k2)).
+    The /odata/$metadata document itself returned 401 when probed unauthenticated on 2026-09-05.'
+- id: rfc9457
+  conforms: false
+  evidence: No harvested operation declares an application/problem+json response; no spec declares any
+    4xx or 5xx response at all. See errors/dealogic-problem-types.yml.
+- id: pagination
+  conforms: true
+  evidence: openapi/dealogic-analytics-spac-v2-openapi.json declares OData $top (default 15) and $skip
+    on every collection operation, plus $count for the total. The non-OData analytics and reporting APIs
+    declare no pagination parameters at all.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header or equivalent appears in any harvested spec. See conventions/dealogic-conventions.yml.
+- id: mifid-ii
+  conforms: false
+  evidence: https://dealogic.com/mifidii/ describes how Dealogic's products help banks and investors meet
+    MiFID II research-unbundling, allocation-justification, transaction-reporting and market-sounding
+    obligations. This is product positioning about a regulatory regime, not a conformance declaration
+    inside a contract, and no harvested spec carries a MiFID II message shape. Recorded so the regime
+    is visible without crediting a conformance Dealogic has not declared.
+domain_standard:
+  standard: OData (OASIS Open Data Protocol) v4
+  declared: true
+  where: openapi/dealogic-analytics-spac-v2-openapi.json - path prefix /odata/, the $select/$expand/$filter/$orderby/$apply/$top/$skip/$count
+    parameter set on every collection operation, OData key syntax on entity and navigation paths, and
+    ODataValueOf* / ODataQueryOptions component schemas
+  why_it_matters: A buyer whose stack already speaks OData points an existing client (Excel, Power BI,
+    an OData SDK) at the SPAC surface and queries it with no bespoke connector. The Bank, Company, Sponsor
+    and Reporting APIs are plain REST and need one.
+  caveat: 'The service document and $metadata CSDL, which is what an OData client bootstraps from, are
+    behind the OAuth gate: https://spac.analytics.dealogic.com/odata/$metadata returned 401 on 2026-09-05.'
+certifications:
+- id: iso-27001
+  conforms: true
+  evidence: 'https://dealogic.com/security/ : ''Dealogic has been certified according to the international
+    best practice standard for Information Security: ISO27001''. No certificate number, auditor or scope
+    statement is published, and no report is downloadable.'
+not_found:
+- SOC 2
+- PCI DSS
+- HIPAA
+- FedRAMP
+- ISO 27017/27018
+- CSA STAR
+- FAPI
+- SCIM
+- FIX
+- ISO 20022
+- FDX
+- JSON:API

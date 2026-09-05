@@ -1,0 +1,98 @@
+generated: '2026-09-05'
+method: derived
+source: 'Derived from the eight OpenAPI documents in openapi/, the OIDC discovery document at https://login.dealogic.com/.well-known/openid-configuration,
+  and live probes on 2026-09-05. Cross-links: errors/dealogic-problem-types.yml, lifecycle/dealogic-lifecycle.yml,
+  authentication/dealogic-authentication.yml, scopes/dealogic-scopes.yml, rate-limits/dealogic-rate-limits.yml.'
+auth:
+  style: OAuth 2.0 bearer token in the Authorization header
+  flow: implicit (the only flow any spec declares)
+  issuer: https://login.dealogic.com
+  scopes: one product scope, 'dealogic'; see scopes/dealogic-scopes.yml
+  self_service: false
+versioning:
+  style: mixed - three different schemes across six APIs
+  detail:
+  - 'SPAC API: an ''api-version'' QUERY parameter on every operation (default ''2.0''), with two documents
+    published side by side in one Swagger UI (''Version 2.0'' and ''Version 1.0'').'
+  - 'Reporting API: version in the path, /api/v1.0/...; Cortex Reporting API: /api/v1.2/....'
+  - 'IONA Profiles API: version in the path, /v1/....'
+  - 'Bank, Company and Sponsor Analytics APIs: NO version marker anywhere - neither path, header nor query.
+    info.version reads 1.0.0.0, which is a build number, not a contract version.'
+  breaking_change_policy: none published
+pagination:
+  style: OData system query options on the SPAC API only; nothing at all on the other five
+  params:
+  - $top
+  - $skip
+  - $count
+  defaults:
+    $top: 15
+  response_fields:
+  - value
+  - '@odata.count (when $count=true)'
+  note: The Bank, Company, Sponsor, Reporting, Cortex Reporting and IONA Profiles APIs declare no paging
+    parameters and no cursor. Collection sizes are bounded by the report or profile rather than by the
+    caller.
+filtering_and_shaping:
+  params:
+  - $select
+  - $expand
+  - $filter
+  - $orderby
+  - $apply
+  limits:
+    $expand_max_depth: 5
+    $filter_max_expressions: 100
+    $orderby_max_expressions: 5
+  helper: GET /api/SpacReader/GetAllDepthExpand?entityName=... returns the full-depth $expand expression
+    for an entity, so a caller does not have to assemble it by hand.
+  source: openapi/dealogic-analytics-spac-v2-openapi.json parameter descriptions
+field_expansion:
+  supported: true
+  mechanism: OData $expand and $select (SPAC API only)
+metadata:
+  supported: false
+  note: No customer-defined metadata field on any resource.
+request_id_tracing:
+  supported: false
+  note: No request-id or correlation-id header is documented or declared. Azure Application Insights is
+    present on the provider side (a Request-Context header carrying appId is returned by services.dealogic.com),
+    but no client-visible trace identifier is published.
+error_envelope:
+  shape: undocumented
+  detail: See errors/dealogic-problem-types.yml - every operation declares only 200.
+rate_limit_signaling:
+  headers: none documented
+  status_on_exhaustion: none documented
+  see: rate-limits/dealogic-rate-limits.yml
+idempotency:
+  coverage: na
+  scope: []
+  mechanism: none
+  detail: 'There is effectively no mutating public surface to protect. 141 of the 153 harvested operations
+    are GET. Of the 12 POSTs, seven are SPAC v1.0 loader/admin operations on Dealogic''s own data pipeline
+    (EnsureDbCreated, MigrateSpacDatabase, MigrateUsageDatabase, LoadEntities, TriggerLoadAll, TerminateLoadAll,
+    TriggerLoadAllFailed), two are read-only existence checks that take a body of identifiers (CheckBankProfiles,
+    CheckSponsorProfiles), and three are report executions that take a criteria body (ExecuteWithCriteria,
+    ExecuteWithDrilldown, ExecuteReportWithAdditionalCriteria). None declares an Idempotency-Key header.
+    Recorded as ''na'' rather than ''none'' because the customer-facing contract is read-only: there is
+    no customer state an agent could double-create.'
+reversibility:
+  grade: na
+  detail: The customer-facing Dealogic API estate is read-only. No operation creates, updates or deletes
+    anything a customer owns, so there is nothing to reverse and no window to state. The SPAC v1.0 admin
+    surface does carry destructive-sounding operations (MigrateSpacDatabase, EnsureDbCreated, DeleteError,
+    TerminateLoadAll), and for those Dealogic publishes NO reversal path and NO window - but those are
+    operator endpoints on Dealogic's own loader, not customer actions, and they are gated behind the same
+    OAuth wall.
+  reversal_operations: []
+  windows: []
+  source: openapi/ - all eight documents
+dry_run_mode:
+  supported: false
+  note: 'na for the same reason as idempotency: a read-only surface has nothing to rehearse. The two Check*Profiles
+    operations are the nearest equivalent - they let a caller confirm an identifier resolves before spending
+    a call on it.'
+content_negotiation:
+  request: application/json on POST bodies
+  response: application/json; the SPAC OData surface also accepts standard OData JSON formats

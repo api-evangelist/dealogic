@@ -1,0 +1,4887 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "IONA.Profiles.API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "IONA Profiles API API"
+    }
+  ],
+  "paths": {
+    "/v1/Deal/Dcm/{id}": {
+      "get": {
+        "tags": [
+          "DcmDeal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/PricedDeals": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/HYInMarketDeals": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/SecondaryPriceDistribution": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/Commentary": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/VolumesByRating": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/WideVsInLineVsTight": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/BondYieldsByRating": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/HY/DistressedBondIndexSummary": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/PricedDeals": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/InMarketDeals": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/SecondaryPriceDistribution": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/Commentary": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/CLOVolumes": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/WideVsTight": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/NewMoneyVsRefinance": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketProfile/USLevfin/LL/LoanPricingByRating": {
+      "get": {
+        "tags": [
+          "LevfinMarketUpdate"
+        ],
+        "parameters": [
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Deal/Loan/{id}": {
+      "get": {
+        "tags": [
+          "LoanDeal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "clientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.DealDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.DealDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.DealDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Summary": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Mna": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Timeline": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Management": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Ipo": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Financing": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/Financials": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Organization/{id}/Spac/SecondaryPricing": {
+      "get": {
+        "tags": [
+          "OrganizationSpacProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "Gets the test data.",
+        "responses": {
+          "200": {
+            "description": "The successfully retrieved Test data."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto": {
+        "type": "object",
+        "properties": {
+          "dealLegalAdvisorToCompanies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "dealLegalAdvisorToBookrunners": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "dealTrusteeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealPrincipalPayAgentdescription": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto": {
+        "type": "object",
+        "properties": {
+          "managerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "managerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "managerRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "bankProfileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "participation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fullNetRevenue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto": {
+        "type": "object",
+        "properties": {
+          "banks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto": {
+        "type": "object",
+        "properties": {
+          "companyParentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyParentBrandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentUsState": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentNationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentCompanyTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentUsStateDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentNationalityOfIncorporationDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyType": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyUSState": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealNationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationalityInc": {
+            "type": "string",
+            "nullable": true
+          },
+          "emergingMarket": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "companyEid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gig": {
+            "type": "string",
+            "nullable": true
+          },
+          "sig": {
+            "type": "string",
+            "nullable": true
+          },
+          "sicCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "sicDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "naicsCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "naicsDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "spRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "moodysRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "fitchRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "effectiveRatingCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto": {
+        "type": "object",
+        "properties": {
+          "dealCompanySpRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealCompanyMoodysRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealCompanyFitchRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "companies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto": {
+        "type": "object",
+        "properties": {
+          "dealFilingAnnouncementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealPricingCompletionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealSettlementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealWithdrawnCancelledDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealRoadshowDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealMandatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDateFullDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGrossFeeDiscUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeDiscEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeModelUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeModelEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealEstimatedExpensesUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalNetRevenueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalNetRevenueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGuarantorMoodysRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGuarantorSpRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGuarantorFitchRatingLaunchCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGuarantorSpRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGuarantorMoodysRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealGuarantorFitchRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealBookrunnerSubsidiaryComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealMarketAppraisal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto": {
+        "type": "object",
+        "properties": {
+          "dealTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealRule144AYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dealMtnYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "nationalityDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealProgrammeCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealProgrammeTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealProgrammeAmountLocal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueFaceForex": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueForex": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueFaceUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueFaceEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueFaceForex": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueFaceUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueFaceEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueForex": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealSectorTypecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealInsrumentInnovationDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealPfandbriefMarketTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto"
+          },
+          "advisors": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto"
+          },
+          "banks": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto"
+          },
+          "companies": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto"
+          },
+          "dealBase": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto"
+          },
+          "dealDetails": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto"
+          },
+          "sponsors": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto"
+          },
+          "trancheBanks": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto"
+          },
+          "trancheBase": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto"
+          },
+          "trancheDetails": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "sig": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isHeadTranche": {
+            "type": "boolean"
+          },
+          "trancheMarketTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSecRegisteredYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRegSYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto": {
+        "type": "object",
+        "properties": {
+          "dealNo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "analyticsDealNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "feePayerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dealTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealType": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalFaceValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalFaceValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalFaceValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "statusDateDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantor": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "keepwellProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "secRegNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "edgarAccessionNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "prospectusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "mnaReferenceNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "lboDealNo": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "localName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProfileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionProfileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "strategicTransactionProfileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "prospectusLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "pdfUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "edgarLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto": {
+        "type": "object",
+        "properties": {
+          "sponsorEid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "financialSponsor": {
+            "type": "string",
+            "nullable": true
+          },
+          "sponsorProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto": {
+        "type": "object",
+        "properties": {
+          "sponsorDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "managerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "managerRole": {
+            "type": "string",
+            "nullable": true
+          },
+          "managerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "participation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "netRevenue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bankProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto": {
+        "type": "object",
+        "properties": {
+          "trancheBanks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "analyticsTrancheId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheValueFaceLocal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheVolumeLocal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheVolumeUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheVolumeEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOfferPricePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheRedemptionPricePct": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheSpreadToBenchmark": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheSpreadToSwap": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheExchangeRateUsdollars": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheWeightedAverageLife": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeePercentDisclosed": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeePercentModel": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeeDiscUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeeDiscEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeeModelUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheGrossFeeModelEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheManagementFeesPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheUnderwritingFeePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheNetRevenueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheNetRevenueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheEstimatedExpensesUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheYearsToMaturityBandDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheEffectiveRatingLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCouponFrequencyDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheDenominations000S": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSpRatingAtLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMoodyRatingAtLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFitchRatingAtLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSpRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMoodysRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFitchRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheEffectiveRatingCurrent": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheOtherRatings": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCollateralTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCdoCollateralsDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCdoTypesDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCallFrequencyDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "tranchePutFrequencyDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFungiableYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCallableYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "tranchePutableYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRetailYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheExtendibleYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheMakeWholeCallYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheFixedReofferPricePct": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheYieldToMaturity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheYearsToCall": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheYearsToPut": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheFirstCallDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheFirstPutDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheFirstCouponPaymentDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheExpectedMaturityDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheMaturityDateFullDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCoupon": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheBenchmark": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMakeWholeCallPrice": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto": {
+        "type": "object",
+        "properties": {
+          "dealPricingCompletionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealSettlementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealWithdrawnCancelledDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDateFullDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheBaseList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto"
+            },
+            "nullable": true
+          },
+          "dealOriginators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto": {
+        "type": "object",
+        "properties": {
+          "isin": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradeDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bidPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "bidPriceValue1WeekPrior": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bidPriceValue1MonthPrior": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentChangeOneWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentChangeOneMonth": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "analyticsTrancheId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheIssuetypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheForeignOfferTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMarketTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheInternationalMarketYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheUsMarketedYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheDebtRankingDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheTierCapitalDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheExchangeOfferYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheSecRegisteredYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRule144AYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRegSYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheForceMajeureYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheNegativePledgeIssuerYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheNegativePledgeGuarantorYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCrossDefaultIssuerYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCrossDefaultGuarantorYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCusipNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "tranchePfandbriefYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheSelfFundedYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheSelfLedYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRankEligibleYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheYearsToMaturityBandDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheEffectiveRatingLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheValueFaceLocal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOfferPricePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCoupon": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCommonCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheIssueCharacteristics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheGoverningLaws": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheListings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheSellingRestrictions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheIsins": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheProceeds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheBids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto": {
+        "type": "object",
+        "properties": {
+          "dealHybridCapitalYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dealLocalIssueTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealPfandbriefMarketTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto"
+            },
+            "nullable": true
+          },
+          "dealCoveredBondStructureTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.BankDto": {
+        "type": "object",
+        "properties": {
+          "bankId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.BankListDto": {
+        "type": "object",
+        "properties": {
+          "parentBanks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.ParentBankDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.CompanyDto": {
+        "type": "object",
+        "properties": {
+          "feePayerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProperName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "companyRoleSortOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "companyRoleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "fitchAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "fitchRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "fundamentalEbitdaUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fundamentalEnterpriseValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fundamentalMarketCapUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fundamentalRevenueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "gigDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "moodysAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "moodysRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentCompanyTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentBrandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentNationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentNationalityOfIncorporationDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentUsStateDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryNaicsDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "primarySicCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "sigDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "spRatingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "spAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "stateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyBusinessDescripton": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.CompanyListDto": {
+        "type": "object",
+        "properties": {
+          "companies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.CompanyDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.DealBaseDto": {
+        "type": "object",
+        "properties": {
+          "dealId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "dealCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealStatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealStatusDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealCloseDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedCloseDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealFilingAnnouncementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealFundingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealPricingCompletionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealSignDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealWithdrawnCancelledDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealLaunchDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "companyBusinessDescripton": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealAnalyticsDealNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dealFinancedMnaDealNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dealGlobalNetRevenueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalNetRevenueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGlobalValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeDiscEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeDiscUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeModelEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealGrossFeeModelUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealNewMoneyUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealNewMoneyValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueForex": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheProceedsDescriptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "trancheCurrencyCodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheCurrencyCodeDto"
+            },
+            "nullable": true
+          },
+          "lboDealNo": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "headTrancheMarketTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionProfileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "strategicTransactionProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.DealDto": {
+        "type": "object",
+        "properties": {
+          "banks": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.BankListDto"
+          },
+          "companies": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.CompanyListDto"
+          },
+          "dealBase": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.DealBaseDto"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.HeaderListDto"
+          },
+          "partakers": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.PartakerListDto"
+          },
+          "sponsors": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.SponsorListDto"
+          },
+          "trancheBases": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseListDto"
+          },
+          "trancheDetails": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsListDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.HeaderDto": {
+        "type": "object",
+        "properties": {
+          "sortNo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyBrandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentCompanyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "privateParentCompanyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isPrimary": {
+            "type": "boolean"
+          },
+          "localName": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.HeaderListDto": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.HeaderDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.LoanPricesDto": {
+        "type": "object",
+        "properties": {
+          "pricePercent": {
+            "type": "number",
+            "format": "double"
+          },
+          "pricePercentOneWeekPrior": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pricePercentOneMonthPrior": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentChangeOneWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentChangeOneMonth": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pricingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.ParentBankDto": {
+        "type": "object",
+        "properties": {
+          "bankId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleSortOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fullParticipation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fullRevenue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subsidiaryBanks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.BankDto"
+            },
+            "nullable": true
+          },
+          "bankProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.PartakerDto": {
+        "type": "object",
+        "properties": {
+          "guarantor": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorType": {
+            "type": "string",
+            "nullable": true
+          },
+          "guarantorDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "gig": {
+            "type": "string",
+            "nullable": true
+          },
+          "moodys": {
+            "type": "string",
+            "nullable": true
+          },
+          "sig": {
+            "type": "string",
+            "nullable": true
+          },
+          "sp": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "eid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.PartakerListDto": {
+        "type": "object",
+        "properties": {
+          "partakers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.PartakerDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.SponsorDto": {
+        "type": "object",
+        "properties": {
+          "sponsorId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sponsorProfileLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.SponsorListDto": {
+        "type": "object",
+        "properties": {
+          "sponsors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.SponsorDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dealOtherRatios": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealMaxLeverageRatio": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealSeniorLeverageRatio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealTotalLeverageRatio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealCovenantLiteYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dealStatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealStatusDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "dealForexUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dealWithdrawnCancelledDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealFilingAnnouncementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dealExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheBilateralYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCallProtectionDuration": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheCallProtectionTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheClubDealYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCusipNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheEffectiveRatingLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheExtendibleYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheFloor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheForceMajeureYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheInstrumentTypeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMfnSunsetDuration": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheMoodyRatingAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMulticurrencyYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRankEligibleYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheRepaymentFrequencyDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSecuredBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSecuredYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheSpRatingAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSubordinatedFlagYn": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheYearsToMaturityBandDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMaturityDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheMfnSunsetEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trancheCallProtectionComments": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMfnProvisionComments": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheCommitmentFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFacilityFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFeeRemarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheInitialMarginDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMarginFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheParticipationFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheUnderwritingFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheUtilizationFeeDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "analyticsTrancheId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trancheGracePeriod": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheLcFee": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheMfnCap": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheNetRevenueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOriginalIssueDiscount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOriginalIssueDiscountInitialFrom": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOriginalIssueDiscountInitialTo": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOriginalIssueDiscountRevisedFrom": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheOriginalIssueDiscountRevisedTo": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceEuro": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceLocal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheValueFaceUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isHeadTranche": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "trancheLoanCallProtectionPrices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "dealMoodyRatingAtSigning": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheExchangeRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "trancheSpRatingAtLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMoodyRatingAtLaunch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFitchRatingAtLanuch": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheEffectiveRatingCurrent": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheSpRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheFitchRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheMoodysRatingCurrentCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "trancheOtherRatings": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseListDto": {
+        "type": "object",
+        "properties": {
+          "trancheDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheBaseDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheCurrencyCodeDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetails": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "roleCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleSortOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sortNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "participation": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "revenue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isOtherRole": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsDto": {
+        "type": "object",
+        "properties": {
+          "trancheId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "loanPrices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.LoanPricesDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsListDto": {
+        "type": "object",
+        "properties": {
+          "trancheDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Loan.TrancheDetailsDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "reserved1": {
+            "type": "string",
+            "nullable": true
+          },
+          "reserved2": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails": {
+        "type": "object",
+        "properties": {
+          "cortexDealId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "dealStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "announcementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "completionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mnaValueUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "returnFromIPO": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "target": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant"
+          },
+          "divestors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout": {
+        "type": "object",
+        "properties": {
+          "sponsorShares": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sponsorTriggers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutSponsorTrigger"
+            },
+            "nullable": true
+          },
+          "targetShares": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "targetNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetTriggers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "minDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "priceHurdle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "industry": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberAtMNA": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "numberAtMNAClose": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma": {
+        "type": "object",
+        "properties": {
+          "sponsor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fpaInvestors": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pipeInvestors": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "publicShareholders": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "targetExistingShareholders": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "other": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "equityValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "enterpriseValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources": {
+        "type": "object",
+        "properties": {
+          "trustCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "balanceSheetCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "fpaCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pipeCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "otherCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "targetEquity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sponsorEquity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rolloverDebt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses": {
+        "type": "object",
+        "properties": {
+          "cashToSeller": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cashToBalanceSheet": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "repayDebt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "otherCash": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "targetEquity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sponsorEquity": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "rolloverDebt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "expenses": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation": {
+        "type": "object",
+        "properties": {
+          "entityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "entityId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "biography": {
+            "type": "string",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "affiliations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutSponsorTrigger": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "spacEntryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "timeFrameInYears": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "details": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "spacEntryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "timeFrameInYears": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "details": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals": {
+        "type": "object",
+        "properties": {
+          "cortexDealId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "securityTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "pricingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "totalSharesInitialExcludingOverallotment": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "totalValueExcludingOverallotmentUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "syndicateDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails"
+            },
+            "nullable": true
+          },
+          "investors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors"
+            },
+            "nullable": true
+          },
+          "offerPriceUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors": {
+        "type": "object",
+        "properties": {
+          "entityName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participationPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "companyParentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bankSymbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "entityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participationPercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "companyParentId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bankSymbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "exchange": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "offerPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "priceChangePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tradingVolume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry+PriceHistoryEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry+PriceHistoryEntry": {
+        "type": "object",
+        "properties": {
+          "reportDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "midPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials": {
+        "type": "object",
+        "properties": {
+          "revenueEntries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+RevenueEntry"
+            },
+            "nullable": true
+          },
+          "ebitdaEntries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+EBITDAEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+EBITDAEntry": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials+RevenueEntry": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacFinancials": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing": {
+        "type": "object",
+        "properties": {
+          "spacStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "deals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacFinancing": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails": {
+        "type": "object",
+        "properties": {
+          "cortexDealId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "spacStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalValueUsd": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ipoSize": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "primarySharesOffered": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "offerPriceUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "expectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "filingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pricingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "firstTradeDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "securityTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "warrantCover": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "initialExercisePriceUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "syndicateDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails"
+            },
+            "nullable": true
+          },
+          "attorneyDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacIpoDetails": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA": {
+        "type": "object",
+        "properties": {
+          "dealDetails": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails"
+          },
+          "financialAdvisors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor"
+            },
+            "nullable": true
+          },
+          "legalAdvisors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor"
+            },
+            "nullable": true
+          },
+          "sponsorForfeits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit"
+            },
+            "nullable": true
+          },
+          "lockups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup"
+            },
+            "nullable": true
+          },
+          "earnout": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout"
+          },
+          "transactionSources": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources"
+          },
+          "transactionUses": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses"
+          },
+          "transactionProForma": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacMNA": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacCompanyManagementEntries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation": {
+        "type": "object",
+        "properties": {
+          "regionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult": {
+        "type": "object",
+        "properties": {
+          "spacStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary": {
+        "type": "object",
+        "properties": {
+          "ipoTotalValueInitialExcludingOverallotmentUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ipoFilingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ipoPricingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ipoExpectedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mnaAnnouncementDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mnaShareholderVoteDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mnaCompletionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mnaTargetId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "ipoTotalValueExcludingOverallotmentUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "mnaTargetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mnaValueUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "mnaAtAnnouncementExcludingDebtUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pipeSizeUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "mnaToIpoMultiple": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ipoWarrantCover": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "companySponsorPromotePercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ipoFPACommitted": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ipoFPAOptional": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "mnaTargetIndustryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyInvestorPresentationLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "insights": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights"
+          },
+          "daysToAcquisitionLimitDate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "spacId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "companyLegalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation"
+          },
+          "primaryTicker": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryExchange": {
+            "type": "string",
+            "nullable": true
+          },
+          "equityListingLatestClosingPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "equityListingLatestPriceChangePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "companyLatestReportedTrustUSD": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unitListingLatestClosingPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "entitlementListingLatestClosingPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "entitlementListingLatestPriceChangePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "spacStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "intendedTargetParentIndustryNames": {
+            "type": "string",
+            "nullable": true
+          },
+          "intendedTargetLocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation"
+            },
+            "nullable": true
+          },
+          "companySponsorAffiliateLegalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companySponsorAffiliateId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "companyAcquisitionLimitDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "unitListingLatestPriceChangePercent": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "companyMergerAgreementURL": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights": {
+        "type": "object",
+        "properties": {
+          "ecmSpacIpoRankedYearToDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "spacApiEcmSpacIpoFiledCountYearToDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "ecmSpacIpoSeekingTargetCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "ecmSpacIpoSponsorDealCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "ecmSpacIpoCompletedMnaAverageSinceLastYear": {
+            "type": "string",
+            "nullable": true
+          },
+          "spacApiEcmSpacIpoFiledPriceChange": {
+            "type": "string",
+            "nullable": true
+          },
+          "spacApiMnaDeSpacLargestAnnounced": {
+            "type": "string",
+            "nullable": true
+          },
+          "spacApiMnaDeSpacLargestCompleted": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacSummary": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult": {
+        "type": "object",
+        "properties": {
+          "profileSpacTimelineEntries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reportType": {
+            "type": "string",
+            "nullable": true
+          },
+          "reportName": {
+            "type": "string",
+            "nullable": true
+          },
+          "reportResults": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          },
+          "commentaries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest+LevFinRegion": {
+        "enum": [
+          "LevFinUS",
+          "LevFinEU"
+        ],
+        "type": "string"
+      },
+      "IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult": {
+        "type": "object",
+        "properties": {
+          "levFinReportSection": {
+            "$ref": "#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary": {
+        "type": "object",
+        "properties": {
+          "commentaryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "textPlain": {
+            "type": "string",
+            "nullable": true
+          },
+          "textHighlighted": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.dealogic.com/as/authorization.oauth2",
+            "tokenUrl": "https://login.dealogic.com/as/token.oauth2",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ ]
+    }
+  ]
+}

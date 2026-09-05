@@ -1,0 +1,32 @@
+# generated: '2026-09-05'
+# method: generated
+# source: derived from openapi/dealogic-analytics-spac-v1-openapi.json plus probes of https://spac.analytics.dealogic.com/ and https://login.dealogic.com/.well-known/openid-configuration
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Dealogic Analytics SPAC API v1.0
+  version: 1.0.0
+extends: ../openapi/dealogic-analytics-spac-v1-openapi.json
+actions:
+- target: $.servers
+  description: The published spec declares a relative or absent server. Record the real production host the Swagger
+    UI is served from and calls against.
+  update:
+  - url: https://spac.analytics.dealogic.com/
+    description: Dealogic Analytics SPAC API v1.0 production host (Dealogic-operated)
+- target: $.info
+  description: 'Record provenance: harvested verbatim from the provider''s own Swagger UI.'
+  update:
+    x-apis-io-source: https://spac.analytics.dealogic.com/swagger/
+    x-apis-io-harvested: '2026-09-05'
+    x-apis-io-operator: Dealogic (ION Analytics)
+- target: $.components.securitySchemes.oauth2
+  description: 'The spec declares an oauth2 implicit flow with an EMPTY scopes map. login.dealogic.com/.well-known/openid-configuration
+    advertises scopes_supported: openid, profile, dealogic, email.'
+  update:
+    x-apis-io-scopes-supported:
+    - openid
+    - profile
+    - dealogic
+    - email
+    x-apis-io-issuer: https://login.dealogic.com
+    x-apis-io-discovery: https://login.dealogic.com/.well-known/openid-configuration

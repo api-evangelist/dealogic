@@ -1,0 +1,894 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Cortex.Reporting.API",
+    "version": "2.3.3.0"
+  },
+  "paths": {
+    "/Admin/Version": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Gets version of the API",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.2/ExecuteReportWithAdditionalCriteria/{reportId}/{validDatesType}": {
+      "post": {
+        "tags": [
+          "ReportData"
+        ],
+        "summary": "Execute Report By Report Id with ability to extend criteria",
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+              "default": "196e7da3-a3d4-44ed-9543-db0d3751612c",
+              "nullable": true
+            }
+          },
+          {
+            "name": "validDatesType",
+            "in": "path",
+            "description": "The valid date type. <b>EndOfDay</b> or <b>Latest</b>",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Cortex.Reporting.API.Models.ValidDatesTypes"
+            }
+          },
+          {
+            "name": "toleranceLevel",
+            "in": "query",
+            "description": "Tolerance level in <b>seconds</b>",
+            "schema": {
+              "type": "integer",
+              "description": "Tolerance level in <b>seconds</b>",
+              "format": "int32",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.2/Data/{reportId}/{validDatesType}": {
+      "get": {
+        "tags": [
+          "ReportData"
+        ],
+        "summary": "Execute Report By Report Id",
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+              "default": "196e7da3-a3d4-44ed-9543-db0d3751612c",
+              "nullable": true
+            }
+          },
+          {
+            "name": "validDatesType",
+            "in": "path",
+            "description": "The valid date type. <b>EndOfDay</b> or <b>Latest</b>",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Cortex.Reporting.API.Models.ValidDatesTypes"
+            }
+          },
+          {
+            "name": "toleranceLevel",
+            "in": "query",
+            "description": "Tolerance level in <b>seconds</b>",
+            "schema": {
+              "type": "integer",
+              "description": "Tolerance level in <b>seconds</b>",
+              "format": "int32",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.2/Criteria/{reportId}": {
+      "get": {
+        "tags": [
+          "ReportData"
+        ],
+        "summary": "Get Criteria By Report Id",
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The report ID (example: \"196e7da3-a3d4-44ed-9543-db0d3751612c\"))",
+              "default": "196e7da3-a3d4-44ed-9543-db0d3751612c",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cortex.Reporting.API.Models.ValidDatesTypes": {
+        "enum": [
+          "EndOfDay",
+          "Latest"
+        ],
+        "type": "string"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "description": "The period.\r\nNote: use when range type is Relative. Also please note that use period with prefix. Possible values are documented here.\r\nExample value: \"Last Business Day\"\r\nPossible values are (postfix): Business Day, Calendar day, Week, Month, Quarter, Year, Month prior Year To Date, Year To Date, Year From Date, Quarter To Date ,Quarter To Date By Year ,Year Quarter to Date\r\nPossible prefixes are: This, Next Last",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "description": "Indicates that this relative date is rolling.\r\nPossible values are: Yes, No",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "description": "Possible values are: Yes, No",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "description": "Period counts\r\nPossible values: numbers",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "description": "Possible values are: Yes, No",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "description": "Start date of the given absolute range of date.\r\nNote: use when range type is Absolute.\r\nExample value: 2019-01-01",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "description": "End date of the given absolute range of date.\r\nNote: use when range type is Absolute.\r\nExample value: 2019-12-31",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "description": "Type of range.\r\nPossible values are: Absolute or Relative.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "description": "Unique identifier for a field.",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "description": "Condition operation.\r\nPossible values are: Equals, NotEquals, Empty, NotEmpty, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Contains, NotContains, In, NotIn, Between, NotBetween\r\nPlease note that not every condition operation can be paired with any field",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "description": "Measurecode used for multicurrency.\r\nPossible values are: EUR, USD or any valid currency codes.",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range"
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Values when field type is not a date.\r\nPossible values are can be any name of company, location etc.",
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "description": "Search operator.\r\nPossible values are: AND, OR",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause"
+            },
+            "description": "List of search clause.",
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "description": "Search operator.\r\nPossible values are: AND or OR.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria": {
+        "type": "object",
+        "properties": {
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria"
+            },
+            "description": "Criteria. This criteria will be appended to the existing criteria.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Column": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Display name of the column.\r\nIt is not intended to be used for automated processing, because more than one columns can have the same name.",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "description": "Data type contained in this column.\r\nPossible values: bigint, char, smallint, double, date, int, bit, smalldatetime.",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "description": "The unique identifier of the column in the report.\r\nThs consists of the OriginalId potentially prefixed with an additional text, the \"Function\".",
+            "nullable": true
+          },
+          "Function": {
+            "type": "string",
+            "description": "If an original column is represented in a report more than once, then the Function attribute is used to distinguish the columns which have the same original column source.\r\nIts name describes the way the original column is used in this particular case (its function).",
+            "nullable": true
+          },
+          "IsDecodeColumn": {
+            "type": "boolean",
+            "description": "Indicates that the column has a textual representation of the data it contains.\r\nAny data point can have a short (= code) and a long, textual (= decode) representation.\r\nThis is not mandatory, it is possible that only one of those exists for a data point."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema": {
+        "type": "object",
+        "properties": {
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Column"
+            },
+            "description": "List of the columns of the report.\r\nThe report structure is \"flattened\", which means that the rows of the matrix or ranking reports also occur as columns in this section.\r\nIn case of multi row or multi column matrixes (including rankings with secondary basis and rankings with breakdown by period) every row and column is contained here as a column.",
+            "nullable": true
+          },
+          "BreakdownType": {
+            "type": "string",
+            "description": "The type of the breakdown in case of rankings with Breakdown by Period. See attribute \"HasBreakdown\" for further details.",
+            "nullable": true
+          },
+          "ReportType": {
+            "type": "string",
+            "description": "The type of the report (UDR, Matrix, Ranking or Ranking Drilldown).",
+            "nullable": true
+          },
+          "RankingTableType": {
+            "type": "string",
+            "description": "The name of the table type column.\r\nThe table type column is the data which the aggregation is based on.\r\nOnly valid for ranking and matrix reports.",
+            "nullable": true
+          },
+          "RankingTableTypeColumnId": {
+            "type": "string",
+            "description": "The column identifier of the table type column for ranking and matrix reports.\r\nFor more information see \"RankingTableType\" attribute.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Schema definition."
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "description": "Row key. The value identiy the row in the resultset",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "The collection contains data for each breakdown/group.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Contains the data points of the report. Its content can be processed using the description information in the Schema section. Please note after 1.1 or later API versions this set will not contain the subtotal/total rows"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string",
+            "description": "Type of data",
+            "nullable": true
+          },
+          "Key": {
+            "type": "string",
+            "description": "Key of the row",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "description": "Values for each columns",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Definitions of aggregated and highlighted data (eg.: Subtotal, Total and show bank)"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination": {
+        "type": "object",
+        "properties": {
+          "_Links": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Contains the links for paginations. Eg.: next URI",
+            "nullable": true
+          },
+          "_TotalCount": {
+            "type": "integer",
+            "description": "Contains the number of rows in resultset",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData": {
+        "type": "object",
+        "properties": {
+          "GroupColumnId": {
+            "type": "string",
+            "description": "The internal identifier of the x-axis dimension column which is used for comparison when showing changes.\r\nThere can be exactly two values (groups) and the \"change\" value of this column in the ranking report with Breakdown by Period.",
+            "nullable": true
+          },
+          "GroupColumnValue": {
+            "type": "string",
+            "description": "The GroupId of the group containing the change data in the Groups section.",
+            "nullable": true
+          },
+          "BasisColumnId": {
+            "type": "string",
+            "description": "The internal identifier of the basis column.\r\nThis column contains the data (aggregated value) which is used for comparing the periods.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId": {
+        "type": "object",
+        "properties": {
+          "ColumnId": {
+            "type": "string",
+            "description": "When present then the Id of the column which the highlighting is based on,\r\notherwise every columns should be checked",
+            "nullable": true
+          },
+          "ColumnValue": {
+            "type": "string",
+            "description": "The value of the column which needs to be highlighted.",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "description": "The type of the highlight like ShowMyBank",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The identifier which the highlighing is based on"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight": {
+        "type": "object",
+        "properties": {
+          "Rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId"
+            },
+            "description": "The rows which needs to be highlighted",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines the items needs to be highlighted in visualization"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData": {
+        "type": "object",
+        "properties": {
+          "RowBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Defines which columns were defined originally as visual rows (y-axis, y dimension).",
+            "nullable": true
+          },
+          "ColumnBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Defines which columns were defined originally as visual columns (x-axis, x dimension).\r\nIt can include the virtual idenitifier 'MEASURES', which means all of the measure type columns.",
+            "nullable": true
+          },
+          "ShowChange": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData"
+          },
+          "Highlight": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Definitions for visualization purposes."
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "description": "The period.\r\nNote: use when range type is Relative. Also please note that use period with prefix. Possible values are documented here.\r\nExample value: \"Last Business Day\"\r\nPossible values are (postfix): Business Day, Calendar day, Week, Month, Quarter, Year, Month prior Year To Date, Year To Date, Year From Date, Quarter To Date ,Quarter To Date By Year ,Year Quarter to Date\r\nPossible prefixes are: This, Next Last",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "description": "Indicates that this relative date is rolling.\r\nPossible values are: Yes, No",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "description": "Possible values are: Yes, No",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "description": "Period counts\r\nPossible values: numbers",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "description": "Possible values are: Yes, No",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "description": "Start date of the given absolute range of date.\r\nNote: use when range type is Absolute.\r\nExample value: 2019-01-01",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "description": "End date of the given absolute range of date.\r\nNote: use when range type is Absolute.\r\nExample value: 2019-12-31",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "description": "Type of range.\r\nPossible values are: Absolute or Relative.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "description": "Unique identifier for a field.",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "description": "Condition operation.\r\nPossible values are: Equals, NotEquals, Empty, NotEmpty, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Contains, NotContains, In, NotIn, Between, NotBetween\r\nPlease note that not every condition operation can be paired with any field",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "description": "Measurecode used for multicurrency.\r\nPossible values are: EUR, USD or any valid currency codes.",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range"
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Values when field type is not a date.\r\nPossible values are can be any name of company, location etc.",
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "description": "Search operator.\r\nPossible values are: AND, OR",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "description": "Friendly name of the field.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause"
+            },
+            "description": "List of search clause.",
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "description": "Search operator.\r\nPossible values are: AND or OR.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo": {
+        "type": "object",
+        "properties": {
+          "IsReportCached": {
+            "type": "boolean",
+            "description": "Defines whether the report data is retrieved from cache."
+          },
+          "GeneratedDate": {
+            "type": "string",
+            "description": "The generation time of the report.",
+            "nullable": true
+          },
+          "OperationId": {
+            "type": "string",
+            "description": "The Operation ID.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult": {
+        "type": "object",
+        "properties": {
+          "Schema": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema"
+          },
+          "ResultSet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet"
+            },
+            "description": "Contains the data points of the report. Its content can be processed using the description information in the Schema section. Please note after 1.1 or later API versions this set will not contain the subtotal/total rows",
+            "nullable": true
+          },
+          "SummarySet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet"
+            },
+            "description": "Contains the aggregated (like subtotal and total) and show bank data points of the report. Its content can be processed using the description information in the Schema section. Please note this data will be filled in in 1.1 or later API versions.",
+            "nullable": true
+          },
+          "Pagination": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination"
+          },
+          "VisualizationData": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData"
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria"
+            },
+            "description": "The search criteria of the report as defined in the Dealogic Designer.\r\nIt is supplementary data, which can be used for creating extra logic by the consumer, e.g. extra filtering on the user interface, etc.\r\nThis section can be ignored when processing the data only.",
+            "nullable": true
+          },
+          "ExecutionInfo": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo"
+          },
+          "ReportName": {
+            "type": "string",
+            "description": "The name of the report as defined in Dealogic Designer.\r\nThis data point is intended to be used by human users, it cannot be used for automatic report identification.\r\nTwo or more reports can have the same name.",
+            "nullable": true
+          },
+          "LibGuid": {
+            "type": "string",
+            "description": "Library id",
+            "nullable": true
+          },
+          "ApiVersion": {
+            "type": "string",
+            "description": "Version of the output format.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The report data"
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
+          },
+          "BaseFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PlaceHolderID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range"
+          },
+          "OriginalValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.dealogic.com/as/authorization.oauth2",
+            "tokenUrl": "https://login.dealogic.com/as/token.oauth2",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ ]
+    }
+  ]
+}

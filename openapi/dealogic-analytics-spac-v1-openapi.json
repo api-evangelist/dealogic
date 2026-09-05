@@ -1,0 +1,949 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Dealogic Analytics Spac API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Dealogic Analytics Spac API"
+    }
+  ],
+  "paths": {
+    "/api/SpacAdmin/EnsureDbCreated": {
+      "post": {
+        "tags": [
+          "Spac Admin"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacAdmin/MigrateSpacDatabase": {
+      "post": {
+        "tags": [
+          "Spac Admin"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SpacAdmin/MigrateUsageDatabase": {
+      "post": {
+        "tags": [
+          "Spac Admin"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SpacAdmin/UserInfo": {
+      "get": {
+        "tags": [
+          "Spac Admin"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserInfoWithToggles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/LoadEntity": {
+      "get": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "entityName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "entityId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/LoadEntities": {
+      "post": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "entityName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/GetLoadedEntityIds": {
+      "get": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "entityName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/TriggerLoadAll": {
+      "post": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "summary": "(Re)Loads the specified entity from hub (EcmDeal, Location, DealogicIndustry, InterestRate, CalculateLiquidation)",
+        "parameters": [
+          {
+            "name": "entityName",
+            "in": "query",
+            "description": "The name of the entity to load (EcmDeal, Location, DealogicIndustry, InterestRate) or the name of custom operation (CalculateLiquidation, CompanyHubCleanup)",
+            "schema": {
+              "type": "string",
+              "description": "The name of the entity to load (EcmDeal, Location, DealogicIndustry, InterestRate) or the name of custom operation (CalculateLiquidation, CompanyHubCleanup)",
+              "default": "EcmDeal",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxCount",
+            "in": "query",
+            "description": "The maximum number of entity to update. Use zero to load all",
+            "schema": {
+              "type": "integer",
+              "description": "The maximum number of entity to update. Use zero to load all",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "maxFailureCount",
+            "in": "query",
+            "description": "The maximum count of the reported failures",
+            "schema": {
+              "type": "integer",
+              "description": "The maximum count of the reported failures",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "batchSize",
+            "in": "query",
+            "description": "The number of entities to update in a single batch. Use zero for sequential load. Please note it is NOT the degree of parallelism",
+            "schema": {
+              "type": "integer",
+              "description": "The number of entities to update in a single batch. Use zero for sequential load. Please note it is NOT the degree of parallelism",
+              "format": "int32",
+              "default": 200
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoadAllKey"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/GetLoadAllStatus": {
+      "get": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "idPrefix",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxCount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LoadAllStatus"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/TerminateLoadAll": {
+      "post": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "summary": "Terminates a running LoadAll operation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The instance id of the load all operation",
+            "schema": {
+              "type": "string",
+              "description": "The instance id of the load all operation",
+              "nullable": true
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "description": "The reason of the termination request",
+            "schema": {
+              "type": "string",
+              "description": "The reason of the termination request",
+              "default": "Cancelled by user",
+              "nullable": true
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/GetErrors": {
+      "get": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "timestamp",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "entityName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LoadError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/DeleteError": {
+      "get": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SpacLoader/TriggerLoadAllFailed": {
+      "post": {
+        "tags": [
+          "Spac Writer"
+        ],
+        "parameters": [
+          {
+            "name": "timestamp",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "entityName",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "maxCount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "description": "The requested API version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoadAllKey"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GroupItem": {
+        "type": "object",
+        "properties": {
+          "groupType": {
+            "type": "string",
+            "nullable": true
+          },
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "userCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "impersonatorUserCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "givenName": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userGuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "impersonatorUserGuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "clients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "impersonatorClients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupItem"
+            },
+            "nullable": true
+          },
+          "isInactive": {
+            "type": "boolean"
+          },
+          "isDealogicUser": {
+            "type": "boolean"
+          },
+          "canImpersonate": {
+            "type": "boolean"
+          },
+          "isServiceUser": {
+            "type": "boolean"
+          },
+          "isLoggedInWithDefaultIdentityProvider": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isImpersonating": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfoWithToggles": {
+        "type": "object",
+        "properties": {
+          "userInfo": {
+            "$ref": "#/components/schemas/UserInfo"
+          },
+          "toggles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoadAllKey": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoadAllStatus": {
+        "type": "object",
+        "properties": {
+          "runtimeStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "customStatus": {
+            "nullable": true
+          },
+          "lastUpdatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "output": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoadError": {
+        "required": [
+          "entityId",
+          "entityName",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "entityId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "entityName": {
+            "maxLength": 256,
+            "type": "string"
+          },
+          "responseStatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "exceptionType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.dealogic.com/as/authorization.oauth2",
+            "tokenUrl": "https://login.dealogic.com/as/token.oauth2",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Spac Admin"
+    },
+    {
+      "name": "Spac Writer"
+    }
+  ]
+}

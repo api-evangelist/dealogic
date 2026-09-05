@@ -1,0 +1,36 @@
+generated: '2026-09-05'
+method: searched
+source: https://login.dealogic.com/.well-known/openid-configuration (HTTP 200, fetched 2026-09-05); baseline
+  derived by derive-oauth-scopes.py from the eight harvested OpenAPI documents
+docs: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+authorization_server:
+  issuer: https://login.dealogic.com
+  authorization_endpoint: https://login.dealogic.com/as/authorization.oauth2
+  token_endpoint: https://login.dealogic.com/as/token.oauth2
+note: Every harvested spec declares oauth2 with an EMPTY scopes map, so nothing is derivable from the
+  contracts. The scopes below are the authorization server's own scopes_supported list, read from the
+  OIDC discovery document. Dealogic publishes no per-product scope reference page; entitlement to a given
+  dataset is granted on the licence, not by a scope string.
+scope_count: 4
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope; requests an ID token.
+  source: oidc-discovery
+- scope: profile
+  description: Standard OpenID Connect scope; requests the end user's basic profile claims.
+  source: oidc-discovery
+- scope: email
+  description: Standard OpenID Connect scope; requests the end user's email claim.
+  source: oidc-discovery
+- scope: dealogic
+  description: Dealogic's single product scope. It is the only non-standard scope the authorization server
+    advertises; the Dealogic APIs do not decompose access into per-resource or read/write scopes.
+  source: oidc-discovery
+claims_supported:
+- idp
+- sub
+granularity:
+  verdict: coarse
+  detail: One product scope for the whole Dealogic API estate. An agent cannot request read-only access,
+    nor access to one dataset (SPAC, Bank, Company, Sponsor, Reporting) without the rest; separation is
+    enforced by licence entitlement server-side, not by the token.

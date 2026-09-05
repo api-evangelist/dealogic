@@ -1,83 +1,448 @@
 aid: dealogic
 name: Dealogic
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml
 type: Index
 deliveryModel:
   model: saas
   open_source: false
   commercial: true
-  callable_host: false
-  label: Hosted service · you call their endpoint
-  confidence: medium
+  callable_host: true
+  label: Hosted service - you call their endpoint
+  confidence: high
   source:
+  - openapi
+  - swagger-ui
   - pricing
-  generated: '2026-08-28'
-  method: derived
+  generated: '2026-09-05'
+  method: probed
+  note: 'Upgraded from callable_host: false on 2026-09-05. Eight OpenAPI documents were harvested from
+    six live Dealogic-operated Swagger UIs; the hosts answer 401, not 404, to unauthenticated calls.'
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: contact-sales
+  onboarding: sales-gated
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Licensed - contact sales
+  confidence: high
+  source:
+  - https://iongroup.com/analytics/data-portal/request-info/
+  - https://dealogic.com/request-a-demo/
+  - https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/
+  generated: '2026-09-05'
+  method: searched
+  note: No pricing page exists anywhere on dealogic.com or the ION Analytics Data Portal; every product
+    path ends at a request-information or demo form. Entitlements are granted per subscribed dataset.
 position: Producing
 access: Customer
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
 tags:
-  - Analytics
-  - Capital Markets
-  - Compliance
-  - Deal Management
-  - Finance
-  - Financial Data
-  - Investment Banking
-  - League Tables
+- Analytics
+- Capital Markets
+- Compliance
+- Deal Management
+- Debt Capital Markets
+- Equity Capital Markets
+- Finance
+- Financial Data
+- Investment Banking
+- League Tables
+- M&A
+- OData
+- Private Equity
+- Reporting
+- SPAC
+- Syndicated Loans
 created: '2024-01-20'
-modified: '2026-04-28'
+modified: '2026-09-05'
 specificationVersion: '0.23'
 kind: company
-description: >-
-  Dealogic is a global provider of content and software for the capital
-  markets, including deal-management, analytics, league-table, and
-  compliance solutions used by investment banks, sales/trading desks, and
-  investment managers. Dealogic delivers data and connectivity primarily
-  through its Cortex platform, Dealogic Connect, and Analytics products
-  rather than a self-service public developer API; integrations are
-  contracted with customers and accessed under license rather than from a
-  public developer portal.
-apis: []
+description: 'Dealogic is a global provider of content and software for the capital markets — deal management,
+  analytics, league tables and compliance — used by investment banks, syndicate and sales/trading desks,
+  investment managers and corporates, and is part of ION Analytics. Its platforms are Cortex, Dealogic
+  Connect, Analytics and ComplianceManager. Dealogic runs no developer portal of its own: its APIs are
+  catalogued on the ION Analytics Data Portal, and eight OpenAPI 3.0.1 documents covering 153 operations
+  are served from Dealogic''s own Swagger UIs on spac/bank/company/sponsor.analytics.dealogic.com, api.reporting.dealogic.com,
+  api.reporting.cortex.dealogic.com and api.profiles.dealogic.com. The SPAC API is OData v4; the rest
+  are plain REST. All are read-only and gated by OAuth 2.0 at login.dealogic.com with one ''dealogic''
+  scope — no self-service signup, no published pricing, no SDK. Bulk delivery is the Primary Market Deals
+  & Entities Feed: XML over secure FTP or a service bus.'
+apis:
+- name: Dealogic Analytics SPAC API
+  description: 'OData v4 read API over Dealogic''s SPAC (special purpose acquisition company) dataset:
+    SPAC entries and their listings, IPO syndicate, attorneys, auditors, lockups and promote schedules,
+    company management and S1 shareholders, redemptions, cornerstone and named PIPE investors, related
+    and withdrawn M&A deals with advisors and earnout triggers, ownership and market data, plus Dealogic
+    industry and location reference lists. Version 2.0 exposes 78 OData collection, key and navigation-property
+    operations with full $select/$expand/$filter/$orderby/$apply/$top/$skip/$count support; version 1.0
+    exposes 13 administrative loader endpoints. OAuth 2.0 bearer tokens from login.dealogic.com; licensed
+    users only.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - SPAC
+  - Capital Markets
+  - Equity Capital Markets
+  - M&A
+  - OData
+  - Financial Data
+  - Investment Banking
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: OpenAPI
+    url: openapi/dealogic-analytics-spac-v2-openapi.json
+  - type: OpenAPI
+    url: openapi/dealogic-analytics-spac-v1-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-analytics-spac-v2-overlay.yaml
+  - type: Overlay
+    url: overlays/dealogic-analytics-spac-v1-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Dealogic Analytics Bank API
+  description: 'Read API returning Dealogic bank-profile analytics for a given bank identifier: overall
+    bank ranking plus rankings by region, industry and product, top deals, recently completed deals and
+    pipeline deals, top fee-paying clients, top lending commitments broken out by region and industry,
+    and financial-sponsor rankings. Every operation is scoped by region, product, dateType, basisType
+    and latestYear. A CheckBankProfiles operation confirms which bank identifiers have a profile. OAuth
+    2.0 bearer tokens from login.dealogic.com.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://bank.analytics.dealogic.com/
+  tags:
+  - League Tables
+  - Investment Banking
+  - Analytics
+  - Financial Data
+  - Bank Rankings
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-analytics-bank-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-analytics-bank-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Dealogic Analytics Company API
+  description: 'Read API returning Dealogic company-profile analytics for a given company identifier:
+    banking relationships and their momentum, top banks by investment-banking revenue and by lending volume,
+    a drill-down of revenue by bank, upcoming debt maturities, and the company''s deal history. Operations
+    accept date-range, region, industry and product filters. OAuth 2.0 bearer tokens from login.dealogic.com.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://company.analytics.dealogic.com/
+  tags:
+  - Corporate Finance
+  - Banking Relationships
+  - Analytics
+  - Financial Data
+  - Investment Banking
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-analytics-company-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-analytics-company-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Dealogic Analytics Sponsor API
+  description: 'Read API returning Dealogic financial-sponsor analytics for a given sponsor identifier:
+    investment activity over time, portfolio-company entries and exits, banking relationships ranked by
+    fees and by number of deals, and the sponsor''s deal history. A CheckSponsorProfiles operation confirms
+    which sponsor identifiers have a profile. OAuth 2.0 bearer tokens from login.dealogic.com.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://sponsor.analytics.dealogic.com/
+  tags:
+  - Private Equity
+  - Financial Sponsors
+  - Analytics
+  - Financial Data
+  - Investment Banking
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-analytics-sponsor-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-analytics-sponsor-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Dealogic Reporting API
+  description: 'Report-execution API over Dealogic''s reporting engine: fetch a saved report definition
+    by report id, execute a report for a given valid-dates type, and execute a report with additional
+    criteria or with drill-down. Responses carry the report''s column definitions and row data. OAuth
+    2.0 bearer tokens from login.dealogic.com.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://api.reporting.dealogic.com/
+  tags:
+  - Reporting
+  - Analytics
+  - Financial Data
+  - Investment Banking
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-reporting-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-reporting-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Cortex Reporting API
+  description: 'Report-execution API for the Dealogic Cortex platform (v1.2): retrieve the criteria available
+    for a report id, execute a report by report id and valid-dates type, execute a report with extended
+    criteria, and read the deployed API version. OAuth 2.0 bearer tokens from login.dealogic.com.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://api.reporting.cortex.dealogic.com/
+  tags:
+  - Reporting
+  - Cortex
+  - Analytics
+  - Financial Data
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-cortex-reporting-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-cortex-reporting-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: IONA Profiles API
+  description: 'Deal- and market-profile API served from Dealogic infrastructure: DCM and loan deal profiles
+    by deal id, US leveraged-finance market profiles for high yield (priced deals, in-market deals, secondary
+    price distribution, commentary, volumes by rating, wide-vs-in-line-vs-tight, bond yields by rating,
+    distressed bond index summary) and for leveraged loans (priced deals, in-market deals, secondary price
+    distribution, commentary, CLO volumes, wide-vs-tight, new-money-vs-refinance, loan pricing by rating),
+    plus organization SPAC profile sections. OAuth 2.0 bearer tokens from login.dealogic.com. OWNERSHIP:
+    info.title reads ''IONA.Profiles.API'' - IONA is ION Analytics, the parent brand Dealogic belongs
+    to (''(c) 2026 Dealogic, part of ION Analytics'', https://dealogic.com/security/). It is attributed
+    to Dealogic because it is served from a Dealogic-controlled host (api.profiles.dealogic.com), authenticated
+    by the Dealogic identity provider (login.dealogic.com), and its content is Dealogic origination data.
+    The sibling ION Analytics APIs served from api.acuris.com are NOT attributed here.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  baseURL: https://api.profiles.dealogic.com/
+  tags:
+  - Leveraged Finance
+  - Debt Capital Markets
+  - Market Data
+  - Financial Data
+  - SPAC
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: OpenAPI
+    url: openapi/dealogic-iona-profiles-openapi.json
+  - type: Overlay
+    url: overlays/dealogic-iona-profiles-overlay.yaml
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- name: Dealogic Primary Market Deals & Entities Feed
+  description: 'File-based bulk data feed of Dealogic''s investment banking content: over 2 million transactions
+    since 1995 across Equity Capital Markets, Debt Capital Markets, syndicated loans and M&A, plus 1.1
+    million entities (issuers, banks, financial sponsors, lawyers) and Dealogic Revenue Analytics. XML
+    files in six groups (Reference, Company, DCM, ECM, M&A, Loan) are posted to the Dealogic secure FTP
+    server, or pushed continuously over a service bus topic, and loaded into a predefined MS SQL Server
+    schema by the client-installed Dealogic Data Loader application. Delivery is up to hourly; authentication
+    is username/password on the SFTP server. This is a file/message feed, not an HTTP API, so it has no
+    HTTP base URL.'
+  humanURL: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/documentation/
+  tags:
+  - Data Feed
+  - Investment Banking
+  - M&A
+  - Equity Capital Markets
+  - Debt Capital Markets
+  - Syndicated Loans
+  - Financial Data
+  properties:
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/documentation/
+  - type: Authentication
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/authentication-and-authorization/
+  - type: X-DataGlossary
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/data-glossary/
+  - type: Support
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/faq-and-support/
+  - type: Summary
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
 common:
-  - type: DomainSecurity
-    url: security/dealogic-domain-security.yml
-  - type: GitHubOrganization
-    url: https://github.com/Dealogic
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/dealogic
-  - type: Website
-    url: https://www.dealogic.com/
-  - type: Login
-    url: https://cortex.dealogic.com/
-  - type: Product - Investment Banking
-    url: https://www.dealogic.com/our-platforms/investment-banking/
-  - type: Product - Sales, Trading & Research
-    url: https://www.dealogic.com/our-platforms/sales-trading-research/
-  - type: Product - Investment Managers
-    url: https://www.dealogic.com/our-platforms/investment-managers/
-  - type: Product - Corporations
-    url: https://www.dealogic.com/our-platforms/corporations/
-  - type: Product - Analytics
-    url: https://www.dealogic.com/products/analytics/
-  - type: Product - Connect
-    url: https://www.dealogic.com/products/connect/
-  - type: Contact
-    url: https://www.dealogic.com/contact/
-  - type: LlmsText
-    url: https://dealogic.com/llms.txt
+- type: DomainSecurity
+  url: security/dealogic-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/Dealogic
+- type: LinkedIn
+  url: https://www.linkedin.com/company/dealogic
+- type: Website
+  url: https://www.dealogic.com/
+- type: Login
+  url: https://cortex.dealogic.com/
+- type: X-Product-InvestmentBanking
+  url: https://www.dealogic.com/our-platforms/investment-banking/
+- type: X-Product-InvestmentManagers
+  url: https://www.dealogic.com/our-platforms/investment-managers/
+- type: X-Product-Corporations
+  url: https://www.dealogic.com/our-platforms/corporations/
+- type: Contact
+  url: https://www.dealogic.com/contact/
+- type: LlmsText
+  url: https://dealogic.com/llms.txt
+- type: X-Product-SyndicateSalesTradingResearch
+  url: https://dealogic.com/platform/syndicate-str/
+  note: Replaces https://www.dealogic.com/our-platforms/sales-trading-research/, confirmed 404 on 2026-09-05.
+- type: X-Product-ComplianceManager
+  url: https://dealogic.com/product/compliancemanager/
+- type: X-Platform
+  url: https://dealogic.com/platform/
+- type: DeveloperPortal
+  url: https://iongroup.com/analytics/data-portal/
+  note: Dealogic's APIs and data feeds are documented on the ION Analytics Data Portal; dealogic.com carries
+    no developer portal of its own. dealogic.com's own footer reads '(c) 2026 Dealogic, part of ION Analytics'.
+- type: Documentation
+  url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+- type: APIReference
+  url: https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  note: This page iframes https://spac.analytics.dealogic.com/index.html, the provider's own Swagger UI.
+- type: TermsOfService
+  url: https://dealogic.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://dealogic.com/privacy-policy/
+- type: Privacy
+  url: https://dealogic.com/data-privacy/
+- type: Support
+  url: https://dealogic.com/about-us/contact-us/
+- type: Blog
+  url: https://dealogic.com/insights/
+- type: PressReleases
+  url: https://dealogic.com/about-us/press/
+- type: SignUp
+  url: https://iongroup.com/analytics/data-portal/request-info/
+  note: There is no self-service signup. This is the ION Analytics request-information form that starts
+    API/data-feed access.
+- type: TrustCenter
+  url: security/dealogic-trust-center.yml
+- type: Compliance
+  url: conformance/dealogic-conformance.yml
+- type: Conformance
+  url: conformance/dealogic-conformance.yml
+- type: Authentication
+  url: authentication/dealogic-authentication.yml
+- type: OAuthScopes
+  url: scopes/dealogic-scopes.yml
+- type: OpenIDConnect
+  url: well-known/dealogic-login-dealogic-com-openid-configuration.json
+- type: WellKnown
+  url: well-known/dealogic-well-known.yml
+- type: Conventions
+  url: conventions/dealogic-conventions.yml
+- type: ErrorCatalog
+  url: errors/dealogic-problem-types.yml
+- type: DataModel
+  url: data-model/dealogic-data-model.yml
+- type: Lifecycle
+  url: lifecycle/dealogic-lifecycle.yml
+- type: Plans
+  url: plans/dealogic-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dealogic-rate-limits.yml
+- type: Packages
+  url: packages/dealogic-packages.yml
+- type: X-MCPServerCandidate
+  url: mcp/dealogic-mcp.yml
+  note: 'status: candidate - a tool list derived from the published OpenAPI. Dealogic ships no MCP server;
+    no MCPServer pointer is wired.'
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/dealogic-llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 47
+  pass: local-v3

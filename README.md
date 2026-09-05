@@ -64,40 +64,66 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dealogic is a global provider of content and software for the capital markets, including deal-management, analytics, league-table, and compliance solutions used by investment banks, sales/trading desks, and investment managers.
+Dealogic is a global provider of content and software for the capital markets — deal management, analytics, league tables and compliance — used by investment banks, syndicate and sales/trading desks, investment managers and corporates. Dealogic is part of ION Analytics.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml)
 
 ## Scope
 
 - **Type:** Index
-- **Position:** Provider
+- **Position:** Producing
 - **Access:** Customer
 - **x-type:** company
 
 ## Tags
 
-- Analytics, Capital Markets, Compliance, Deal Management, Finance, Financial Data, Investment Banking, League Tables
+- Analytics, Capital Markets, Compliance, Deal Management, Debt Capital Markets, Equity Capital Markets, Finance, Financial Data, Investment Banking, League Tables, M&A, OData, Private Equity, Reporting, SPAC, Syndicated Loans
 
 ## Timestamps
 
 - **Created:** 2024-01-20
-- **Modified:** 2026-04-28
+- **Modified:** 2026-09-05
 
 ## APIs
 
-Dealogic does not publish a public, self-service developer API. Data and connectivity are delivered to customers under contract through products such as Cortex, Dealogic Connect, and Analytics. Integration details and any client-specific APIs are made available to licensed customers.
+Dealogic operates no developer portal on `dealogic.com`. Its APIs and data feeds are catalogued on the **ION Analytics Data Portal**, and the machine-readable contracts are served from Dealogic's own Swagger UIs on `*.dealogic.com` hosts. Eight OpenAPI 3.0.1 documents covering **153 operations** were harvested verbatim on 2026-09-05:
+
+| API | Host | Operations |
+|---|---|---|
+| Dealogic Analytics SPAC API (v2.0, OData v4) | `spac.analytics.dealogic.com` | 78 |
+| Dealogic Analytics SPAC API (v1.0, loader/admin) | `spac.analytics.dealogic.com` | 13 |
+| Dealogic Analytics Bank API | `bank.analytics.dealogic.com` | 13 |
+| Dealogic Analytics Company API | `company.analytics.dealogic.com` | 7 |
+| Dealogic Analytics Sponsor API | `sponsor.analytics.dealogic.com` | 7 |
+| Dealogic Reporting API | `api.reporting.dealogic.com` | 4 |
+| Cortex Reporting API | `api.reporting.cortex.dealogic.com` | 4 |
+| IONA Profiles API | `api.profiles.dealogic.com` | 27 |
+
+Alongside them, the **Dealogic Primary Market Deals & Entities Feed** delivers over 2 million investment banking transactions since 1995 as XML over the Dealogic secure FTP server or a service-bus topic, loaded into MS SQL Server by the client-installed Dealogic Data Loader.
+
+Every HTTP API is **read-only for customers** and gated by OAuth 2.0 against the shared identity provider at `login.dealogic.com`, which advertises a single product scope, `dealogic`. There is no self-service signup, no published pricing, no rate limit, no error contract and no SDK in any language.
+
+The sibling APIs on the same ION Analytics Data Portal that are served from `api.acuris.com` — the Acuris, Mergermarket, Merger Review, Entities and Private Equity APIs — belong to other ION Analytics brands and are **not** attributed to Dealogic here.
 
 ## Common Properties
 
 - [Website](https://www.dealogic.com/)
 - [Cortex Login](https://cortex.dealogic.com/)
-- [Investment Banking Platform](https://www.dealogic.com/our-platforms/investment-banking/)
-- [Sales, Trading & Research](https://www.dealogic.com/our-platforms/sales-trading-research/)
+- [Developer Portal — ION Analytics Data Portal](https://iongroup.com/analytics/data-portal/)
+- [API Reference — SPAC API low-level documentation](https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/)
+- [Platform](https://dealogic.com/platform/)
+- [Investment Banking / Capital Markets](https://www.dealogic.com/our-platforms/investment-banking/)
+- [Syndicate / Sales, Trading & Research](https://dealogic.com/platform/syndicate-str/)
 - [Investment Managers](https://www.dealogic.com/our-platforms/investment-managers/)
-- [Analytics](https://www.dealogic.com/products/analytics/)
-- [Connect](https://www.dealogic.com/products/connect/)
-- [Contact](https://www.dealogic.com/contact/)
+- [Corporations](https://www.dealogic.com/our-platforms/corporations/)
+- [ComplianceManager](https://dealogic.com/product/compliancemanager/)
+- [Security](https://dealogic.com/security/)
+- [Terms of Use](https://dealogic.com/terms-of-use/)
+- [Privacy Policy](https://dealogic.com/privacy-policy/)
+- [Insights](https://dealogic.com/insights/)
+- [Contact](https://dealogic.com/about-us/contact-us/)
+
+Three product links carried in earlier revisions of this profile were confirmed dead on 2026-09-05 and removed: `/our-platforms/sales-trading-research/`, `/products/analytics/` and `/products/connect/` all return HTTP 404.
 
 ## Maintainers
 

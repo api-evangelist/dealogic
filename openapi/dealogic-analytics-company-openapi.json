@@ -1,0 +1,882 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Dealogic.Analytics.Company",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "/{companyId}/BankingRelationshipsMomentum": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/BankingRelationships": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.DateRange"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/TopBanksByRevenue": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.DateRange"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/TopBanksByLendingVolume": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.DateRange"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/DebtMaturing": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.NextYearDateRange"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Industry"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/TopRevenueByBanksDrilldown": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.NextYearDateRange"
+            }
+          },
+          {
+            "name": "industry",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Industry"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productSubType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{companyId}/Deals": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "numberOfDeals",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "dateRange",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.DateRange"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion"
+            }
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Analytics.Company.Models.Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SNRLite.Interfaces.V1_2.Body.Column": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Function": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecodeColumn": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.Schema": {
+        "type": "object",
+        "properties": {
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Column"
+            },
+            "nullable": true
+          },
+          "BreakdownType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReportType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableTypeColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.ResultSet": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.SummarySet": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.ShowChangeData": {
+        "type": "object",
+        "properties": {
+          "GroupColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "BasisColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId": {
+        "type": "object",
+        "properties": {
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.VisualizationHighlight": {
+        "type": "object",
+        "properties": {
+          "Rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.VisualizationData": {
+        "type": "object",
+        "properties": {
+          "RowBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ColumnBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ShowChange": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ShowChangeData"
+          },
+          "Highlight": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlight"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Range"
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Clause"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.ExecutionInfo": {
+        "type": "object",
+        "properties": {
+          "IsReportCached": {
+            "type": "boolean"
+          },
+          "GeneratedDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.ResultInfo": {
+        "type": "object",
+        "properties": {
+          "SearchCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DealCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TrancheCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BreakoutPeriod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Body.ReportResult": {
+        "type": "object",
+        "properties": {
+          "Schema": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Schema"
+          },
+          "ResultSet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultSet"
+            },
+            "nullable": true
+          },
+          "SummarySet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.SummarySet"
+            },
+            "nullable": true
+          },
+          "VisualizationData": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationData"
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria"
+            },
+            "nullable": true
+          },
+          "ExecutionInfo": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ExecutionInfo"
+          },
+          "ResultInfo": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultInfo"
+          },
+          "ReportName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LibGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "ApiVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Analytics.Company.Models.DateRange": {
+        "enum": [
+          "L10YR",
+          "YTD",
+          "L1YR",
+          "L2YR",
+          "L3YR",
+          "L4YR",
+          "L5YR"
+        ],
+        "type": "string"
+      },
+      "Dealogic.Analytics.Company.Models.SubsidiaryRegion": {
+        "enum": [
+          "GLOBAL",
+          "AFRIC",
+          "AUPAC",
+          "CARIB",
+          "EUR",
+          "INDIA",
+          "JAPAN",
+          "LATAM",
+          "MIDEA",
+          "NAMER",
+          "ASIA",
+          "SEASI"
+        ],
+        "type": "string"
+      },
+      "Dealogic.Analytics.Company.Models.Product": {
+        "enum": [
+          "ALL",
+          "DCM",
+          "ECM",
+          "MNA",
+          "LOAN"
+        ],
+        "type": "string"
+      },
+      "Dealogic.Analytics.Company.Models.NextYearDateRange": {
+        "enum": [
+          "N10YR",
+          "YTD",
+          "N1YR",
+          "N2YR",
+          "N3YR",
+          "N4YR",
+          "N5YR"
+        ],
+        "type": "string"
+      },
+      "Dealogic.Analytics.Company.Models.Industry": {
+        "enum": [
+          "ALL",
+          "BSE",
+          "CME",
+          "FIG",
+          "CNR",
+          "HCH",
+          "IND",
+          "NRS",
+          "RES",
+          "TEC",
+          "TSP"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.dealogic.com/as/authorization.oauth2",
+            "tokenUrl": "https://login.dealogic.com/as/token.oauth2",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ ]
+    }
+  ]
+}

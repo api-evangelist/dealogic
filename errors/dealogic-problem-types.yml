@@ -1,0 +1,39 @@
+generated: '2026-09-05'
+method: probed
+source: Derived from the responses blocks of the eight OpenAPI documents in openapi/, plus live unauthenticated
+  probes of https://spac.analytics.dealogic.com/odata/SpacEntry and the other five API hosts on 2026-09-05.
+format: none
+finding: Dealogic publishes NO error contract. Across 153 harvested operations, every single one declares
+  exactly one response - 200 - and nothing else. There is no 400, 401, 403, 404, 429 or 5xx declared anywhere,
+  no error schema in components, and no application/problem+json media type. An agent integrating against
+  these specs has no machine-readable description of any failure it will encounter.
+declared_response_codes:
+  '200': 153
+observed:
+- condition: Unauthenticated request to a SPAC API resource
+  probe: GET https://spac.analytics.dealogic.com/odata/SpacEntry
+  status: 401
+  body: 'empty (Content-Length: 0)'
+  date: '2026-09-05'
+  note: The 401 carries no WWW-Authenticate challenge body, no problem document and no message - the response
+    body is zero bytes.
+- condition: Unauthenticated request to the OData metadata document
+  probe: GET https://spac.analytics.dealogic.com/odata/$metadata
+  status: 401
+  body: empty
+  date: '2026-09-05'
+- condition: Unknown path on an analytics host
+  probe: GET https://bank.analytics.dealogic.com/.well-known/api-catalog
+  status: 404
+  body: empty
+  date: '2026-09-05'
+- condition: Unknown path on the ASP.NET-hosted Cortex field-config service
+  probe: GET https://service.fieldconfigtool.cortexdev.dealogic.com/swagger
+  status: 404
+  body: 'ASP.NET yellow-screen HTML: ''The resource cannot be found.'''
+  date: '2026-09-05'
+  note: HTML error page, not a machine-readable error document.
+problem_types: []
+gap: 'Recommended to the provider: declare at minimum 400/401/403/404/429/500 on every operation and adopt
+  RFC 9457 application/problem+json. The OData surface already has a standard error envelope (OData 4.01
+  section 9.4) that the spec simply does not describe.'

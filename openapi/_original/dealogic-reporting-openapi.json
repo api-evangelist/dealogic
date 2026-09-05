@@ -1,0 +1,1540 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Dealogic.Reporting.API",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "/api/v1.0/Data/{ReportId}/{ValidDatesType}": {
+      "get": {
+        "tags": [
+          "ReportData"
+        ],
+        "parameters": [
+          {
+            "name": "ReportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "196e7da3-a3d4-44ed-9543-db0d3751612c"
+            }
+          },
+          {
+            "name": "ValidDatesType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Interfaces.ValidDatesType"
+            }
+          },
+          {
+            "name": "toleranceLevel",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.ReportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ReportDefinition/{ReportId}": {
+      "get": {
+        "tags": [
+          "ReportData"
+        ],
+        "parameters": [
+          {
+            "name": "ReportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "196e7da3-a3d4-44ed-9543-db0d3751612c"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ExecuteWithCriteria/{reportId}/{validDatesType}": {
+      "post": {
+        "tags": [
+          "ReportData"
+        ],
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "validDatesType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ExecuteWithDrilldown/{reportId}/{validDatesType}": {
+      "post": {
+        "tags": [
+          "ReportData"
+        ],
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "validDatesType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Dealogic.Reporting.Api.Body.Column": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Function": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecodeColumn": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Range"
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Clause"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.ExecutionInfo": {
+        "type": "object",
+        "properties": {
+          "IsReportCached": {
+            "type": "boolean"
+          },
+          "GeneratedDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.ReportResult": {
+        "type": "object",
+        "properties": {
+          "Schema": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Schema"
+          },
+          "ResultSet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.ResultSet"
+            },
+            "nullable": true
+          },
+          "SummarySet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.SummarySet"
+            },
+            "nullable": true
+          },
+          "VisualizationData": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationData"
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria"
+            },
+            "nullable": true
+          },
+          "ExecutionInfo": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.ExecutionInfo"
+          },
+          "ResultInfo": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.ResultInfo"
+          },
+          "ReportName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LibGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "ApiVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.ResultInfo": {
+        "type": "object",
+        "properties": {
+          "SearchCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DealCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TrancheCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BreakoutPeriod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.ResultSet": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.Schema": {
+        "type": "object",
+        "properties": {
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.Column"
+            },
+            "nullable": true
+          },
+          "BreakdownType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReportType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableTypeColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.ShowChangeData": {
+        "type": "object",
+        "properties": {
+          "GroupColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "BasisColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.SummarySet": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.VisualizationData": {
+        "type": "object",
+        "properties": {
+          "RowBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ColumnBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ShowChange": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.ShowChangeData"
+          },
+          "Highlight": {
+            "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationHighlight"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.VisualizationHighlight": {
+        "type": "object",
+        "properties": {
+          "Rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationHighlightId"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Body.VisualizationHighlightId": {
+        "type": "object",
+        "properties": {
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dealogic.Reporting.Api.Interfaces.ValidDatesType": {
+        "enum": [
+          "EndOfDay",
+          "Latest"
+        ],
+        "type": "string"
+      },
+      "Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest": {
+        "type": "object",
+        "properties": {
+          "DrilldownKeys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.Request.DrilldownKey"
+            },
+            "nullable": true
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria"
+            },
+            "nullable": true
+          },
+          "ToleranceLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "KeyColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShouldAppendCriteria": {
+            "type": "boolean"
+          },
+          "OverrideCriteriaIfExist": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.AggregatedReportSchema": {
+        "type": "object",
+        "properties": {
+          "Rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.Request.RankingRow"
+            },
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.Request.RankingColumn"
+            },
+            "nullable": true
+          },
+          "SecondaryBasis": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.SecondaryBasis"
+          },
+          "Basis": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.RankingBasis"
+          },
+          "Options": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.AggregatedReportSchemaOptions"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.AggregatedReportSchemaOptions": {
+        "type": "object",
+        "properties": {
+          "Function": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.Common.Function"
+          },
+          "SortingColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "Apportionment": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.Common.Apportionment"
+          },
+          "Grouping": {
+            "type": "boolean"
+          },
+          "ShowSubtotal": {
+            "type": "boolean"
+          },
+          "ShowTotal": {
+            "type": "boolean"
+          },
+          "ShowTotalColumn": {
+            "type": "boolean"
+          },
+          "ShowChangeReport": {
+            "type": "boolean"
+          },
+          "PeriodRange": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.RankingPeriodRange"
+          },
+          "PeriodLength": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.PeriodLength"
+          },
+          "PeriodStart": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShowBanksInRanking": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "NumberOfRows": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.BreakdownByPeriod": {
+        "enum": [
+          "None",
+          "SortByMostRecent",
+          "SortByTotal"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.Common.Apportionment": {
+        "enum": [
+          "Equal",
+          "FullValue"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.Common.Function": {
+        "enum": [
+          "Unknown",
+          "Count",
+          "Rank",
+          "Percent",
+          "WalletRank",
+          "WalletPercent",
+          "Amount",
+          "Rowaverage"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.DrilldownKey": {
+        "type": "object",
+        "properties": {
+          "FieldUniqueId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest": {
+        "type": "object",
+        "properties": {
+          "DrilldownKeys": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria"
+            },
+            "nullable": true
+          },
+          "ToleranceLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "KeyColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShouldAppendCriteria": {
+            "type": "boolean"
+          },
+          "OverrideCriteriaIfExist": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.ListReportSchema": {
+        "type": "object",
+        "properties": {
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ReportColumn"
+            },
+            "nullable": true
+          },
+          "Options": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ListReportSchemaOptions"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.ListReportSchemaOptions": {
+        "type": "object",
+        "properties": {
+          "NumberOfRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Filter": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.PeriodLength": {
+        "enum": [
+          "Year",
+          "YearToDate",
+          "Quarter"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.RankingBasis": {
+        "type": "object",
+        "properties": {
+          "FieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "AggregateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "BreakdownByPeriod": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.BreakdownByPeriod"
+          },
+          "SortDirection": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.SortDirection"
+          },
+          "CodelistItems": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CodelistGroupGuids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.RankingColumn": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecode": {
+            "type": "boolean"
+          },
+          "Function": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.Common.Function"
+          },
+          "Visible": {
+            "type": "boolean"
+          },
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.RankingPeriodRange": {
+        "type": "object",
+        "properties": {
+          "Repeat": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.RankingRow": {
+        "type": "object",
+        "properties": {
+          "FieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecode": {
+            "type": "boolean"
+          },
+          "Parent": {
+            "type": "boolean"
+          },
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Filter": {
+            "type": "string",
+            "nullable": true
+          },
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.ReportColumn": {
+        "type": "object",
+        "properties": {
+          "FieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecode": {
+            "type": "boolean"
+          },
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SortMethod": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ReportColumnSortMethod"
+          },
+          "SortPos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "MeasureCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomAction": {
+            "type": "string",
+            "nullable": true
+          },
+          "Expression": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.ReportColumnSortMethod": {
+        "enum": [
+          "None",
+          "Ascending",
+          "Descending"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.ReportDefinition": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.Type"
+          },
+          "UserBasis": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.UserBasis"
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Criteria"
+            },
+            "nullable": true
+          },
+          "AggregatedSchema": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.AggregatedReportSchema"
+          },
+          "ListSchema": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.ListReportSchema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.SecondaryBasis": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "BreakdownByPeriod": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.BreakdownByPeriod"
+          },
+          "SortDirection": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.Request.SortDirection"
+          },
+          "Basis": {
+            "type": "string",
+            "nullable": true
+          },
+          "AggregateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OverwriteColumnsWithSecondaryBasis": {
+            "type": "boolean"
+          },
+          "SortColumn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.Request.SortDirection": {
+        "enum": [
+          "None",
+          "Ascending",
+          "Descending"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.Type": {
+        "enum": [
+          "List",
+          "Ranking",
+          "Matrix"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.Request.UserBasis": {
+        "enum": [
+          "Deal",
+          "Tranche"
+        ],
+        "type": "string"
+      },
+      "SNRLite.Interfaces.V1_1.Column": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Function": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDecodeColumn": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
+          },
+          "BaseFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PlaceHolderID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Range"
+          },
+          "OriginalValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.Criterias.Criteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Clause"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.ExecutionInfo": {
+        "type": "object",
+        "properties": {
+          "IsReportCached": {
+            "type": "boolean"
+          },
+          "GeneratedDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.ReportResultV1_1": {
+        "type": "object",
+        "properties": {
+          "LibGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "Schema": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Schema"
+          },
+          "ResultSet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ResultSet"
+            },
+            "nullable": true
+          },
+          "SummarySet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.SummarySet"
+            },
+            "nullable": true
+          },
+          "VisualizationData": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationData"
+          },
+          "Criteria": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria"
+            },
+            "nullable": true
+          },
+          "ExecutionInfo": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ExecutionInfo"
+          },
+          "ReportName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Summary": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "ApiVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.ResultSet": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.Schema": {
+        "type": "object",
+        "properties": {
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.Column"
+            },
+            "nullable": true
+          },
+          "BreakdownType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReportType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RankingTableTypeColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.ShowChangeData": {
+        "type": "object",
+        "properties": {
+          "GroupColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "BasisColumnId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.SummarySet": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Values": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.VisualizationData": {
+        "type": "object",
+        "properties": {
+          "RowBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ColumnBreakDown": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "IsColumnBreakdown": {
+            "type": "boolean"
+          },
+          "ShowChangeGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShowChange": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.ShowChangeData"
+          },
+          "Highlight": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationHighlight"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.VisualizationHighlight": {
+        "type": "object",
+        "properties": {
+          "Rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationHighlightId"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_1.VisualizationHighlightId": {
+        "type": "object",
+        "properties": {
+          "ColumnId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ColumnValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Request.Criterias.Clause": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
+          },
+          "Condition": {
+            "type": "string",
+            "nullable": true
+          },
+          "Measurecode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Range": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Range"
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldFriendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Request.Criterias.Criteria": {
+        "type": "object",
+        "properties": {
+          "Clause": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Clause"
+            },
+            "nullable": true
+          },
+          "Operator": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Request.Criterias.Dates": {
+        "type": "object",
+        "properties": {
+          "Period": {
+            "type": "string",
+            "nullable": true
+          },
+          "Rolling": {
+            "type": "string",
+            "nullable": true
+          },
+          "Previous": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeriodCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "EndDate": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SNRLite.Interfaces.V1_2.Request.Criterias.Range": {
+        "type": "object",
+        "properties": {
+          "Dates": {
+            "$ref": "#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Dates"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.dealogic.com/as/authorization.oauth2",
+            "tokenUrl": "https://login.dealogic.com/as/token.oauth2",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [ ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+generated: '2026-09-05'
+method: generated
+source: >-
+  Generated from the eight OpenAPI documents in openapi/, harvested verbatim from Dealogic's own
+  Swagger UIs on 2026-09-05. Dealogic publishes no skills/, AGENTS.md or agent operating guide of
+  its own; searched dealogic.com (full page sitemap), the ION Analytics Data Portal and
+  github.com/Dealogic.
+note: >-
+  None of the eight harvested contracts declares a single operationId. Every skill therefore
+  identifies its steps by HTTP method plus the verbatim path from the spec, and says so in the
+  file. No operationId has been invented.
+skills:
+  - name: dealogic-spac-research
+    file: dealogic-spac-research.md
+    api: Dealogic Analytics SPAC API
+    operations: 12
+    summary: >-
+      Find a SPAC on the OData surface, learn its expansion shape from GetAllDepthExpand, then pull
+      only the sections needed - listings, IPO syndicate, sponsors, management, redemptions,
+      related and withdrawn M&A - instead of expanding a 230-field root object.
+  - name: dealogic-bank-league-tables
+    file: dealogic-bank-league-tables.md
+    api: Dealogic Analytics Bank API
+    operations: 13
+    summary: >-
+      Confirm the bank identifier with CheckBankProfiles, then read the headline ranking and
+      decompose it by region, industry and product, and pull the deals and clients behind it -
+      holding the five scope parameters constant so the views reconcile.
+  - name: dealogic-company-coverage
+    file: dealogic-company-coverage.md
+    api: Dealogic Analytics Company API
+    operations: 7
+    summary: >-
+      Build a corporate coverage picture: banking relationships and their momentum, top banks by
+      revenue and by lending volume, a revenue drill-down, upcoming debt maturities and deal history.
+  - name: dealogic-sponsor-coverage
+    file: dealogic-sponsor-coverage.md
+    api: Dealogic Analytics Sponsor API
+    operations: 7
+    summary: >-
+      Profile a financial sponsor: investment activity, portfolio entries and exits, and banking
+      relationships ranked both by fees and by number of deals.
+  - name: dealogic-report-execution
+    file: dealogic-report-execution.md
+    api: Dealogic Reporting API and Cortex Reporting API
+    operations: 8
+    summary: >-
+      Read a saved report's definition or criteria first, then execute it with the required
+      valid-dates path segment, extended criteria or drill-down - on whichever of the two hosts and
+      path versions the report lives.

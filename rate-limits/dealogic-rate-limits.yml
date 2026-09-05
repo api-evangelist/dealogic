@@ -1,0 +1,31 @@
+generated: '2026-09-05'
+method: searched
+source: Searched the ION Analytics Data Portal documentation for the Dealogic surfaces and read every
+  parameter description in the eight OpenAPI documents in openapi/; probed the API hosts unauthenticated
+  on 2026-09-05.
+limit_count: 0
+detail: No rate limit is published anywhere - not a requests-per-second figure, not a daily quota, not
+  a burst allowance. No harvested operation declares a 429 response, and no RateLimit-*, X-RateLimit-*
+  or Retry-After header appears in any spec or in any observed response. Unauthenticated probes return
+  401 with a zero-byte body and no rate-limit headers, so nothing can be read off the wire either.
+rate_limits: []
+response_headers:
+  documented: []
+  observed: []
+  note: 'Probed GET https://spac.analytics.dealogic.com/odata/SpacEntry and GET https://bank.analytics.dealogic.com/
+    on 2026-09-05: neither returns any rate-limit header.'
+status_on_exhaustion: null
+query_complexity_limits:
+  note: What Dealogic DOES publish is per-request query complexity caps on the OData SPAC surface. These
+    bound the cost of a single call, not the rate of calls, so they are recorded here separately rather
+    than as rate limits.
+  source: openapi/dealogic-analytics-spac-v2-openapi.json parameter descriptions
+  limits:
+  - parameter: $expand
+    limit: maximum depth 5
+  - parameter: $filter
+    limit: maximum 100 expressions
+  - parameter: $orderby
+    limit: maximum 5 expressions
+  - parameter: $top
+    limit: default 15 items when not supplied

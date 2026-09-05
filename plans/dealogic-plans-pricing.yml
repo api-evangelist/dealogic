@@ -1,0 +1,26 @@
+generated: '2026-09-05'
+method: searched
+source: Searched https://dealogic.com/ (complete page sitemap, 2026-09-05), https://iongroup.com/analytics/data-portal/
+  and https://iongroup.com/analytics/data-portal/apis-data-feeds/ for a pricing, plans or tiers page.
+plan_count: 0
+pricing_model: enterprise / contact sales
+detail: Dealogic publishes no pricing of any kind. The dealogic.com page sitemap contains no /pricing
+  page; the ION Analytics Data Portal lists every API and data feed with coverage, delivery protocol,
+  authentication type and update frequency but never a price, a tier, a quota or an overage rate. Every
+  product page terminates in a 'Request a demo' or 'Request more information' form. Access is licensed
+  per firm and per dataset - the feed FAQ states plainly that 'entitlements are controlled based on the
+  data set you subscribe to (e.g. ECM data, Fixed Income data, M&A data)'.
+plans: []
+entry_points:
+- name: Request more information (APIs and data feeds)
+  url: https://iongroup.com/analytics/data-portal/request-info/
+  status: 200
+- name: Request a demo
+  url: https://dealogic.com/request-a-demo/
+  status: 200
+- name: Contact us
+  url: https://dealogic.com/about-us/contact-us/
+  status: 200
+free_tier: false
+trial: false
+self_service: false
