@@ -723,7 +723,8 @@ apis:
   humanURL: >-
     https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
   baseURL: https://spac.analytics.dealogic.com/
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
