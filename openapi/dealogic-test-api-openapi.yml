@@ -1,0 +1,31 @@
+openapi: 3.2.0
+info:
+  title: IONA.Profiles. Test API
+  version: '1.0'
+servers:
+- url: /
+  description: IONA Profiles API API
+security:
+- oauth2: []
+tags:
+- name: Test
+paths:
+  /test:
+    get:
+      tags:
+      - Test
+      summary: Gets the test data
+      responses:
+        '200':
+          description: The successfully retrieved Test data.
+      operationId: getTest
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}

@@ -1,0 +1,558 @@
+openapi: 3.2.0
+info:
+  title: IONA.Profiles. Levfin Market Update API
+  version: '1.0'
+servers:
+- url: /
+  description: IONA Profiles API API
+security:
+- oauth2: []
+tags:
+- name: LevfinMarketUpdate
+paths:
+  /v1/MarketProfile/USLevfin/HY/PricedDeals:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy priced deals
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYPricedDeals
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/HYInMarketDeals:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy hyin market deals
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYHYInMarketDeals
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/SecondaryPriceDistribution:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy secondary price distribution
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYSecondaryPriceDistribution
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/Commentary:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy commentary
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYCommentary
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/VolumesByRating:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy volumes by rating
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYVolumesByRating
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/WideVsInLineVsTight:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy wide vs in line vs tight
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYWideVsInLineVsTight
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/BondYieldsByRating:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy bond yields by rating
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYBondYieldsByRating
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/HY/DistressedBondIndexSummary:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin hy distressed bond index summary
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinHYDistressedBondIndexSummary
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/PricedDeals:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll priced deals
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLPricedDeals
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/InMarketDeals:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll in market deals
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLInMarketDeals
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/SecondaryPriceDistribution:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll secondary price distribution
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLSecondaryPriceDistribution
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/Commentary:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll commentary
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLCommentary
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/CLOVolumes:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll clo volumes
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLCLOVolumes
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/WideVsTight:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll wide vs tight
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLWideVsTight
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/NewMoneyVsRefinance:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll new money vs refinance
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLNewMoneyVsRefinance
+      x-operation-id-source: derived
+  /v1/MarketProfile/USLevfin/LL/LoanPricingByRating:
+    get:
+      tags:
+      - LevfinMarketUpdate
+      parameters:
+      - name: clientCode
+        in: query
+        schema:
+          type: string
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult'
+      summary: Get market profile us levfin ll loan pricing by rating
+      x-summary-source: derived
+      operationId: getV1MarketProfileUSLevfinLLLoanPricingByRating
+      x-operation-id-source: derived
+components:
+  schemas:
+    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult:
+      type: object
+      properties:
+        levFinReportSection:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection:
+      type: object
+      properties:
+        order:
+          type: integer
+          format: int32
+        reportType:
+          type:
+          - string
+          - 'null'
+        reportName:
+          type:
+          - string
+          - 'null'
+        reportResults:
+          type:
+          - array
+          - 'null'
+          items: {}
+        commentaries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary:
+      type: object
+      properties:
+        commentaryType:
+          type:
+          - string
+          - 'null'
+        textPlain:
+          type:
+          - string
+          - 'null'
+        textHighlighted:
+          type:
+          - string
+          - 'null'
+        order:
+          type: integer
+          format: int32
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion:
+      enum:
+      - LevFinUS
+      - LevFinEU
+      type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}

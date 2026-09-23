@@ -1,0 +1,32 @@
+openapi: 3.2.0
+info:
+  title: Cortex.Reporting. Admin API
+  version: 2.3.3.0
+security:
+- oauth2: []
+tags:
+- name: Admin
+paths:
+  /Admin/Version:
+    get:
+      tags:
+      - Admin
+      summary: Gets version of the API
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+      operationId: getAdminVersion
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}

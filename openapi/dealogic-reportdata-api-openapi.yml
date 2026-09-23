@@ -1,0 +1,2067 @@
+openapi: 3.2.0
+info:
+  title: Dealogic Report Data API
+  version: '1.0'
+  description: 'Operations tagged ReportData across 2 of this provider''s published API definitions: dealogic-cortex-reporting-openapi.json, dealogic-reporting-openapi.json. Each path carries the servers of the definition it was published in.'
+security:
+- oauth2: []
+tags:
+- name: ReportData
+paths:
+  /api/v1.2/ExecuteReportWithAdditionalCriteria/{reportId}/{validDatesType}:
+    post:
+      tags:
+      - ReportData
+      summary: Execute Report By Report Id with ability to extend criteria
+      parameters:
+      - name: reportId
+        in: path
+        description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+          description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+          default: 196e7da3-a3d4-44ed-9543-db0d3751612c
+      - name: validDatesType
+        in: path
+        description: The valid date type. <b>EndOfDay</b> or <b>Latest</b>
+        required: true
+        schema:
+          $ref: '#/components/schemas/Cortex.Reporting.API.Models.ValidDatesTypes'
+      - name: toleranceLevel
+        in: query
+        description: Tolerance level in <b>seconds</b>
+        schema:
+          type:
+          - integer
+          - 'null'
+          description: Tolerance level in <b>seconds</b>
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult'
+      operationId: postApiV12ExecuteReportWithAdditionalCriteriaByReportIdByValidDatesType
+      x-operation-id-source: derived
+  /api/v1.2/Data/{reportId}/{validDatesType}:
+    get:
+      tags:
+      - ReportData
+      summary: Execute Report By Report Id
+      parameters:
+      - name: reportId
+        in: path
+        description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+          description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+          default: 196e7da3-a3d4-44ed-9543-db0d3751612c
+      - name: validDatesType
+        in: path
+        description: The valid date type. <b>EndOfDay</b> or <b>Latest</b>
+        required: true
+        schema:
+          $ref: '#/components/schemas/Cortex.Reporting.API.Models.ValidDatesTypes'
+      - name: toleranceLevel
+        in: query
+        description: Tolerance level in <b>seconds</b>
+        schema:
+          type:
+          - integer
+          - 'null'
+          description: Tolerance level in <b>seconds</b>
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult'
+      operationId: getApiV12DataByReportIdByValidDatesType
+      x-operation-id-source: derived
+  /api/v1.2/Criteria/{reportId}:
+    get:
+      tags:
+      - ReportData
+      summary: Get Criteria By Report Id
+      parameters:
+      - name: reportId
+        in: path
+        description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+          description: 'The report ID (example: "196e7da3-a3d4-44ed-9543-db0d3751612c"))'
+          default: 196e7da3-a3d4-44ed-9543-db0d3751612c
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria'
+      operationId: getApiV12CriteriaByReportId
+      x-operation-id-source: derived
+  /api/v1.0/Data/{ReportId}/{ValidDatesType}:
+    get:
+      tags:
+      - ReportData
+      parameters:
+      - name: ReportId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: 196e7da3-a3d4-44ed-9543-db0d3751612c
+      - name: ValidDatesType
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Interfaces.ValidDatesType'
+      - name: toleranceLevel
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.ReportResult'
+      summary: Get api data by report id by valid dates type
+      x-summary-source: derived
+      operationId: getApiV10DataByReportIdByValidDatesType
+      x-operation-id-source: derived
+  /api/v1.0/ReportDefinition/{ReportId}:
+    get:
+      tags:
+      - ReportData
+      parameters:
+      - name: ReportId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: 196e7da3-a3d4-44ed-9543-db0d3751612c
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.Request.ReportDefinition'
+      summary: Get api report definition by report id
+      x-summary-source: derived
+      operationId: getApiV10ReportDefinitionByReportId
+      x-operation-id-source: derived
+  /api/v1.0/ExecuteWithCriteria/{reportId}/{validDatesType}:
+    post:
+      tags:
+      - ReportData
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: validDatesType
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+      summary: Create api execute with criteria by report id by valid dates type
+      x-summary-source: derived
+      operationId: postApiV10ExecuteWithCriteriaByReportIdByValidDatesType
+      x-operation-id-source: derived
+  /api/v1.0/ExecuteWithDrilldown/{reportId}/{validDatesType}:
+    post:
+      tags:
+      - ReportData
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: validDatesType
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ReportResultV1_1'
+      summary: Create api execute with drilldown by report id by valid dates type
+      x-summary-source: derived
+      operationId: postApiV10ExecuteWithDrilldownByReportIdByValidDatesType
+      x-operation-id-source: derived
+components:
+  schemas:
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData:
+      type: object
+      properties:
+        RowBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Defines which columns were defined originally as visual rows (y-axis, y dimension).
+        ColumnBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'Defines which columns were defined originally as visual columns (x-axis, x dimension).
+
+            It can include the virtual idenitifier ''MEASURES'', which means all of the measure type columns.'
+        ShowChange:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData'
+        Highlight:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight'
+      additionalProperties: false
+      description: Definitions for visualization purposes.
+    Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'Type of range.
+
+            Possible values are: Absolute or Relative.'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'Type of range.
+
+            Possible values are: Absolute or Relative.'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+        Rolling:
+          type:
+          - string
+          - 'null'
+        Previous:
+          type:
+          - string
+          - 'null'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+        UseDates:
+          type:
+          - string
+          - 'null'
+        StartDate:
+          type:
+          - string
+          - 'null'
+        EndDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'The period.
+
+            Note: use when range type is Relative. Also please note that use period with prefix. Possible values are documented here.
+
+            Example value: "Last Business Day"
+
+            Possible values are (postfix): Business Day, Calendar day, Week, Month, Quarter, Year, Month prior Year To Date, Year To Date, Year From Date, Quarter To Date ,Quarter To Date By Year ,Year Quarter to Date
+
+            Possible prefixes are: This, Next Last'
+        Rolling:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates that this relative date is rolling.
+
+            Possible values are: Yes, No'
+        Previous:
+          type:
+          - string
+          - 'null'
+          description: 'Possible values are: Yes, No'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+          description: 'Period counts
+
+            Possible values: numbers'
+        UseDates:
+          type:
+          - string
+          - 'null'
+          description: 'Possible values are: Yes, No'
+        StartDate:
+          type:
+          - string
+          - 'null'
+          description: 'Start date of the given absolute range of date.
+
+            Note: use when range type is Absolute.
+
+            Example value: 2019-01-01'
+        EndDate:
+          type:
+          - string
+          - 'null'
+          description: 'End date of the given absolute range of date.
+
+            Note: use when range type is Absolute.
+
+            Example value: 2019-12-31'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause'
+          description: List of search clause.
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'Search operator.
+
+            Possible values are: AND or OR.'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet:
+      type: object
+      properties:
+        Type:
+          type:
+          - string
+          - 'null'
+          description: Type of data
+        Key:
+          type:
+          - string
+          - 'null'
+          description: Key of the row
+        Values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties: false
+          description: Values for each columns
+      additionalProperties: false
+      description: 'Definitions of aggregated and highlighted data (eg.: Subtotal, Total and show bank)'
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet:
+      type: object
+      properties:
+        Key:
+          type:
+          - string
+          - 'null'
+          description: Row key. The value identiy the row in the resultset
+        Values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties: false
+          description: The collection contains data for each breakdown/group.
+      additionalProperties: false
+      description: Contains the data points of the report. Its content can be processed using the description information in the Schema section. Please note after 1.1 or later API versions this set will not contain the subtotal/total rows
+    Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+        BaseFieldId:
+          type:
+          - string
+          - 'null'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+        FieldType:
+          type:
+          - string
+          - 'null'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+        PlaceHolderID:
+          type:
+          - string
+          - 'null'
+        Range:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range'
+        OriginalValue:
+          type:
+          - string
+          - 'null'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Request.ExecuteWithCriteria:
+      type: object
+      properties:
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria'
+          description: Criteria. This criteria will be appended to the existing criteria.
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlight:
+      type: object
+      properties:
+        Rows:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId'
+          description: The rows which needs to be highlighted
+      additionalProperties: false
+      description: Defines the items needs to be highlighted in visualization
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.ReportResult:
+      type: object
+      properties:
+        Schema:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema'
+        ResultSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ResultSet'
+          description: Contains the data points of the report. Its content can be processed using the description information in the Schema section. Please note after 1.1 or later API versions this set will not contain the subtotal/total rows
+        SummarySet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.SummarySet'
+          description: Contains the aggregated (like subtotal and total) and show bank data points of the report. Its content can be processed using the description information in the Schema section. Please note this data will be filled in in 1.1 or later API versions.
+        Pagination:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination'
+        VisualizationData:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationData'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Criteria'
+          description: 'The search criteria of the report as defined in the Dealogic Designer.
+
+            It is supplementary data, which can be used for creating extra logic by the consumer, e.g. extra filtering on the user interface, etc.
+
+            This section can be ignored when processing the data only.'
+        ExecutionInfo:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo'
+        ReportName:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the report as defined in Dealogic Designer.
+
+            This data point is intended to be used by human users, it cannot be used for automatic report identification.
+
+            Two or more reports can have the same name.'
+        LibGuid:
+          type:
+          - string
+          - 'null'
+          description: Library id
+        ApiVersion:
+          type:
+          - string
+          - 'null'
+          description: Version of the output format.
+      additionalProperties: false
+      description: The report data
+    Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Criteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_1.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Cortex.Reporting.API.Models.ValidDatesTypes:
+      enum:
+      - EndOfDay
+      - Latest
+      type: string
+    Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier for a field.
+        Condition:
+          type:
+          - string
+          - 'null'
+          description: 'Condition operation.
+
+            Possible values are: Equals, NotEquals, Empty, NotEmpty, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Contains, NotContains, In, NotIn, Between, NotBetween
+
+            Please note that not every condition operation can be paired with any field'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+          description: 'Measurecode used for multicurrency.
+
+            Possible values are: EUR, USD or any valid currency codes.'
+        Range:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Range'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'Values when field type is not a date.
+
+            Possible values are can be any name of company, location etc.'
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'Search operator.
+
+            Possible values are: AND, OR'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Pagination:
+      type: object
+      properties:
+        _Links:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: string
+          description: 'Contains the links for paginations. Eg.: next URI'
+        _TotalCount:
+          type: integer
+          description: Contains the number of rows in resultset
+          format: int32
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier for a field.
+        FieldType:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+          description: 'Condition operation.
+
+            Possible values are: Equals, NotEquals, Empty, NotEmpty, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Contains, NotContains, In, NotIn, Between, NotBetween
+
+            Please note that not every condition operation can be paired with any field'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+          description: 'Measurecode used for multicurrency.
+
+            Possible values are: EUR, USD or any valid currency codes.'
+        Range:
+          $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Range'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'Values when field type is not a date.
+
+            Possible values are can be any name of company, location etc.'
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'Search operator.
+
+            Possible values are: AND, OR'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+          description: Friendly name of the field.
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Criteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Request.Criterias.Clause'
+          description: List of search clause.
+        Operator:
+          type:
+          - string
+          - 'null'
+          description: 'Search operator.
+
+            Possible values are: AND or OR.'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.VisualizationHighlightId:
+      type: object
+      properties:
+        ColumnId:
+          type:
+          - string
+          - 'null'
+          description: 'When present then the Id of the column which the highlighting is based on,
+
+            otherwise every columns should be checked'
+        ColumnValue:
+          type:
+          - string
+          - 'null'
+          description: The value of the column which needs to be highlighted.
+        Type:
+          type:
+          - string
+          - 'null'
+          description: The type of the highlight like ShowMyBank
+      additionalProperties: false
+      description: The identifier which the highlighing is based on
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.ExecutionInfo:
+      type: object
+      properties:
+        IsReportCached:
+          type: boolean
+          description: Defines whether the report data is retrieved from cache.
+        GeneratedDate:
+          type:
+          - string
+          - 'null'
+          description: The generation time of the report.
+        OperationId:
+          type: string
+          description: The Operation ID.
+          format: uuid
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+          description: 'The period.
+
+            Note: use when range type is Relative. Also please note that use period with prefix. Possible values are documented here.
+
+            Example value: "Last Business Day"
+
+            Possible values are (postfix): Business Day, Calendar day, Week, Month, Quarter, Year, Month prior Year To Date, Year To Date, Year From Date, Quarter To Date ,Quarter To Date By Year ,Year Quarter to Date
+
+            Possible prefixes are: This, Next Last'
+        Rolling:
+          type:
+          - string
+          - 'null'
+          description: 'Indicates that this relative date is rolling.
+
+            Possible values are: Yes, No'
+        Previous:
+          type:
+          - string
+          - 'null'
+          description: 'Possible values are: Yes, No'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+          description: 'Period counts
+
+            Possible values: numbers'
+        UseDates:
+          type:
+          - string
+          - 'null'
+          description: 'Possible values are: Yes, No'
+        StartDate:
+          type:
+          - string
+          - 'null'
+          description: 'Start date of the given absolute range of date.
+
+            Note: use when range type is Absolute.
+
+            Example value: 2019-01-01'
+        EndDate:
+          type:
+          - string
+          - 'null'
+          description: 'End date of the given absolute range of date.
+
+            Note: use when range type is Absolute.
+
+            Example value: 2019-12-31'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Schema:
+      type: object
+      properties:
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Cortex.Reporting.Api.Interfaces.V1_2.Body.Column'
+          description: 'List of the columns of the report.
+
+            The report structure is "flattened", which means that the rows of the matrix or ranking reports also occur as columns in this section.
+
+            In case of multi row or multi column matrixes (including rankings with secondary basis and rankings with breakdown by period) every row and column is contained here as a column.'
+        BreakdownType:
+          type:
+          - string
+          - 'null'
+          description: The type of the breakdown in case of rankings with Breakdown by Period. See attribute "HasBreakdown" for further details.
+        ReportType:
+          type:
+          - string
+          - 'null'
+          description: The type of the report (UDR, Matrix, Ranking or Ranking Drilldown).
+        RankingTableType:
+          type:
+          - string
+          - 'null'
+          description: 'The name of the table type column.
+
+            The table type column is the data which the aggregation is based on.
+
+            Only valid for ranking and matrix reports.'
+        RankingTableTypeColumnId:
+          type:
+          - string
+          - 'null'
+          description: 'The column identifier of the table type column for ranking and matrix reports.
+
+            For more information see "RankingTableType" attribute.'
+      additionalProperties: false
+      description: Schema definition.
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.Column:
+      type: object
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+          description: 'Display name of the column.
+
+            It is not intended to be used for automated processing, because more than one columns can have the same name.'
+        Type:
+          type:
+          - string
+          - 'null'
+          description: 'Data type contained in this column.
+
+            Possible values: bigint, char, smallint, double, date, int, bit, smalldatetime.'
+        Id:
+          type:
+          - string
+          - 'null'
+          description: 'The unique identifier of the column in the report.
+
+            Ths consists of the OriginalId potentially prefixed with an additional text, the "Function".'
+        Function:
+          type:
+          - string
+          - 'null'
+          description: 'If an original column is represented in a report more than once, then the Function attribute is used to distinguish the columns which have the same original column source.
+
+            Its name describes the way the original column is used in this particular case (its function).'
+        IsDecodeColumn:
+          type: boolean
+          description: 'Indicates that the column has a textual representation of the data it contains.
+
+            Any data point can have a short (= code) and a long, textual (= decode) representation.
+
+            This is not mandatory, it is possible that only one of those exists for a data point.'
+      additionalProperties: false
+    Cortex.Reporting.Api.Interfaces.V1_2.Body.ShowChangeData:
+      type: object
+      properties:
+        GroupColumnId:
+          type:
+          - string
+          - 'null'
+          description: 'The internal identifier of the x-axis dimension column which is used for comparison when showing changes.
+
+            There can be exactly two values (groups) and the "change" value of this column in the ranking report with Breakdown by Period.'
+        GroupColumnValue:
+          type:
+          - string
+          - 'null'
+          description: The GroupId of the group containing the change data in the Groups section.
+        BasisColumnId:
+          type:
+          - string
+          - 'null'
+          description: 'The internal identifier of the basis column.
+
+            This column contains the data (aggregated value) which is used for comparing the periods.'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.DrilldownKey:
+      type: object
+      properties:
+        FieldUniqueId:
+          type:
+          - string
+          - 'null'
+        FieldValue:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+        BaseFieldId:
+          type:
+          - string
+          - 'null'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+        FieldType:
+          type:
+          - string
+          - 'null'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+        PlaceHolderID:
+          type:
+          - string
+          - 'null'
+        Range:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Range'
+        OriginalValue:
+          type:
+          - string
+          - 'null'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.Column:
+      type: object
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+        Id:
+          type:
+          - string
+          - 'null'
+        Function:
+          type:
+          - string
+          - 'null'
+        IsDecodeColumn:
+          type: boolean
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.ShowChangeData:
+      type: object
+      properties:
+        GroupColumnId:
+          type:
+          - string
+          - 'null'
+        GroupColumnValue:
+          type:
+          - string
+          - 'null'
+        BasisColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.Schema:
+      type: object
+      properties:
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Column'
+        BreakdownType:
+          type:
+          - string
+          - 'null'
+        ReportType:
+          type:
+          - string
+          - 'null'
+        RankingTableType:
+          type:
+          - string
+          - 'null'
+        RankingTableTypeColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.Type:
+      enum:
+      - List
+      - Ranking
+      - Matrix
+      type: string
+    SNRLite.Interfaces.Request.Common.Function:
+      enum:
+      - Unknown
+      - Count
+      - Rank
+      - Percent
+      - WalletRank
+      - WalletPercent
+      - Amount
+      - Rowaverage
+      type: string
+    SNRLite.Interfaces.V1_1.Schema:
+      type: object
+      properties:
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Column'
+        BreakdownType:
+          type:
+          - string
+          - 'null'
+        ReportType:
+          type:
+          - string
+          - 'null'
+        RankingTableType:
+          type:
+          - string
+          - 'null'
+        RankingTableTypeColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.ExecutionInfo:
+      type: object
+      properties:
+        IsReportCached:
+          type: boolean
+        GeneratedDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.ResultSet:
+      type: object
+      properties:
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items: {}
+      additionalProperties: false
+    Dealogic.Reporting.Api.Models.ExecuteWithCriteriaApiRequest:
+      type: object
+      properties:
+        DrilldownKeys:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.Request.DrilldownKey'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria'
+        ToleranceLevel:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        KeyColumn:
+          type:
+          - string
+          - 'null'
+        ShouldAppendCriteria:
+          type: boolean
+        OverrideCriteriaIfExist:
+          type: boolean
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+        Rolling:
+          type:
+          - string
+          - 'null'
+        Previous:
+          type:
+          - string
+          - 'null'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+        UseDates:
+          type:
+          - string
+          - 'null'
+        StartDate:
+          type:
+          - string
+          - 'null'
+        EndDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.ExecuteWithDrilldownApiRequest:
+      type: object
+      properties:
+        DrilldownKeys:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria'
+        ToleranceLevel:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        KeyColumn:
+          type:
+          - string
+          - 'null'
+        ShouldAppendCriteria:
+          type: boolean
+        OverrideCriteriaIfExist:
+          type: boolean
+      additionalProperties: false
+    SNRLite.Interfaces.Request.RankingPeriodRange:
+      type: object
+      properties:
+        Repeat:
+          type: integer
+          format: int32
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.ExecutionInfo:
+      type: object
+      properties:
+        IsReportCached:
+          type: boolean
+        GeneratedDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.Criterias.Criteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.Column:
+      type: object
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+        Id:
+          type:
+          - string
+          - 'null'
+        Function:
+          type:
+          - string
+          - 'null'
+        IsDecodeColumn:
+          type: boolean
+      additionalProperties: false
+    SNRLite.Interfaces.Request.RankingBasis:
+      type: object
+      properties:
+        FieldId:
+          type:
+          - string
+          - 'null'
+        DisplayName:
+          type:
+          - string
+          - 'null'
+        AggregateId:
+          type:
+          - string
+          - 'null'
+        BreakdownByPeriod:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.BreakdownByPeriod'
+        SortDirection:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.SortDirection'
+        CodelistItems:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        CodelistGroupGuids:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.VisualizationHighlight:
+      type: object
+      properties:
+        Rows:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationHighlightId'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.ListReportSchemaOptions:
+      type: object
+      properties:
+        NumberOfRecords:
+          type: integer
+          format: int32
+        Filter:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.VisualizationHighlightId:
+      type: object
+      properties:
+        ColumnId:
+          type:
+          - string
+          - 'null'
+        ColumnValue:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.SummarySet:
+      type: object
+      properties:
+        Type:
+          type:
+          - string
+          - 'null'
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items: {}
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Request.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.VisualizationData:
+      type: object
+      properties:
+        RowBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ColumnBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        IsColumnBreakdown:
+          type: boolean
+        ShowChangeGroupId:
+          type:
+          - string
+          - 'null'
+        ShowChange:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ShowChangeData'
+        Highlight:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationHighlight'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.AggregatedReportSchemaOptions:
+      type: object
+      properties:
+        Function:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.Common.Function'
+        SortingColumn:
+          type:
+          - string
+          - 'null'
+        Apportionment:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.Common.Apportionment'
+        Grouping:
+          type: boolean
+        ShowSubtotal:
+          type: boolean
+        ShowTotal:
+          type: boolean
+        ShowTotalColumn:
+          type: boolean
+        ShowChangeReport:
+          type: boolean
+        PeriodRange:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.RankingPeriodRange'
+        PeriodLength:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.PeriodLength'
+        PeriodStart:
+          type: integer
+          format: int32
+        ShowBanksInRanking:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        NumberOfRows:
+          type: integer
+          format: int32
+      additionalProperties: false
+    SNRLite.Interfaces.Request.RankingColumn:
+      type: object
+      properties:
+        DisplayName:
+          type:
+          - string
+          - 'null'
+        FieldId:
+          type:
+          - string
+          - 'null'
+        IsDecode:
+          type: boolean
+        Function:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.Common.Function'
+        Visible:
+          type: boolean
+        ColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.ReportResult:
+      type: object
+      properties:
+        Schema:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Schema'
+        ResultSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.ResultSet'
+        SummarySet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.SummarySet'
+        VisualizationData:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationData'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.ResponseCriteria'
+        ExecutionInfo:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.ExecutionInfo'
+        ResultInfo:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.ResultInfo'
+        ReportName:
+          type:
+          - string
+          - 'null'
+        LibGuid:
+          type:
+          - string
+          - 'null'
+        ApiVersion:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.SummarySet:
+      type: object
+      properties:
+        Type:
+          type:
+          - string
+          - 'null'
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items: {}
+      additionalProperties: false
+    SNRLite.Interfaces.Request.SortDirection:
+      enum:
+      - None
+      - Ascending
+      - Descending
+      type: string
+    Dealogic.Reporting.Api.Body.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+        Rolling:
+          type:
+          - string
+          - 'null'
+        Previous:
+          type:
+          - string
+          - 'null'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+        UseDates:
+          type:
+          - string
+          - 'null'
+        StartDate:
+          type:
+          - string
+          - 'null'
+        EndDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.BreakdownByPeriod:
+      enum:
+      - None
+      - SortByMostRecent
+      - SortByTotal
+      type: string
+    Dealogic.Reporting.Api.Body.VisualizationHighlight:
+      type: object
+      properties:
+        Rows:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationHighlightId'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+        FieldType:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+        Range:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Range'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Operator:
+          type:
+          - string
+          - 'null'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.ResultInfo:
+      type: object
+      properties:
+        SearchCount:
+          type: integer
+          format: int32
+        DealCount:
+          type: integer
+          format: int32
+        TrancheCount:
+          type: integer
+          format: int32
+        BreakoutPeriod:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Request.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+        Rolling:
+          type:
+          - string
+          - 'null'
+        Previous:
+          type:
+          - string
+          - 'null'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+        UseDates:
+          type:
+          - string
+          - 'null'
+        StartDate:
+          type:
+          - string
+          - 'null'
+        EndDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.AggregatedReportSchema:
+      type: object
+      properties:
+        Rows:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.Request.RankingRow'
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.Request.RankingColumn'
+        SecondaryBasis:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.SecondaryBasis'
+        Basis:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.RankingBasis'
+        Options:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.AggregatedReportSchemaOptions'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Request.Criterias.Criteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.SecondaryBasis:
+      type: object
+      properties:
+        DisplayName:
+          type:
+          - string
+          - 'null'
+        FieldId:
+          type:
+          - string
+          - 'null'
+        BreakdownByPeriod:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.BreakdownByPeriod'
+        SortDirection:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.SortDirection'
+        Basis:
+          type:
+          - string
+          - 'null'
+        AggregateId:
+          type:
+          - string
+          - 'null'
+        OverwriteColumnsWithSecondaryBasis:
+          type: boolean
+        SortColumn:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.ReportColumn:
+      type: object
+      properties:
+        FieldId:
+          type:
+          - string
+          - 'null'
+        IsDecode:
+          type: boolean
+        DisplayName:
+          type:
+          - string
+          - 'null'
+        SortMethod:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.ReportColumnSortMethod'
+        SortPos:
+          type: integer
+          format: int32
+        ColumnId:
+          type:
+          - string
+          - 'null'
+        MeasureCode:
+          type:
+          - string
+          - 'null'
+        CustomAction:
+          type:
+          - string
+          - 'null'
+        Expression:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.PeriodLength:
+      enum:
+      - Year
+      - YearToDate
+      - Quarter
+      type: string
+    SNRLite.Interfaces.V1_2.Request.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+        Range:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Range'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Operator:
+          type:
+          - string
+          - 'null'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+        FieldType:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Body.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.UserBasis:
+      enum:
+      - Deal
+      - Tranche
+      type: string
+    SNRLite.Interfaces.Request.ReportDefinition:
+      type: object
+      properties:
+        Type:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.Type'
+        UserBasis:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.UserBasis'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Request.Criterias.Criteria'
+        AggregatedSchema:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.AggregatedReportSchema'
+        ListSchema:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.ListReportSchema'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.RankingRow:
+      type: object
+      properties:
+        FieldId:
+          type:
+          - string
+          - 'null'
+        IsDecode:
+          type: boolean
+        Parent:
+          type: boolean
+        DisplayName:
+          type:
+          - string
+          - 'null'
+        Filter:
+          type:
+          - string
+          - 'null'
+        ColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Reporting.Api.Interfaces.ValidDatesType:
+      enum:
+      - EndOfDay
+      - Latest
+      type: string
+    SNRLite.Interfaces.Request.ReportColumnSortMethod:
+      enum:
+      - None
+      - Ascending
+      - Descending
+      type: string
+    Dealogic.Reporting.Api.Body.VisualizationData:
+      type: object
+      properties:
+        RowBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ColumnBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ShowChange:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.ShowChangeData'
+        Highlight:
+          $ref: '#/components/schemas/Dealogic.Reporting.Api.Body.VisualizationHighlight'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.ReportResultV1_1:
+      type: object
+      properties:
+        LibGuid:
+          type:
+          - string
+          - 'null'
+        Schema:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Schema'
+        ResultSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ResultSet'
+        SummarySet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.SummarySet'
+        VisualizationData:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.VisualizationData'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.Criterias.Criteria'
+        ExecutionInfo:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_1.ExecutionInfo'
+        ReportName:
+          type:
+          - string
+          - 'null'
+        Summary:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: string
+        ApiVersion:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.ShowChangeData:
+      type: object
+      properties:
+        GroupColumnId:
+          type:
+          - string
+          - 'null'
+        GroupColumnValue:
+          type:
+          - string
+          - 'null'
+        BasisColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.ListReportSchema:
+      type: object
+      properties:
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.Request.ReportColumn'
+        Options:
+          $ref: '#/components/schemas/SNRLite.Interfaces.Request.ListReportSchemaOptions'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.ResultSet:
+      type: object
+      properties:
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items: {}
+      additionalProperties: false
+    SNRLite.Interfaces.V1_1.VisualizationHighlightId:
+      type: object
+      properties:
+        ColumnId:
+          type:
+          - string
+          - 'null'
+        ColumnValue:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.Request.Common.Apportionment:
+      enum:
+      - Equal
+      - FullValue
+      type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}
+x-refined-from:
+- dealogic-cortex-reporting-openapi.json
+- dealogic-reporting-openapi.json

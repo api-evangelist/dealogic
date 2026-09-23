@@ -1,0 +1,196 @@
+openapi: 3.2.0
+info:
+  title: Dealogic Analytics Spac Spac Admin API
+  version: '1.0'
+servers:
+- url: /
+  description: Dealogic Analytics Spac API
+security:
+- oauth2: []
+tags:
+- name: Spac Admin
+paths:
+  /api/SpacAdmin/EnsureDbCreated:
+    post:
+      tags:
+      - Spac Admin
+      parameters:
+      - name: api-version
+        in: query
+        description: The requested API version
+        required: true
+        schema:
+          type: string
+          default: '1.0'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+      summary: Create api spac admin ensure db created
+      x-summary-source: derived
+      operationId: postApiSpacAdminEnsureDbCreated
+      x-operation-id-source: derived
+  /api/SpacAdmin/MigrateSpacDatabase:
+    post:
+      tags:
+      - Spac Admin
+      parameters:
+      - name: api-version
+        in: query
+        description: The requested API version
+        required: true
+        schema:
+          type: string
+          default: '1.0'
+      responses:
+        '200':
+          description: Success
+      summary: Create api spac admin migrate spac database
+      x-summary-source: derived
+      operationId: postApiSpacAdminMigrateSpacDatabase
+      x-operation-id-source: derived
+  /api/SpacAdmin/MigrateUsageDatabase:
+    post:
+      tags:
+      - Spac Admin
+      parameters:
+      - name: api-version
+        in: query
+        description: The requested API version
+        required: true
+        schema:
+          type: string
+          default: '1.0'
+      responses:
+        '200':
+          description: Success
+      summary: Create api spac admin migrate usage database
+      x-summary-source: derived
+      operationId: postApiSpacAdminMigrateUsageDatabase
+      x-operation-id-source: derived
+  /api/SpacAdmin/UserInfo:
+    get:
+      tags:
+      - Spac Admin
+      parameters:
+      - name: api-version
+        in: query
+        description: The requested API version
+        required: true
+        schema:
+          type: string
+          default: '1.0'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfoWithToggles'
+      summary: Get api spac admin user info
+      x-summary-source: derived
+      operationId: getApiSpacAdminUserInfo
+      x-operation-id-source: derived
+components:
+  schemas:
+    UserInfoWithToggles:
+      type: object
+      properties:
+        userInfo:
+          $ref: '#/components/schemas/UserInfo'
+        toggles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+      additionalProperties: false
+    GroupItem:
+      type: object
+      properties:
+        groupType:
+          type:
+          - string
+          - 'null'
+        groupName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    UserInfo:
+      type: object
+      properties:
+        userCode:
+          type:
+          - string
+          - 'null'
+        impersonatorUserCode:
+          type:
+          - string
+          - 'null'
+        emailAddress:
+          type:
+          - string
+          - 'null'
+        givenName:
+          type:
+          - string
+          - 'null'
+        familyName:
+          type:
+          - string
+          - 'null'
+        userGuid:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        impersonatorUserGuid:
+          type:
+          - string
+          - 'null'
+          format: uuid
+        clients:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        impersonatorClients:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        groups:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GroupItem'
+        isInactive:
+          type: boolean
+        isDealogicUser:
+          type: boolean
+        canImpersonate:
+          type: boolean
+        isServiceUser:
+          type: boolean
+        isLoggedInWithDefaultIdentityProvider:
+          type: boolean
+          readOnly: true
+        isImpersonating:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}

@@ -1,0 +1,5038 @@
+openapi: 3.2.0
+info:
+  title: Dealogic Analytics Spac Entity Navigation API
+  version: '2.0'
+servers:
+- url: /
+  description: Dealogic Analytics Spac API
+security:
+- oauth2: []
+tags:
+- name: Entity Navigation
+paths:
+  /odata/Listing(ListingId={keyListingId},SpacEntryId={keySpacEntryId})/OwnershipData:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyListingId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OwnershipDataEntry'
+      summary: Get odata listing(listing id={key listing id},spac entry id={key spac entry…
+      x-summary-source: derived
+      operationId: getOdataListing(ListingId={keyListingId},SpacEntryId={keySpacEntryId})OwnershipData
+      x-operation-id-source: derived
+  /odata/RelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId})/NamedPIPEInvestors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NamedPIPEInvestor'
+      summary: Get odata related ecm deal(id={key id},spac entry id={key spac entry id}) named…
+      x-summary-source: derived
+      operationId: getOdataRelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId})NamedPIPEInvestors
+      x-operation-id-source: derived
+  /odata/RelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId})/Syndicate:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedEcmDealBank'
+      summary: Get odata related ecm deal(id={key id},spac entry id={key spac entry id})…
+      x-summary-source: derived
+      operationId: getOdataRelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId})Syndicate
+      x-operation-id-source: derived
+  /odata/RelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId}):
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedEcmDeal'
+      summary: Get odata related ecm deal(id={key id},spac entry id={key spac entry id})
+      x-summary-source: derived
+      operationId: getOdataRelatedEcmDeal(Id={keyId},SpacEntryId={keySpacEntryId})
+      x-operation-id-source: derived
+  /odata/RelatedEcmSyndicate(EcmDealMasterId={keyEcmDealMasterId},CompanyMasterId={keyCompanyMasterId}):
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyEcmDealMasterId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keyCompanyMasterId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedEcmDealBank'
+      summary: Get odata related ecm syndicate(ecm deal master id={key ecm deal master…
+      x-summary-source: derived
+      operationId: getOdataRelatedEcmSyndicate(EcmDealMasterId={keyEcmDealMasterId},CompanyMasterId={keyCompanyMasterId})
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoPromoteScheduleTriggers:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpoPromoteScheduleTrigger'
+      summary: Get odata spac entry({key}) ipo promote schedule triggers
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoPromoteScheduleTriggers
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyRedemptions:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyRedemption'
+      summary: Get odata spac entry({key}) company redemptions
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyRedemptions
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaSponsorForfeitTypes:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaSponsorForfeitType'
+      summary: Get odata spac entry({key}) mna sponsor forfeit types
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaSponsorForfeitTypes
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/WithdrawnMnaDeals:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WithdrawnMnaDeal'
+      summary: Get odata spac entry({key}) withdrawn mna deals
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})WithdrawnMnaDeals
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyCornerstoneInvestors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyCornerstoneInvestor'
+      summary: Get odata spac entry({key}) company cornerstone investors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyCornerstoneInvestors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/RelatedNews:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsEntry'
+      summary: Get odata spac entry({key}) related news
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})RelatedNews
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaEarnoutTargetTriggers:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaEarnoutTargetTrigger'
+      summary: Get odata spac entry({key}) mna earnout target triggers
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaEarnoutTargetTriggers
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaEarnoutSponsorTriggers:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaEarnoutSponsorTrigger'
+      summary: Get odata spac entry({key}) mna earnout sponsor triggers
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaEarnoutSponsorTriggers
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyS1Shareholders:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyS1Shareholder'
+      summary: Get odata spac entry({key}) company s1 shareholders
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyS1Shareholders
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaInvPresFinancialsEBITDAs:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaInvPresFinancialsEBITDA'
+      summary: Get odata spac entry({key}) mna inv pres financials ebitdas
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaInvPresFinancialsEBITDAs
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaInvPresFinancialsRevenues:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaInvPresFinancialsRevenue'
+      summary: Get odata spac entry({key}) mna inv pres financials revenues
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaInvPresFinancialsRevenues
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/Listings:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Listing'
+      summary: Get odata spac entry({key}) listings
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})Listings
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyManagementAffiliations:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyManagementAffiliationsEntry'
+      summary: Get odata spac entry({key}) company management affiliations
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyManagementAffiliations
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyManagement:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyManagementEntry'
+      summary: Get odata spac entry({key}) company management
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyManagement
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoLockups:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpoLockup'
+      summary: Get odata spac entry({key}) ipo lockups
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoLockups
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoAuditors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpoAuditor'
+      summary: Get odata spac entry({key}) ipo auditors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoAuditors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoAttorneys:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpoAttorney'
+      summary: Get odata spac entry({key}) ipo attorneys
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoAttorneys
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaFinancialSponsors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaFinancialSponsor'
+      summary: Get odata spac entry({key}) mna financial sponsors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaFinancialSponsors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoFinancialSponsors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpoFinancialSponsor'
+      summary: Get odata spac entry({key}) ipo financial sponsors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoFinancialSponsors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/RelatedEcmDeals:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedEcmDeal'
+      summary: Get odata spac entry({key}) related ecm deals
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})RelatedEcmDeals
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IntendedTargetSpecialisedIndustries:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SpecialisedIndustry'
+      summary: Get odata spac entry({key}) intended target specialised industries
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IntendedTargetSpecialisedIndustries
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaTargetSpecialisedIndustries:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SpecialisedIndustry'
+      summary: Get odata spac entry({key}) mna target specialised industries
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaTargetSpecialisedIndustries
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoExchangeLocation:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) ipo exchange location
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoExchangeLocation
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyIncorporationLocation:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) company incorporation location
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyIncorporationLocation
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/CompanyBusinessLocation:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) company business location
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})CompanyBusinessLocation
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaTargetIndustry:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DealogicIndustry'
+      summary: Get odata spac entry({key}) mna target industry
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaTargetIndustry
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaTargetNationality:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) mna target nationality
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaTargetNationality
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaTargetAdvisors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaTargetAdvisor'
+      summary: Get odata spac entry({key}) mna target advisors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaTargetAdvisors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaAcquirorAdvisors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaAcquirorAdvisor'
+      summary: Get odata spac entry({key}) mna acquiror advisors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaAcquirorAdvisors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IpoSyndicate:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bank'
+      summary: Get odata spac entry({key}) ipo syndicate
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IpoSyndicate
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/MnaDivestors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MnaDivestor'
+      summary: Get odata spac entry({key}) mna divestors
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})MnaDivestors
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IntendedTargetParentIndustries:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DealogicIndustry'
+      summary: Get odata spac entry({key}) intended target parent industries
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IntendedTargetParentIndustries
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IntendedTargetIndustries:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DealogicIndustry'
+      summary: Get odata spac entry({key}) intended target industries
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IntendedTargetIndustries
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IntendedTargetParentLocations:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) intended target parent locations
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IntendedTargetParentLocations
+      x-operation-id-source: derived
+  /odata/SpacEntry({key})/IntendedTargetLocations:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
+      summary: Get odata spac entry({key}) intended target locations
+      x-summary-source: derived
+      operationId: getOdataSpacEntry({key})IntendedTargetLocations
+      x-operation-id-source: derived
+  /odata/SpacEntry/{key}:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpacEntry'
+      summary: Get odata spac entry by key
+      x-summary-source: derived
+      operationId: getOdataSpacEntryByKey
+      x-operation-id-source: derived
+  /odata/WithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId})/TargetAdvisors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WithdrawnMnaTargetAdvisor'
+      summary: Get odata withdrawn mna deal(id={key id},spac entry id={key spac entry id})…
+      x-summary-source: derived
+      operationId: getOdataWithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId})TargetAdvisors
+      x-operation-id-source: derived
+  /odata/WithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId})/AcquirorAdvisors:
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5. Please note you can get the all depth expand expression via Spac Reader API endpoint.
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: 'Restricts the set of items returned. The maximum number of expressions is 100. The allowed functions are: allfunctions.'
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        description: Specifies the order in which items are returned. The maximum number of expressions is 5.
+        schema:
+          type: string
+      - name: $apply
+        in: query
+        description: Sequence of set transformations for the aggregation behaviour.
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Limits the number of items returned from a collection.
+        schema:
+          type: integer
+          format: int32
+          default: '15'
+      - name: $skip
+        in: query
+        description: Excludes the specified number of items of the queried collection from the result.
+        schema:
+          type: integer
+          format: int32
+      - name: $count
+        in: query
+        description: Indicates whether the total count of items within a collection are returned in the result.
+        schema:
+          type: boolean
+          default: 'false'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WithdrawnMnaAcquirorAdvisor'
+      summary: Get odata withdrawn mna deal(id={key id},spac entry id={key spac entry id})…
+      x-summary-source: derived
+      operationId: getOdataWithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId})AcquirorAdvisors
+      x-operation-id-source: derived
+  /odata/WithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId}):
+    get:
+      tags:
+      - Entity Navigation
+      parameters:
+      - name: keyId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: keySpacEntryId
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: api-version
+        in: query
+        description: The requested API version
+        schema:
+          type: string
+          default: '2.0'
+      - name: $select
+        in: query
+        description: Limits the properties returned in the result.
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        description: Indicates the related entities to be represented inline. The maximum depth is 5.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WithdrawnMnaDeal'
+      summary: Get odata withdrawn mna deal(id={key id},spac entry id={key spac entry id})
+      x-summary-source: derived
+      operationId: getOdataWithdrawnMnaDeal(Id={keyId},SpacEntryId={keySpacEntryId})
+      x-operation-id-source: derived
+components:
+  schemas:
+    MnaAcquirorAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    CompanyCornerstoneInvestor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    CompanyManagementAffiliationsEntry:
+      type: object
+      properties:
+        fullName:
+          type:
+          - string
+          - 'null'
+        affiliatedEntityName:
+          type:
+          - string
+          - 'null'
+        affiliatedEntityId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    CompanyManagementEntry:
+      type: object
+      properties:
+        fullName:
+          type:
+          - string
+          - 'null'
+        position:
+          type:
+          - string
+          - 'null'
+        biography:
+          type:
+          - string
+          - 'null'
+        age:
+          type:
+          - integer
+          - 'null'
+          format: int32
+      additionalProperties: false
+    SpecialisedIndustry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    MnaSponsorForfeitType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaTargetAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaEarnoutTargetTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        details:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    CompanyRedemption:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+        shares:
+          type:
+          - number
+          - 'null'
+          format: double
+        price:
+          type:
+          - number
+          - 'null'
+          format: double
+        event:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    RelatedEcmDeal:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        filingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        pricingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        subTypeCode:
+          type:
+          - string
+          - 'null'
+        subTypeName:
+          type:
+          - string
+          - 'null'
+        securityTypeCode:
+          type:
+          - string
+          - 'null'
+        securityTypeName:
+          type:
+          - string
+          - 'null'
+        currencyCode:
+          type:
+          - string
+          - 'null'
+        currencyName:
+          type:
+          - string
+          - 'null'
+        totalSharesInitialExcludingOverallotment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        totalSharesOfferedExcludingOverallotment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        totalOverallotmentSharesExercised:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        offerPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalValueInitialExcludingOverallotmentUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalValueExcludingOverallotmentUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        overallotmentValueExercisedUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        syndicate:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RelatedEcmDealBank'
+        namedPIPEInvestors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NamedPIPEInvestor'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    NamedPIPEInvestor:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SpacEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        lastChangedDateUtc:
+          type: string
+          format: date-time
+        companyId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoId:
+          type: integer
+          format: int64
+        mnaId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        companyAcquisitionExtensionPeriodMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        companyAcquisitionLimitDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        companyAcquisitionPeriodMonths:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        companyBusinessLocation:
+          $ref: '#/components/schemas/Location'
+        companyBusinessNationality:
+          type:
+          - string
+          - 'null'
+        companyCIK:
+          type:
+          - string
+          - 'null'
+        companyCornerstoneInvestorsBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companyCornerstoneInvestorsIPOSharesPercentage:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyCornerstoneInvestorsNote:
+          type:
+          - string
+          - 'null'
+        companyCornerstoneInvestorsSourceURL:
+          type:
+          - string
+          - 'null'
+        companyCornerstoneInvestorsTotalShares:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyCornerstoneInvestorsTotalValueUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyCrescentTermThresholdUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyCrescentTermTresholdBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companyCrescentTermTresholdSourceURL:
+          type:
+          - string
+          - 'null'
+        companyEscrowValueUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyEstimatedCashperShareAtLiquidation:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyEstimatedTrustAmountAtLiquidation:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyExtensionEndDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        companyIncorporationNationality:
+          type:
+          - string
+          - 'null'
+        companyInvestorPresentationLink:
+          type:
+          - string
+          - 'null'
+        companyIsAcquisitionCompleted:
+          type: boolean
+        companyIsLiquidated:
+          type:
+          - boolean
+          - 'null'
+        companyLatestReportedTrustReportDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        companyLatestReportedTrustSourceURL:
+          type:
+          - string
+          - 'null'
+        companyLatestReportedTrustUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyLegalName:
+          type:
+          - string
+          - 'null'
+        companyLiquidatedDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        companyManagementTeam:
+          type:
+          - string
+          - 'null'
+        companyMergerAgreementURL:
+          type:
+          - string
+          - 'null'
+        companyMinimumTargetValuePercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyPIPEInvestorsSourceURL:
+          type:
+          - string
+          - 'null'
+        companyPublicSharesAfterRedemption:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        companyRedeemedShares:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        companyRedeemedSharesPercentage:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyRedeemedValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyRedemptionBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companyRedemptionNote:
+          type:
+          - string
+          - 'null'
+        companyRedemptionSourceURL:
+          type:
+          - string
+          - 'null'
+        companyS1ShareholdersReportURL:
+          type:
+          - string
+          - 'null'
+        companySharesRedemptionPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorAffiliateBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companySponsorAffiliateId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        companySponsorAffiliateLegalName:
+          type:
+          - string
+          - 'null'
+        companySponsorAffiliateSourceURL:
+          type:
+          - string
+          - 'null'
+        companySponsorAtRiskBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companySponsorAtRiskCapitalShareQuantity:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        companySponsorAtRiskCapitalType:
+          type:
+          - string
+          - 'null'
+        companySponsorAtRiskCapitalValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorAtRiskPurchasePriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorAtRiskSourceURL:
+          type:
+          - string
+          - 'null'
+        companySponsorPromoteBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companySponsorPromoteCornerstoneGiveUpPercentage:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorPromoteCornerstoneGiveUpPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorPromoteCornerstoneGiveUpShares:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        companySponsorPromotePercentage:
+          type:
+          - number
+          - 'null'
+          format: double
+        companySponsorPromoteShares:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        companySponsorPromoteSourceURL:
+          type:
+          - string
+          - 'null'
+        companyTrustValueAfterRedemption:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyWarrantRedemptionBrowsableURL:
+          type:
+          - string
+          - 'null'
+        companyWarrantRedemptionPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyWarrantRedemptionSourceURL:
+          type:
+          - string
+          - 'null'
+        companyWarrantRedemptionTerms:
+          type:
+          - string
+          - 'null'
+        ipoCancelledDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoComposition:
+          type:
+          - string
+          - 'null'
+        ipoCurrencyCode:
+          type:
+          - string
+          - 'null'
+        ipoCurrencyName:
+          type:
+          - string
+          - 'null'
+        ipoDeferredFeePercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoDeferredFeePerShare:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoExchange:
+          type:
+          - string
+          - 'null'
+        ipoExchangeNationality:
+          type:
+          - string
+          - 'null'
+        ipoInitialExercisePrice:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoExpectedDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoFilingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoFirstTradeDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoFPABrowsableURL:
+          type:
+          - string
+          - 'null'
+        ipoFPACommittedAmountUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoFPANote:
+          type:
+          - string
+          - 'null'
+        ipoFPAOptionalAmountUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoFPASourceURL:
+          type:
+          - string
+          - 'null'
+        ipoFPAUsedAmountUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoGrossFeePercentDisclosed:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoInitialExercisePriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoInitialMidPointRange:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoIsFPAgreed:
+          type:
+          - boolean
+          - 'null'
+        ipoOfferPrice:
+          type:
+          - number
+          - 'null'
+          description: Using IPO Currency
+          format: double
+        ipoOfferPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoOverallotmentExercisedDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoOverallotmentValueAuthorisedInitialUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoOverallotmentValueExercisedUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoPricingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoPrimarySharesOffered:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoRevisionDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoSecRegistrationNumber:
+          type:
+          - string
+          - 'null'
+        ipoSecurityTypeCode:
+          type:
+          - string
+          - 'null'
+        ipoSecurityTypeName:
+          type:
+          - string
+          - 'null'
+        ipoSettlementDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoSubTypeCode:
+          type:
+          - string
+          - 'null'
+        ipoSubTypeName:
+          type:
+          - string
+          - 'null'
+        ipoTotalSharesOffered:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalOverallotmentSharesAuthorised:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalOverallotmentSharesAuthorisedInitial:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalOverallotmentSharesExercised:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalSharesInitialExcludingOverallotment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalSharesOfferedExcludingOverallotment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ipoTotalValueExcludingOverallotmentUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoTotalValueInitialExcludingOverallotmentUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoTotalValueUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoTradeDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        ipoUnitSeparationDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        ipoUnitSeparationDaysBrowsableURL:
+          type:
+          - string
+          - 'null'
+        ipoUnitSeparationDaysSourceURL:
+          type:
+          - string
+          - 'null'
+        ipoWarrantCover:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoWarrantEntitlement:
+          type:
+          - string
+          - 'null'
+        mnaAnnouncementDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaBackstopMaxAmountUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaBackstopUsedAmountUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaCancelledDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaCashConsiderationUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaCommonShareConsiderationUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaCompletionDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaEarnoutSponsorNote:
+          type:
+          - string
+          - 'null'
+        mnaEarnoutSponsorShares:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaEarnoutTargetNote:
+          type:
+          - string
+          - 'null'
+        mnaEarnoutTargetShares:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaEarnoutTradingDays:
+          type:
+          - string
+          - 'null'
+        mnaExpectedCloseDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaInvPresProFormaOwnershipFPAPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresProFormaOwnershipOtherPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresProFormaOwnershipPIPEPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresProFormaOwnershipSPACInvestorsPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresProFormaOwnershipSponsorPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresProFormaOwnershipTargetPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesBalanceSheetCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesCurrency:
+          type:
+          - string
+          - 'null'
+        mnaInvPresSourcesFPACash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesOtherCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesPIPECash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesRolloverDebt:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesSponsorEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesTargetEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresSourcesTrustCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseCashToBalanceSheet:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseCashToSeller:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseCurrency:
+          type:
+          - string
+          - 'null'
+        mnaInvPresUseOtherCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseRepayDebt:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseRolloverDebt:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseSponsorEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseTargetEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresUseTransactionExpenses:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresValuationCurrency:
+          type:
+          - string
+          - 'null'
+        mnaInvPresValuationEnterpriseValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaInvPresValuationEquityValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaLockupPIPEDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupPIPEMinimumDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupPIPEPriceHurdle:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaLockupSponsorDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupSponsorMinimumDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupSponsorPriceHurdle:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaLockupTargetDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupTargetMinimumDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaLockupTargetPriceHurdle:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaMinimumCashAtClosing:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mnaNewShares:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaOtherConsiderationUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaRecordDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaRecordDateBrowsableURL:
+          type:
+          - string
+          - 'null'
+        mnaRecordDateSourceURL:
+          type:
+          - string
+          - 'null'
+        mnaShareholderVoteDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mnaShareholderVoteDateBrowsableURL:
+          type:
+          - string
+          - 'null'
+        mnaShareholderVoteDateSourceURL:
+          type:
+          - string
+          - 'null'
+        mnaSponsorForfeitNote:
+          type:
+          - string
+          - 'null'
+        mnaSponsorForfeitSharesAtAnnouncement:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaSponsorForfeitSharesAtClose:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaSponsorForfeitWarrantsAtAnnouncement:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaSponsorForfeitWarrantsAtClose:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaSponsorWarrantAdjustment:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaSponsorWarrantAdjustmentDetails:
+          type:
+          - string
+          - 'null'
+        mnaTargetId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        mnaTargetIndustry:
+          $ref: '#/components/schemas/DealogicIndustry'
+        mnaTargetName:
+          type:
+          - string
+          - 'null'
+        mnaTargetNetDebtUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaValueAtAnnouncementUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaValueRevisedUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaValueUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        mnaVoteResultsFor:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaVoteResultsAgainst:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaVoteResultsAbstain:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaVoteResultsNonVotes:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        spacFamily:
+          type:
+          - string
+          - 'null'
+        spacStatus:
+          type:
+          - string
+          - 'null'
+        companyManagement:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CompanyManagementEntry'
+        companyManagementAffiliations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CompanyManagementAffiliationsEntry'
+        companyS1Shareholders:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CompanyS1Shareholder'
+        intendedTargetSpecialisedIndustries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SpecialisedIndustry'
+        ipoAttorneys:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IpoAttorney'
+        ipoAuditors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IpoAuditor'
+        ipoFinancialSponsors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IpoFinancialSponsor'
+        ipoLockups:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IpoLockup'
+        ipoSyndicate:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Bank'
+        listings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Listing'
+        mnaDivestors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaDivestor'
+        mnaEarnoutSponsorTriggers:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaEarnoutSponsorTrigger'
+        mnaEarnoutTargetTriggers:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaEarnoutTargetTrigger'
+        mnaFinancialSponsors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaFinancialSponsor'
+        mnaInvPresFinancialsEBITDAs:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaInvPresFinancialsEBITDA'
+        mnaInvPresFinancialsRevenues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaInvPresFinancialsRevenue'
+        mnaTargetAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaTargetAdvisor'
+        mnaSponsorForfeitTypes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaSponsorForfeitType'
+        relatedEcmDeals:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RelatedEcmDeal'
+        relatedNews:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewsEntry'
+        companyCornerstoneInvestors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CompanyCornerstoneInvestor'
+        withdrawnMnaDeals:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/WithdrawnMnaDeal'
+        companyRedemptions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CompanyRedemption'
+        ipoPromoteScheduleTriggers:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IpoPromoteScheduleTrigger'
+        companyIncorporationLocation:
+          $ref: '#/components/schemas/Location'
+        ipoExchangeLocation:
+          $ref: '#/components/schemas/Location'
+        mnaTargetNationality:
+          $ref: '#/components/schemas/Location'
+        intendedTargetIndustries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DealogicIndustry'
+        intendedTargetLocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Location'
+        intendedTargetParentIndustries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DealogicIndustry'
+        intendedTargetParentLocations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Location'
+        mnaAcquirorAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MnaAcquirorAdvisor'
+        mnaTargetSpecialisedIndustries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SpecialisedIndustry'
+      additionalProperties: false
+    Listing:
+      type: object
+      properties:
+        listingId:
+          type: integer
+          format: int64
+        instrumentId:
+          type: integer
+          format: int64
+        isin:
+          type:
+          - string
+          - 'null'
+        sedol:
+          type:
+          - string
+          - 'null'
+        ticker:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - string
+          - 'null'
+        exchangeName:
+          type:
+          - string
+          - 'null'
+        exchangeNationality:
+          type:
+          - string
+          - 'null'
+        latestPriceDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        latestClosingPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+        latestVolume:
+          type:
+          - number
+          - 'null'
+          format: double
+        latestPriceCurrency:
+          type:
+          - string
+          - 'null'
+        firstDayPriceChangePercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        latestPriceChangePercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        yieldToLiquidationCurrent:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+        marketData:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/MarketDataEntry'
+        ownershipData:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OwnershipDataEntry'
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    IpoAuditor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaDivestor:
+      type: object
+      properties:
+        mnaMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        nationality:
+          $ref: '#/components/schemas/Location'
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    IpoLockup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        expiryDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        stakeholderEntityName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    CompanyS1Shareholder:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        shares:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    MnaInvPresFinancialsRevenue:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    MnaEarnoutSponsorTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        details:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    WithdrawnMnaAcquirorAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        withdrawnMnaDealId:
+          type: integer
+          format: int64
+        withdrawnMnaDealSpacEntryId:
+          type: integer
+          format: int64
+        withdrawnMnaDeal:
+          $ref: '#/components/schemas/WithdrawnMnaDeal'
+      additionalProperties: false
+    OwnershipDataEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        instrumentId:
+          type: integer
+          format: int64
+        listingId:
+          type: integer
+          format: int64
+        investorId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        investorName:
+          type:
+          - string
+          - 'null'
+        investorType:
+          type:
+          - string
+          - 'null'
+        investorAssetsUnderManagementUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        position:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        reportDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        positionChange:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+        listing:
+          $ref: '#/components/schemas/Listing'
+      additionalProperties: false
+    MnaInvPresFinancialsEBITDA:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    WithdrawnMnaTargetAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        withdrawnMnaDealId:
+          type: integer
+          format: int64
+        withdrawnMnaDealSpacEntryId:
+          type: integer
+          format: int64
+        withdrawnMnaDeal:
+          $ref: '#/components/schemas/WithdrawnMnaDeal'
+      additionalProperties: false
+    DealogicIndustry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        groupHeadIndustryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentIndustry:
+          $ref: '#/components/schemas/DealogicIndustry'
+      additionalProperties: false
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        parentLocationId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentLocation:
+          $ref: '#/components/schemas/Location'
+      additionalProperties: false
+    WithdrawnMnaDeal:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        announcementDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        cancelledDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        targetId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        targetName:
+          type:
+          - string
+          - 'null'
+        valueAtAnnouncementUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        acquirorAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/WithdrawnMnaAcquirorAdvisor'
+        targetAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/WithdrawnMnaTargetAdvisor'
+        spacEntryId:
+          type: integer
+          format: int64
+        targetIndustry:
+          $ref: '#/components/schemas/DealogicIndustry'
+        targetNationality:
+          $ref: '#/components/schemas/Location'
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    IpoPromoteScheduleTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        vestingPercent:
+          type: number
+          format: double
+        triggerType:
+          type:
+          - string
+          - 'null'
+        triggerValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    MarketDataEntry:
+      type: object
+      properties:
+        listingId:
+          type: integer
+          format: int64
+        reportDate:
+          type: string
+          format: date-time
+        lastTradeMidPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        volume:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+        listing:
+          $ref: '#/components/schemas/Listing'
+      additionalProperties: false
+    RelatedEcmDealBank:
+      type: object
+      properties:
+        ecmDealMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        companyParentMasterId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        parentRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentRoleCode:
+          type:
+          - string
+          - 'null'
+        parentRoleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        relatedEcmDeal:
+          $ref: '#/components/schemas/RelatedEcmDeal'
+      additionalProperties: false
+    IpoAttorney:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        attorneyRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        issuerEntityName:
+          type:
+          - string
+          - 'null'
+        attorneyRoleCode:
+          type:
+          - string
+          - 'null'
+        attorneyRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    Bank:
+      type: object
+      properties:
+        ecmDealMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        companyParentMasterId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        parentRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentRoleCode:
+          type:
+          - string
+          - 'null'
+        parentRoleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaFinancialSponsor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        side:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    IpoFinancialSponsor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    NewsEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        headline:
+          type:
+          - string
+          - 'null'
+        body:
+          type:
+          - string
+          - 'null'
+        publishDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        url:
+          type:
+          - string
+          - 'null'
+        product:
+          type:
+          - string
+          - 'null'
+        relatedSpacEntries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}

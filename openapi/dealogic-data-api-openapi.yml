@@ -1,0 +1,1675 @@
+openapi: 3.2.0
+info:
+  title: Dealogic Data API
+  version: 1.0.0.0
+  description: 'Operations tagged Data across 3 of this provider''s published API definitions: dealogic-analytics-bank-openapi.json, dealogic-analytics-company-openapi.json, dealogic-analytics-sponsor-openapi.json. Each path carries the servers of the definition it was published in.'
+security:
+- oauth2: []
+tags:
+- name: Data
+paths:
+  /{bankIdentifier}/BankRanking:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier bank ranking
+      x-summary-source: derived
+      operationId: getByBankIdentifierBankRanking
+      x-operation-id-source: derived
+  /{bankIdentifier}/Regions/Ranking:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier regions ranking
+      x-summary-source: derived
+      operationId: getByBankIdentifierRegionsRanking
+      x-operation-id-source: derived
+  /{bankIdentifier}/Industry/Ranking:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier industry ranking
+      x-summary-source: derived
+      operationId: getByBankIdentifierIndustryRanking
+      x-operation-id-source: derived
+  /{bankIdentifier}/Products/Ranking:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier products ranking
+      x-summary-source: derived
+      operationId: getByBankIdentifierProductsRanking
+      x-operation-id-source: derived
+  /{bankIdentifier}/Deals/TopDeals:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier deals top deals
+      x-summary-source: derived
+      operationId: getByBankIdentifierDealsTopDeals
+      x-operation-id-source: derived
+  /{bankIdentifier}/Deals/RecentCompleted:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier deals recent completed
+      x-summary-source: derived
+      operationId: getByBankIdentifierDealsRecentCompleted
+      x-operation-id-source: derived
+  /{bankIdentifier}/Deals/Pipeline:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier deals pipeline
+      x-summary-source: derived
+      operationId: getByBankIdentifierDealsPipeline
+      x-operation-id-source: derived
+  /{bankIdentifier}/Clients/TopFeePayers:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier clients top fee payers
+      x-summary-source: derived
+      operationId: getByBankIdentifierClientsTopFeePayers
+      x-operation-id-source: derived
+  /{bankIdentifier}/Clients/TopLendingCommitments:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier clients top lending commitments
+      x-summary-source: derived
+      operationId: getByBankIdentifierClientsTopLendingCommitments
+      x-operation-id-source: derived
+  /{bankIdentifier}/Clients/TopLendingByRegions:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier clients top lending by regions
+      x-summary-source: derived
+      operationId: getByBankIdentifierClientsTopLendingByRegions
+      x-operation-id-source: derived
+  /{bankIdentifier}/Clients/TopLendingByIndustries:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier clients top lending by industries
+      x-summary-source: derived
+      operationId: getByBankIdentifierClientsTopLendingByIndustries
+      x-operation-id-source: derived
+  /{bankIdentifier}/Sponsors/FinancialSponsorsRanking:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: bankIdentifier
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by bank identifier sponsors financial sponsors ranking
+      x-summary-source: derived
+      operationId: getByBankIdentifierSponsorsFinancialSponsorsRanking
+      x-operation-id-source: derived
+  /CheckBankProfiles:
+    post:
+      tags:
+      - Data
+      summary: Checks the existence of Bank Profiles for the specified bankIdentifiers
+      parameters:
+      - name: region
+        in: query
+        description: ''
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      - name: product
+        in: query
+        description: ''
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Product'
+      - name: dateType
+        in: query
+        description: ''
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.DateType'
+      - name: basisType
+        in: query
+        description: ''
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.BasisType'
+      - name: latestYear
+        in: query
+        description: ''
+        schema:
+          type: integer
+          description: ''
+          format: int32
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: string
+              description: ''
+          text/json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: string
+              description: ''
+          application/*+json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: string
+              description: ''
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.CheckProfilesResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.CheckProfilesResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.CheckProfilesResult'
+      operationId: postCheckBankProfiles
+      x-operation-id-source: derived
+  /{companyId}/BankingRelationshipsMomentum:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id banking relationships momentum
+      x-summary-source: derived
+      operationId: getByCompanyIdBankingRelationshipsMomentum
+      x-operation-id-source: derived
+  /{companyId}/BankingRelationships:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.DateRange'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id banking relationships
+      x-summary-source: derived
+      operationId: getByCompanyIdBankingRelationships
+      x-operation-id-source: derived
+  /{companyId}/TopBanksByRevenue:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.DateRange'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id top banks by revenue
+      x-summary-source: derived
+      operationId: getByCompanyIdTopBanksByRevenue
+      x-operation-id-source: derived
+  /{companyId}/TopBanksByLendingVolume:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.DateRange'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id top banks by lending volume
+      x-summary-source: derived
+      operationId: getByCompanyIdTopBanksByLendingVolume
+      x-operation-id-source: derived
+  /{companyId}/DebtMaturing:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.NextYearDateRange'
+      - name: industry
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Industry'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id debt maturing
+      x-summary-source: derived
+      operationId: getByCompanyIdDebtMaturing
+      x-operation-id-source: derived
+  /{companyId}/TopRevenueByBanksDrilldown:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.NextYearDateRange'
+      - name: industry
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Industry'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      - name: year
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: productSubType
+        in: query
+        schema:
+          type:
+          - string
+          - 'null'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id top revenue by banks drilldown
+      x-summary-source: derived
+      operationId: getByCompanyIdTopRevenueByBanksDrilldown
+      x-operation-id-source: derived
+  /{companyId}/Deals:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: numberOfDeals
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: dateRange
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.DateRange'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.SubsidiaryRegion'
+      - name: product
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Company.Models.Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by company id deals
+      x-summary-source: derived
+      operationId: getByCompanyIdDeals
+      x-operation-id-source: derived
+  /{sponsorId}/InvestmentActivity:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id investment activity
+      x-summary-source: derived
+      operationId: getBySponsorIdInvestmentActivity
+      x-operation-id-source: derived
+  /{sponsorId}/PortfolioCompanies/Entry:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id portfolio companies entry
+      x-summary-source: derived
+      operationId: getBySponsorIdPortfolioCompaniesEntry
+      x-operation-id-source: derived
+  /{sponsorId}/PortfolioCompanies/Exit:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id portfolio companies exit
+      x-summary-source: derived
+      operationId: getBySponsorIdPortfolioCompaniesExit
+      x-operation-id-source: derived
+  /{sponsorId}/BankingRelationshipsByFees:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: industry
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Industry'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id banking relationships by fees
+      x-summary-source: derived
+      operationId: getBySponsorIdBankingRelationshipsByFees
+      x-operation-id-source: derived
+  /{sponsorId}/BankingRelationshipsByNumberOfDeals:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: latestYear
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: industry
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Industry'
+      - name: region
+        in: query
+        schema:
+          $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.Region'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id banking relationships by number of deals
+      x-summary-source: derived
+      operationId: getBySponsorIdBankingRelationshipsByNumberOfDeals
+      x-operation-id-source: derived
+  /{sponsorId}/Deals:
+    get:
+      tags:
+      - Data
+      parameters:
+      - name: sponsorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ReportResult'
+      summary: Get by sponsor id deals
+      x-summary-source: derived
+      operationId: getBySponsorIdDeals
+      x-operation-id-source: derived
+  /CheckSponsorProfiles:
+    post:
+      tags:
+      - Data
+      summary: Checks the existence of Sponsor Profiles for the specified sponsorIds
+      parameters:
+      - name: latestYear
+        in: query
+        description: ''
+        schema:
+          type: integer
+          description: ''
+          format: int32
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: integer
+                format: int64
+              description: ''
+          text/json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: integer
+                format: int64
+              description: ''
+          application/*+json:
+            schema:
+              type:
+              - array
+              - 'null'
+              items:
+                type: integer
+                format: int64
+              description: ''
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Sponsor.Models.CheckProfilesResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Sponsor.Models.CheckProfilesResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Dealogic.Analytics.Sponsor.Models.CheckProfilesResult'
+      operationId: postCheckSponsorProfiles
+      x-operation-id-source: derived
+components:
+  schemas:
+    SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId:
+      type: object
+      properties:
+        ColumnId:
+          type:
+          - string
+          - 'null'
+        ColumnValue:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ShowChangeData:
+      type: object
+      properties:
+        GroupColumnId:
+          type:
+          - string
+          - 'null'
+        GroupColumnValue:
+          type:
+          - string
+          - 'null'
+        BasisColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ReportResult:
+      type: object
+      properties:
+        Schema:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Schema'
+        ResultSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultSet'
+        SummarySet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.SummarySet'
+        VisualizationData:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationData'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria'
+        ExecutionInfo:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ExecutionInfo'
+        ResultInfo:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultInfo'
+        ReportName:
+          type:
+          - string
+          - 'null'
+        LibGuid:
+          type:
+          - string
+          - 'null'
+        ApiVersion:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.CheckProfilesResult:
+      type: object
+      properties:
+        Items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.CheckProfilesResult_Item'
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.BasisType:
+      enum:
+      - Revenue
+      - Volume
+      type: string
+    Dealogic.Analytics.Bank.Models.Region:
+      enum:
+      - GLOBAL
+      - AMER
+      - ASIAP
+      - EMEA
+      - OT
+      type: string
+    SNRLite.Interfaces.V1_2.Body.ResultInfo:
+      type: object
+      properties:
+        SearchCount:
+          type: integer
+          format: int32
+        DealCount:
+          type: integer
+          format: int32
+        TrancheCount:
+          type: integer
+          format: int32
+        BreakoutPeriod:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Criterias.Dates:
+      type: object
+      properties:
+        Period:
+          type:
+          - string
+          - 'null'
+        Rolling:
+          type:
+          - string
+          - 'null'
+        Previous:
+          type:
+          - string
+          - 'null'
+        PeriodCount:
+          type:
+          - string
+          - 'null'
+        UseDates:
+          type:
+          - string
+          - 'null'
+        StartDate:
+          type:
+          - string
+          - 'null'
+        EndDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ExecutionInfo:
+      type: object
+      properties:
+        IsReportCached:
+          type: boolean
+        GeneratedDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.VisualizationData:
+      type: object
+      properties:
+        RowBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ColumnBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ShowChange:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ShowChangeData'
+        Highlight:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlight'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.SummarySet:
+      type: object
+      properties:
+        Type:
+          type:
+          - string
+          - 'null'
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties: false
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ResultSet:
+      type: object
+      properties:
+        Key:
+          type:
+          - string
+          - 'null'
+        Values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties: false
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Criterias.Range:
+      type: object
+      properties:
+        Dates:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Dates'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Schema:
+      type: object
+      properties:
+        Columns:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Column'
+        BreakdownType:
+          type:
+          - string
+          - 'null'
+        ReportType:
+          type:
+          - string
+          - 'null'
+        RankingTableType:
+          type:
+          - string
+          - 'null'
+        RankingTableTypeColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Criterias.Clause:
+      type: object
+      properties:
+        Field:
+          type:
+          - string
+          - 'null'
+        Condition:
+          type:
+          - string
+          - 'null'
+        Measurecode:
+          type:
+          - string
+          - 'null'
+        Range:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Range'
+        Value:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Operator:
+          type:
+          - string
+          - 'null'
+        FieldFriendlyName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.VisualizationHighlight:
+      type: object
+      properties:
+        Rows:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Column:
+      type: object
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+        Id:
+          type:
+          - string
+          - 'null'
+        Function:
+          type:
+          - string
+          - 'null'
+        IsDecodeColumn:
+          type: boolean
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.CheckProfilesResult_Item:
+      type: object
+      properties:
+        Id:
+          type:
+          - string
+          - 'null'
+        HasProfile:
+          type: boolean
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.DateType:
+      enum:
+      - YTD
+      - FullYear
+      type: string
+    Dealogic.Analytics.Bank.Models.Product:
+      enum:
+      - ALL
+      - DCM
+      - ECM
+      - MNA
+      - LOAN
+      - FixedIncome
+      type: string
+    Dealogic.Analytics.Company.Models.SubsidiaryRegion:
+      enum:
+      - GLOBAL
+      - AFRIC
+      - AUPAC
+      - CARIB
+      - EUR
+      - INDIA
+      - JAPAN
+      - LATAM
+      - MIDEA
+      - NAMER
+      - ASIA
+      - SEASI
+      type: string
+    Dealogic.Analytics.Company.Models.NextYearDateRange:
+      enum:
+      - N10YR
+      - YTD
+      - N1YR
+      - N2YR
+      - N3YR
+      - N4YR
+      - N5YR
+      type: string
+    Dealogic.Analytics.Company.Models.DateRange:
+      enum:
+      - L10YR
+      - YTD
+      - L1YR
+      - L2YR
+      - L3YR
+      - L4YR
+      - L5YR
+      type: string
+    Dealogic.Analytics.Company.Models.Product:
+      enum:
+      - ALL
+      - DCM
+      - ECM
+      - MNA
+      - LOAN
+      type: string
+    Dealogic.Analytics.Company.Models.Industry:
+      enum:
+      - ALL
+      - BSE
+      - CME
+      - FIG
+      - CNR
+      - HCH
+      - IND
+      - NRS
+      - RES
+      - TEC
+      - TSP
+      type: string
+    Dealogic.Analytics.Bank.Models.Industry:
+      enum:
+      - ALL
+      - BSE
+      - CME
+      - FIG
+      - CNR
+      - HCH
+      - IND
+      - NRS
+      - RES
+      - TEC
+      - TSP
+      type: string
+    Dealogic.Analytics.Sponsor.Models.CheckProfilesResult_Item:
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        HasProfile:
+          type: boolean
+      additionalProperties: false
+    Dealogic.Analytics.Sponsor.Models.CheckProfilesResult:
+      type: object
+      properties:
+        Items:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Dealogic.Analytics.Sponsor.Models.CheckProfilesResult_Item'
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.dealogic.com/as/authorization.oauth2
+          tokenUrl: https://login.dealogic.com/as/token.oauth2
+          scopes: {}
+x-refined-from:
+- dealogic-analytics-bank-openapi.json
+- dealogic-analytics-company-openapi.json
+- dealogic-analytics-sponsor-openapi.json
