@@ -2940,93 +2940,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MnaAcquirorAdvisor:
-      type: object
-      properties:
-        mnaId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        companyParentId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        advisorRoleId:
-          type: integer
-          format: int64
-        advisorRoleCode:
-          type:
-          - string
-          - 'null'
-        advisorRoleName:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    CompanyCornerstoneInvestor:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    CompanyManagementAffiliationsEntry:
-      type: object
-      properties:
-        fullName:
-          type:
-          - string
-          - 'null'
-        affiliatedEntityName:
-          type:
-          - string
-          - 'null'
-        affiliatedEntityId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    CompanyManagementEntry:
-      type: object
-      properties:
-        fullName:
-          type:
-          - string
-          - 'null'
-        position:
-          type:
-          - string
-          - 'null'
-        biography:
-          type:
-          - string
-          - 'null'
-        age:
-          type:
-          - integer
-          - 'null'
-          format: int32
-      additionalProperties: false
     SpecialisedIndustry:
       type: object
       properties:
@@ -3038,56 +2951,60 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    MnaSponsorForfeitType:
+    OwnershipDataEntry:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        name:
+        instrumentId:
+          type: integer
+          format: int64
+        listingId:
+          type: integer
+          format: int64
+        investorId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        investorName:
           type:
           - string
           - 'null'
+        investorType:
+          type:
+          - string
+          - 'null'
+        investorAssetsUnderManagementUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        position:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        reportDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        positionChange:
+          type:
+          - integer
+          - 'null'
+          format: int64
         spacEntryId:
           type: integer
           format: int64
         spacEntry:
           $ref: '#/components/schemas/SpacEntry'
+        listing:
+          $ref: '#/components/schemas/Listing'
       additionalProperties: false
-    MnaTargetAdvisor:
-      type: object
-      properties:
-        mnaId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        companyParentId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        advisorRoleId:
-          type: integer
-          format: int64
-        advisorRoleCode:
-          type:
-          - string
-          - 'null'
-        advisorRoleName:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    MnaEarnoutTargetTrigger:
+    MnaEarnoutSponsorTrigger:
       type: object
       properties:
         id:
@@ -3115,29 +3032,57 @@ components:
           type: integer
           format: int64
       additionalProperties: false
-    CompanyRedemption:
+    IpoLockup:
       type: object
       properties:
-        date:
-          type: string
+        id:
+          type: integer
+          format: int64
+        expiryDate:
+          type:
+          - string
+          - 'null'
           format: date-time
-        shares:
-          type:
-          - number
-          - 'null'
-          format: double
-        price:
-          type:
-          - number
-          - 'null'
-          format: double
-        event:
+        stakeholderEntityName:
           type:
           - string
           - 'null'
         spacEntryId:
           type: integer
           format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MarketDataEntry:
+      type: object
+      properties:
+        listingId:
+          type: integer
+          format: int64
+        reportDate:
+          type: string
+          format: date-time
+        lastTradeMidPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        volume:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+        listing:
+          $ref: '#/components/schemas/Listing'
       additionalProperties: false
     RelatedEcmDeal:
       type: object
@@ -3232,6 +3177,39 @@ components:
         spacEntry:
           $ref: '#/components/schemas/SpacEntry'
       additionalProperties: false
+    MnaTargetAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
     NamedPIPEInvestor:
       type: object
       properties:
@@ -3239,6 +3217,531 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    RelatedEcmDealBank:
+      type: object
+      properties:
+        ecmDealMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        companyParentMasterId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        parentRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentRoleCode:
+          type:
+          - string
+          - 'null'
+        parentRoleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        relatedEcmDeal:
+          $ref: '#/components/schemas/RelatedEcmDeal'
+      additionalProperties: false
+    MnaEarnoutTargetTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        details:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        parentLocationId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentLocation:
+          $ref: '#/components/schemas/Location'
+      additionalProperties: false
+    CompanyS1Shareholder:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        shares:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    WithdrawnMnaTargetAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        withdrawnMnaDealId:
+          type: integer
+          format: int64
+        withdrawnMnaDealSpacEntryId:
+          type: integer
+          format: int64
+        withdrawnMnaDeal:
+          $ref: '#/components/schemas/WithdrawnMnaDeal'
+      additionalProperties: false
+    CompanyCornerstoneInvestor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    IpoFinancialSponsor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    DealogicIndustry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        groupHeadIndustryId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentIndustry:
+          $ref: '#/components/schemas/DealogicIndustry'
+      additionalProperties: false
+    CompanyRedemption:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+        shares:
+          type:
+          - number
+          - 'null'
+          format: double
+        price:
+          type:
+          - number
+          - 'null'
+          format: double
+        event:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    IpoAttorney:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        attorneyRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        issuerEntityName:
+          type:
+          - string
+          - 'null'
+        attorneyRoleCode:
+          type:
+          - string
+          - 'null'
+        attorneyRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    CompanyManagementEntry:
+      type: object
+      properties:
+        fullName:
+          type:
+          - string
+          - 'null'
+        position:
+          type:
+          - string
+          - 'null'
+        biography:
+          type:
+          - string
+          - 'null'
+        age:
+          type:
+          - integer
+          - 'null'
+          format: int32
+      additionalProperties: false
+    NewsEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        headline:
+          type:
+          - string
+          - 'null'
+        body:
+          type:
+          - string
+          - 'null'
+        publishDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        url:
+          type:
+          - string
+          - 'null'
+        product:
+          type:
+          - string
+          - 'null'
+        relatedSpacEntries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    CompanyManagementAffiliationsEntry:
+      type: object
+      properties:
+        fullName:
+          type:
+          - string
+          - 'null'
+        affiliatedEntityName:
+          type:
+          - string
+          - 'null'
+        affiliatedEntityId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    IpoPromoteScheduleTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        vestingPercent:
+          type: number
+          format: double
+        triggerType:
+          type:
+          - string
+          - 'null'
+        triggerValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    WithdrawnMnaDeal:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        announcementDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        cancelledDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        targetId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        targetName:
+          type:
+          - string
+          - 'null'
+        valueAtAnnouncementUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        acquirorAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/WithdrawnMnaAcquirorAdvisor'
+        targetAdvisors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/WithdrawnMnaTargetAdvisor'
+        spacEntryId:
+          type: integer
+          format: int64
+        targetIndustry:
+          $ref: '#/components/schemas/DealogicIndustry'
+        targetNationality:
+          $ref: '#/components/schemas/Location'
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    WithdrawnMnaAcquirorAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        withdrawnMnaDealId:
+          type: integer
+          format: int64
+        withdrawnMnaDealSpacEntryId:
+          type: integer
+          format: int64
+        withdrawnMnaDeal:
+          $ref: '#/components/schemas/WithdrawnMnaDeal'
+      additionalProperties: false
+    MnaAcquirorAdvisor:
+      type: object
+      properties:
+        mnaId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        advisorRoleId:
+          type: integer
+          format: int64
+        advisorRoleCode:
+          type:
+          - string
+          - 'null'
+        advisorRoleName:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaInvPresFinancialsEBITDA:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
+    MnaSponsorForfeitType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaDivestor:
+      type: object
+      properties:
+        mnaMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        name:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        nationality:
+          $ref: '#/components/schemas/Location'
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
       additionalProperties: false
     SpacEntry:
       type: object
@@ -4339,6 +4842,87 @@ components:
           items:
             $ref: '#/components/schemas/SpecialisedIndustry'
       additionalProperties: false
+    Bank:
+      type: object
+      properties:
+        ecmDealMasterId:
+          type: integer
+          format: int64
+        companyMasterId:
+          type: integer
+          format: int64
+        companyParentMasterId:
+          type: integer
+          format: int64
+        parentName:
+          type:
+          - string
+          - 'null'
+        parentRoleId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        parentRoleCode:
+          type:
+          - string
+          - 'null'
+        parentRoleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaFinancialSponsor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        side:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+        spacEntry:
+          $ref: '#/components/schemas/SpacEntry'
+      additionalProperties: false
+    MnaInvPresFinancialsRevenue:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+        spacEntryId:
+          type: integer
+          format: int64
+      additionalProperties: false
     Listing:
       type: object
       properties:
@@ -4443,590 +5027,6 @@ components:
           format: int64
         spacEntry:
           $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    MnaDivestor:
-      type: object
-      properties:
-        mnaMasterId:
-          type: integer
-          format: int64
-        companyMasterId:
-          type: integer
-          format: int64
-        name:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        nationality:
-          $ref: '#/components/schemas/Location'
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    IpoLockup:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        expiryDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        stakeholderEntityName:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    CompanyS1Shareholder:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        shares:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    MnaInvPresFinancialsRevenue:
-      type: object
-      properties:
-        year:
-          type: integer
-          format: int32
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-      additionalProperties: false
-    MnaEarnoutSponsorTrigger:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type:
-          - number
-          - 'null'
-          format: double
-        timeFrameInYears:
-          type:
-          - number
-          - 'null'
-          format: double
-        details:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-      additionalProperties: false
-    WithdrawnMnaAcquirorAdvisor:
-      type: object
-      properties:
-        mnaId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        companyParentId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        advisorRoleId:
-          type: integer
-          format: int64
-        advisorRoleCode:
-          type:
-          - string
-          - 'null'
-        advisorRoleName:
-          type:
-          - string
-          - 'null'
-        withdrawnMnaDealId:
-          type: integer
-          format: int64
-        withdrawnMnaDealSpacEntryId:
-          type: integer
-          format: int64
-        withdrawnMnaDeal:
-          $ref: '#/components/schemas/WithdrawnMnaDeal'
-      additionalProperties: false
-    OwnershipDataEntry:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        instrumentId:
-          type: integer
-          format: int64
-        listingId:
-          type: integer
-          format: int64
-        investorId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        investorName:
-          type:
-          - string
-          - 'null'
-        investorType:
-          type:
-          - string
-          - 'null'
-        investorAssetsUnderManagementUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        position:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        reportDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        positionChange:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-        listing:
-          $ref: '#/components/schemas/Listing'
-      additionalProperties: false
-    MnaInvPresFinancialsEBITDA:
-      type: object
-      properties:
-        year:
-          type: integer
-          format: int32
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-      additionalProperties: false
-    WithdrawnMnaTargetAdvisor:
-      type: object
-      properties:
-        mnaId:
-          type: integer
-          format: int64
-        companyId:
-          type: integer
-          format: int64
-        companyParentId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        advisorRoleId:
-          type: integer
-          format: int64
-        advisorRoleCode:
-          type:
-          - string
-          - 'null'
-        advisorRoleName:
-          type:
-          - string
-          - 'null'
-        withdrawnMnaDealId:
-          type: integer
-          format: int64
-        withdrawnMnaDealSpacEntryId:
-          type: integer
-          format: int64
-        withdrawnMnaDeal:
-          $ref: '#/components/schemas/WithdrawnMnaDeal'
-      additionalProperties: false
-    DealogicIndustry:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        code:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        groupHeadIndustryId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        parentIndustry:
-          $ref: '#/components/schemas/DealogicIndustry'
-      additionalProperties: false
-    Location:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        code:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        type:
-          type:
-          - string
-          - 'null'
-        parentLocationId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        parentLocation:
-          $ref: '#/components/schemas/Location'
-      additionalProperties: false
-    WithdrawnMnaDeal:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        announcementDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        cancelledDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        targetId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        targetName:
-          type:
-          - string
-          - 'null'
-        valueAtAnnouncementUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        acquirorAdvisors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/WithdrawnMnaAcquirorAdvisor'
-        targetAdvisors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/WithdrawnMnaTargetAdvisor'
-        spacEntryId:
-          type: integer
-          format: int64
-        targetIndustry:
-          $ref: '#/components/schemas/DealogicIndustry'
-        targetNationality:
-          $ref: '#/components/schemas/Location'
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    IpoPromoteScheduleTrigger:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        vestingPercent:
-          type: number
-          format: double
-        triggerType:
-          type:
-          - string
-          - 'null'
-        triggerValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        timeFrameInYears:
-          type:
-          - number
-          - 'null'
-          format: double
-        spacEntryId:
-          type: integer
-          format: int64
-      additionalProperties: false
-    MarketDataEntry:
-      type: object
-      properties:
-        listingId:
-          type: integer
-          format: int64
-        reportDate:
-          type: string
-          format: date-time
-        lastTradeMidPrice:
-          type:
-          - number
-          - 'null'
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-        volume:
-          type:
-          - number
-          - 'null'
-          format: double
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-        listing:
-          $ref: '#/components/schemas/Listing'
-      additionalProperties: false
-    RelatedEcmDealBank:
-      type: object
-      properties:
-        ecmDealMasterId:
-          type: integer
-          format: int64
-        companyMasterId:
-          type: integer
-          format: int64
-        companyParentMasterId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        parentRoleId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        parentRoleCode:
-          type:
-          - string
-          - 'null'
-        parentRoleName:
-          type:
-          - string
-          - 'null'
-        participationPercent:
-          type:
-          - number
-          - 'null'
-          format: double
-        relatedEcmDeal:
-          $ref: '#/components/schemas/RelatedEcmDeal'
-      additionalProperties: false
-    IpoAttorney:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        attorneyRoleId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        issuerEntityName:
-          type:
-          - string
-          - 'null'
-        attorneyRoleCode:
-          type:
-          - string
-          - 'null'
-        attorneyRoleName:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    Bank:
-      type: object
-      properties:
-        ecmDealMasterId:
-          type: integer
-          format: int64
-        companyMasterId:
-          type: integer
-          format: int64
-        companyParentMasterId:
-          type: integer
-          format: int64
-        parentName:
-          type:
-          - string
-          - 'null'
-        parentRoleId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        parentRoleCode:
-          type:
-          - string
-          - 'null'
-        parentRoleName:
-          type:
-          - string
-          - 'null'
-        participationPercent:
-          type:
-          - number
-          - 'null'
-          format: double
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    MnaFinancialSponsor:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        entityName:
-          type:
-          - string
-          - 'null'
-        side:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    IpoFinancialSponsor:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        entityName:
-          type:
-          - string
-          - 'null'
-        spacEntryId:
-          type: integer
-          format: int64
-        spacEntry:
-          $ref: '#/components/schemas/SpacEntry'
-      additionalProperties: false
-    NewsEntry:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        headline:
-          type:
-          - string
-          - 'null'
-        body:
-          type:
-          - string
-          - 'null'
-        publishDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        url:
-          type:
-          - string
-          - 'null'
-        product:
-          type:
-          - string
-          - 'null'
-        relatedSpacEntries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SpacEntry'
       additionalProperties: false
   securitySchemes:
     oauth2:

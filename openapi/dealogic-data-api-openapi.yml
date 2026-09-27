@@ -1223,79 +1223,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId:
+    SNRLite.Interfaces.V1_2.Body.VisualizationHighlight:
       type: object
       properties:
-        ColumnId:
-          type:
-          - string
-          - 'null'
-        ColumnValue:
-          type:
-          - string
-          - 'null'
-        Type:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.ShowChangeData:
-      type: object
-      properties:
-        GroupColumnId:
-          type:
-          - string
-          - 'null'
-        GroupColumnValue:
-          type:
-          - string
-          - 'null'
-        BasisColumnId:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.ReportResult:
-      type: object
-      properties:
-        Schema:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Schema'
-        ResultSet:
+        Rows:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultSet'
-        SummarySet:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.SummarySet'
-        VisualizationData:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationData'
-        Criteria:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria'
-        ExecutionInfo:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ExecutionInfo'
-        ResultInfo:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultInfo'
-        ReportName:
-          type:
-          - string
-          - 'null'
-        LibGuid:
-          type:
-          - string
-          - 'null'
-        ApiVersion:
-          type:
-          - string
-          - 'null'
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId'
       additionalProperties: false
     Dealogic.Analytics.Bank.Models.CheckProfilesResult:
       type: object
@@ -1306,36 +1242,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/Dealogic.Analytics.Bank.Models.CheckProfilesResult_Item'
-      additionalProperties: false
-    Dealogic.Analytics.Bank.Models.BasisType:
-      enum:
-      - Revenue
-      - Volume
-      type: string
-    Dealogic.Analytics.Bank.Models.Region:
-      enum:
-      - GLOBAL
-      - AMER
-      - ASIAP
-      - EMEA
-      - OT
-      type: string
-    SNRLite.Interfaces.V1_2.Body.ResultInfo:
-      type: object
-      properties:
-        SearchCount:
-          type: integer
-          format: int32
-        DealCount:
-          type: integer
-          format: int32
-        TrancheCount:
-          type: integer
-          format: int32
-        BreakoutPeriod:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     SNRLite.Interfaces.V1_2.Body.Criterias.Dates:
       type: object
@@ -1369,36 +1275,11 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.ExecutionInfo:
-      type: object
-      properties:
-        IsReportCached:
-          type: boolean
-        GeneratedDate:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.VisualizationData:
-      type: object
-      properties:
-        RowBreakDown:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        ColumnBreakDown:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        ShowChange:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ShowChangeData'
-        Highlight:
-          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlight'
-      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.DateType:
+      enum:
+      - YTD
+      - FullYear
+      type: string
     SNRLite.Interfaces.V1_2.Body.SummarySet:
       type: object
       properties:
@@ -1443,6 +1324,178 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ResultInfo:
+      type: object
+      properties:
+        SearchCount:
+          type: integer
+          format: int32
+        DealCount:
+          type: integer
+          format: int32
+        TrancheCount:
+          type: integer
+          format: int32
+        BreakoutPeriod:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Column:
+      type: object
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+        Id:
+          type:
+          - string
+          - 'null'
+        Function:
+          type:
+          - string
+          - 'null'
+        IsDecodeColumn:
+          type: boolean
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.BasisType:
+      enum:
+      - Revenue
+      - Volume
+      type: string
+    SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId:
+      type: object
+      properties:
+        ColumnId:
+          type:
+          - string
+          - 'null'
+        ColumnValue:
+          type:
+          - string
+          - 'null'
+        Type:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.VisualizationData:
+      type: object
+      properties:
+        RowBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ColumnBreakDown:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ShowChange:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ShowChangeData'
+        Highlight:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlight'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria:
+      type: object
+      properties:
+        Clause:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Clause'
+        Operator:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ExecutionInfo:
+      type: object
+      properties:
+        IsReportCached:
+          type: boolean
+        GeneratedDate:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Dealogic.Analytics.Bank.Models.CheckProfilesResult_Item:
+      type: object
+      properties:
+        Id:
+          type:
+          - string
+          - 'null'
+        HasProfile:
+          type: boolean
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ReportResult:
+      type: object
+      properties:
+        Schema:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Schema'
+        ResultSet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultSet'
+        SummarySet:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.SummarySet'
+        VisualizationData:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationData'
+        Criteria:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria'
+        ExecutionInfo:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ExecutionInfo'
+        ResultInfo:
+          $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.ResultInfo'
+        ReportName:
+          type:
+          - string
+          - 'null'
+        LibGuid:
+          type:
+          - string
+          - 'null'
+        ApiVersion:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    SNRLite.Interfaces.V1_2.Body.ShowChangeData:
+      type: object
+      properties:
+        GroupColumnId:
+          type:
+          - string
+          - 'null'
+        GroupColumnValue:
+          type:
+          - string
+          - 'null'
+        BasisColumnId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     SNRLite.Interfaces.V1_2.Body.Schema:
       type: object
       properties:
@@ -1469,6 +1522,14 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    Dealogic.Analytics.Bank.Models.Region:
+      enum:
+      - GLOBAL
+      - AMER
+      - ASIAP
+      - EMEA
+      - OT
+      type: string
     SNRLite.Interfaces.V1_2.Body.Criterias.Clause:
       type: object
       properties:
@@ -1501,67 +1562,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.Criterias.ResponseCriteria:
-      type: object
-      properties:
-        Clause:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.Criterias.Clause'
-        Operator:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.VisualizationHighlight:
-      type: object
-      properties:
-        Rows:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SNRLite.Interfaces.V1_2.Body.VisualizationHighlightId'
-      additionalProperties: false
-    SNRLite.Interfaces.V1_2.Body.Column:
-      type: object
-      properties:
-        Name:
-          type:
-          - string
-          - 'null'
-        Type:
-          type:
-          - string
-          - 'null'
-        Id:
-          type:
-          - string
-          - 'null'
-        Function:
-          type:
-          - string
-          - 'null'
-        IsDecodeColumn:
-          type: boolean
-      additionalProperties: false
-    Dealogic.Analytics.Bank.Models.CheckProfilesResult_Item:
-      type: object
-      properties:
-        Id:
-          type:
-          - string
-          - 'null'
-        HasProfile:
-          type: boolean
-      additionalProperties: false
-    Dealogic.Analytics.Bank.Models.DateType:
-      enum:
-      - YTD
-      - FullYear
-      type: string
     Dealogic.Analytics.Bank.Models.Product:
       enum:
       - ALL
@@ -1570,6 +1570,28 @@ components:
       - MNA
       - LOAN
       - FixedIncome
+      type: string
+    Dealogic.Analytics.Company.Models.Industry:
+      enum:
+      - ALL
+      - BSE
+      - CME
+      - FIG
+      - CNR
+      - HCH
+      - IND
+      - NRS
+      - RES
+      - TEC
+      - TSP
+      type: string
+    Dealogic.Analytics.Company.Models.Product:
+      enum:
+      - ALL
+      - DCM
+      - ECM
+      - MNA
+      - LOAN
       type: string
     Dealogic.Analytics.Company.Models.SubsidiaryRegion:
       enum:
@@ -1586,16 +1608,6 @@ components:
       - ASIA
       - SEASI
       type: string
-    Dealogic.Analytics.Company.Models.NextYearDateRange:
-      enum:
-      - N10YR
-      - YTD
-      - N1YR
-      - N2YR
-      - N3YR
-      - N4YR
-      - N5YR
-      type: string
     Dealogic.Analytics.Company.Models.DateRange:
       enum:
       - L10YR
@@ -1606,41 +1618,15 @@ components:
       - L4YR
       - L5YR
       type: string
-    Dealogic.Analytics.Company.Models.Product:
+    Dealogic.Analytics.Company.Models.NextYearDateRange:
       enum:
-      - ALL
-      - DCM
-      - ECM
-      - MNA
-      - LOAN
-      type: string
-    Dealogic.Analytics.Company.Models.Industry:
-      enum:
-      - ALL
-      - BSE
-      - CME
-      - FIG
-      - CNR
-      - HCH
-      - IND
-      - NRS
-      - RES
-      - TEC
-      - TSP
-      type: string
-    Dealogic.Analytics.Bank.Models.Industry:
-      enum:
-      - ALL
-      - BSE
-      - CME
-      - FIG
-      - CNR
-      - HCH
-      - IND
-      - NRS
-      - RES
-      - TEC
-      - TSP
+      - N10YR
+      - YTD
+      - N1YR
+      - N2YR
+      - N3YR
+      - N4YR
+      - N5YR
       type: string
     Dealogic.Analytics.Sponsor.Models.CheckProfilesResult_Item:
       type: object
@@ -1661,6 +1647,20 @@ components:
           items:
             $ref: '#/components/schemas/Dealogic.Analytics.Sponsor.Models.CheckProfilesResult_Item'
       additionalProperties: false
+    Dealogic.Analytics.Bank.Models.Industry:
+      enum:
+      - ALL
+      - BSE
+      - CME
+      - FIG
+      - CNR
+      - HCH
+      - IND
+      - NRS
+      - RES
+      - TEC
+      - TSP
+      type: string
   securitySchemes:
     oauth2:
       type: oauth2
