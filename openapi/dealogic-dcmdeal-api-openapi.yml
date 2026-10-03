@@ -44,97 +44,131 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto:
+    IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto:
       type: object
       properties:
-        dealCompanySpRatingLaunchCode:
+        companyParentName:
           type:
           - string
           - 'null'
-        dealCompanyMoodysRatingLaunchCode:
+        companyParentBrandName:
           type:
           - string
           - 'null'
-        dealCompanyFitchRatingLaunchCode:
+        parentUsState:
           type:
           - string
           - 'null'
-        companies:
+        parentNationality:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto'
+        parentCompanyTypeDescription:
+          type:
+          - string
+          - 'null'
+        parentUsStateDescription:
+          type:
+          - string
+          - 'null'
+        parentNationalityOfIncorporationDescription:
+          type:
+          - string
+          - 'null'
+        companyType:
+          type:
+          - string
+          - 'null'
+        companyDescription:
+          type:
+          - string
+          - 'null'
+        companyUSState:
+          type:
+          - string
+          - 'null'
+        dealNationality:
+          type:
+          - string
+          - 'null'
+        nationalityInc:
+          type:
+          - string
+          - 'null'
+        emergingMarket:
+          type:
+          - boolean
+          - 'null'
+        companyEid:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        gig:
+          type:
+          - string
+          - 'null'
+        sig:
+          type:
+          - string
+          - 'null'
+        sicCode:
+          type:
+          - string
+          - 'null'
+        sicDescription:
+          type:
+          - string
+          - 'null'
+        naicsCode:
+          type:
+          - string
+          - 'null'
+        naicsDescription:
+          type:
+          - string
+          - 'null'
+        spRatingCode:
+          type:
+          - string
+          - 'null'
+        moodysRatingCode:
+          type:
+          - string
+          - 'null'
+        fitchRatingCode:
+          type:
+          - string
+          - 'null'
+        effectiveRatingCode:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto:
+    IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto:
       type: object
       properties:
-        trancheBanks:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto:
-      type: object
-      properties:
-        banks:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto:
-      type: object
-      properties:
-        sponsorDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto:
-      type: object
-      properties:
-        dealPricingCompletionDate:
+        trancheId:
+          type: integer
+          format: int64
+        isHeadTranche:
+          type: boolean
+        trancheMarketTypeDescription:
           type:
           - string
           - 'null'
-          format: date-time
-        dealExpectedDate:
+        trancheSecRegisteredYn:
+          type:
+          - boolean
+          - 'null'
+        trancheRegSYn:
+          type:
+          - boolean
+          - 'null'
+        trancheCurrencyCode:
           type:
           - string
           - 'null'
-          format: date-time
-        dealSettlementDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        dealWithdrawnCancelledDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        dealExpectedDateFullDescription:
-          type:
-          - string
-          - 'null'
-        trancheBaseList:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto'
-        dealOriginators:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto:
       type: object
@@ -169,328 +203,15 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto:
+    IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto:
       type: object
       properties:
-        name:
-          type:
-          - string
-          - 'null'
-        nationality:
-          type:
-          - string
-          - 'null'
-        sig:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto:
-      type: object
-      properties:
-        dealNo:
-          type: integer
-          format: int64
-        analyticsDealNo:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        company:
-          type:
-          - string
-          - 'null'
-        feePayerId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        dealTypeCode:
-          type:
-          - string
-          - 'null'
-        dealType:
-          type:
-          - string
-          - 'null'
-        dealCurrencyCode:
-          type:
-          - string
-          - 'null'
-        totalFaceValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        totalFaceValueUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        totalFaceValueEuro:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealStatus:
-          type:
-          - string
-          - 'null'
-        statusDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        statusDateDescription:
-          type:
-          - string
-          - 'null'
-        guarantor:
+        banks:
           type:
           - array
           - 'null'
           items:
-            type: string
-        keepwellProvider:
-          type:
-          - string
-          - 'null'
-        secRegNo:
-          type:
-          - string
-          - 'null'
-        edgarAccessionNumber:
-          type:
-          - string
-          - 'null'
-        prospectusId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        mnaReferenceNo:
-          type:
-          - string
-          - 'null'
-        lboDealNo:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        localName:
-          type:
-          - string
-          - 'null'
-        companyProfileLink:
-          type:
-          - string
-          - 'null'
-        transactionProfileLink:
-          type:
-          - string
-          - 'null'
-        strategicTransactionProfileLink:
-          type:
-          - string
-          - 'null'
-        prospectusLink:
-          type:
-          - string
-          - 'null'
-        pdfUrl:
-          type:
-          - string
-          - 'null'
-        edgarLink:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto:
-      type: object
-      properties:
-        sponsorEid:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        financialSponsor:
-          type:
-          - string
-          - 'null'
-        sponsorProfileLink:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto:
-      type: object
-      properties:
-        isin:
-          type:
-          - string
-          - 'null'
-        tradeDate:
-          type: string
-          format: date-time
-        bidPrice:
-          type: number
-          format: double
-        bidPriceValue1WeekPrior:
-          type:
-          - number
-          - 'null'
-          format: double
-        bidPriceValue1MonthPrior:
-          type:
-          - number
-          - 'null'
-          format: double
-        percentChangeOneWeek:
-          type:
-          - number
-          - 'null'
-          format: double
-        percentChangeOneMonth:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto:
-      type: object
-      properties:
-        dealTypeDescription:
-          type:
-          - string
-          - 'null'
-        dealRule144AYn:
-          type:
-          - boolean
-          - 'null'
-        dealMtnYn:
-          type:
-          - boolean
-          - 'null'
-        nationalityDescription:
-          type:
-          - string
-          - 'null'
-        dealProgrammeCurrencyCode:
-          type:
-          - string
-          - 'null'
-        dealProgrammeTypeDescription:
-          type:
-          - string
-          - 'null'
-        dealProgrammeAmountLocal:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueFaceForex:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueForex:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueFaceUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueFaceEuro:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealGlobalValueEuro:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueFaceForex:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueFaceUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueFaceEuro:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueForex:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealTotalValueEuro:
-          type:
-          - number
-          - 'null'
-          format: double
-        dealSectorTypecode:
-          type:
-          - string
-          - 'null'
-        dealInsrumentInnovationDescription:
-          type:
-          - string
-          - 'null'
-        dealPfandbriefMarketTypeDescription:
-          type:
-          - string
-          - 'null'
-        trancheDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto:
-      type: object
-      properties:
-        dealLegalAdvisorToCompanies:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        dealLegalAdvisorToBookrunners:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        dealTrusteeDescription:
-          type:
-          - string
-          - 'null'
-        dealPrincipalPayAgentdescription:
-          type:
-          - string
-          - 'null'
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto:
       type: object
@@ -780,6 +501,46 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto'
+        advisors:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto'
+        banks:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto'
+        companies:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto'
+        dealBase:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto'
+        dealDetails:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto'
+        sponsors:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto'
+        trancheBanks:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto'
+        trancheBase:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto'
+        trancheDetails:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        nationality:
+          type:
+          - string
+          - 'null'
+        sig:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto:
       type: object
       properties:
@@ -889,6 +650,400 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto:
+      type: object
+      properties:
+        dealLegalAdvisorToCompanies:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        dealLegalAdvisorToBookrunners:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        dealTrusteeDescription:
+          type:
+          - string
+          - 'null'
+        dealPrincipalPayAgentdescription:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto:
+      type: object
+      properties:
+        dealNo:
+          type: integer
+          format: int64
+        analyticsDealNo:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        company:
+          type:
+          - string
+          - 'null'
+        feePayerId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        dealTypeCode:
+          type:
+          - string
+          - 'null'
+        dealType:
+          type:
+          - string
+          - 'null'
+        dealCurrencyCode:
+          type:
+          - string
+          - 'null'
+        totalFaceValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalFaceValueUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalFaceValueEuro:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealStatus:
+          type:
+          - string
+          - 'null'
+        statusDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        statusDateDescription:
+          type:
+          - string
+          - 'null'
+        guarantor:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        keepwellProvider:
+          type:
+          - string
+          - 'null'
+        secRegNo:
+          type:
+          - string
+          - 'null'
+        edgarAccessionNumber:
+          type:
+          - string
+          - 'null'
+        prospectusId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        mnaReferenceNo:
+          type:
+          - string
+          - 'null'
+        lboDealNo:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        localName:
+          type:
+          - string
+          - 'null'
+        companyProfileLink:
+          type:
+          - string
+          - 'null'
+        transactionProfileLink:
+          type:
+          - string
+          - 'null'
+        strategicTransactionProfileLink:
+          type:
+          - string
+          - 'null'
+        prospectusLink:
+          type:
+          - string
+          - 'null'
+        pdfUrl:
+          type:
+          - string
+          - 'null'
+        edgarLink:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto:
+      type: object
+      properties:
+        dealCompanySpRatingLaunchCode:
+          type:
+          - string
+          - 'null'
+        dealCompanyMoodysRatingLaunchCode:
+          type:
+          - string
+          - 'null'
+        dealCompanyFitchRatingLaunchCode:
+          type:
+          - string
+          - 'null'
+        companies:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto:
+      type: object
+      properties:
+        isin:
+          type:
+          - string
+          - 'null'
+        tradeDate:
+          type: string
+          format: date-time
+        bidPrice:
+          type: number
+          format: double
+        bidPriceValue1WeekPrior:
+          type:
+          - number
+          - 'null'
+          format: double
+        bidPriceValue1MonthPrior:
+          type:
+          - number
+          - 'null'
+          format: double
+        percentChangeOneWeek:
+          type:
+          - number
+          - 'null'
+          format: double
+        percentChangeOneMonth:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto:
+      type: object
+      properties:
+        dealPricingCompletionDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        dealExpectedDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        dealSettlementDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        dealWithdrawnCancelledDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        dealExpectedDateFullDescription:
+          type:
+          - string
+          - 'null'
+        trancheBaseList:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseDto'
+        dealOriginators:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealOriginatorDto'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto:
+      type: object
+      properties:
+        trancheBanks:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankDto'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto:
+      type: object
+      properties:
+        dealHybridCapitalYn:
+          type:
+          - boolean
+          - 'null'
+        dealLocalIssueTypeDescription:
+          type:
+          - string
+          - 'null'
+        dealTypeCode:
+          type:
+          - string
+          - 'null'
+        dealPfandbriefMarketTypeDescription:
+          type:
+          - string
+          - 'null'
+        trancheDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto'
+        dealCoveredBondStructureTypes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto:
+      type: object
+      properties:
+        dealTypeDescription:
+          type:
+          - string
+          - 'null'
+        dealRule144AYn:
+          type:
+          - boolean
+          - 'null'
+        dealMtnYn:
+          type:
+          - boolean
+          - 'null'
+        nationalityDescription:
+          type:
+          - string
+          - 'null'
+        dealProgrammeCurrencyCode:
+          type:
+          - string
+          - 'null'
+        dealProgrammeTypeDescription:
+          type:
+          - string
+          - 'null'
+        dealProgrammeAmountLocal:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueFaceForex:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueForex:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueFaceUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueFaceEuro:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealGlobalValueEuro:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueFaceForex:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueFaceUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueFaceEuro:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueForex:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealTotalValueEuro:
+          type:
+          - number
+          - 'null'
+          format: double
+        dealSectorTypecode:
+          type:
+          - string
+          - 'null'
+        dealInsrumentInnovationDescription:
+          type:
+          - string
+          - 'null'
+        dealPfandbriefMarketTypeDescription:
+          type:
+          - string
+          - 'null'
+        trancheDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto:
       type: object
@@ -1083,162 +1238,22 @@ components:
           items:
             $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBidDto'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto:
+    IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto:
       type: object
       properties:
-        dealHybridCapitalYn:
-          type:
-          - boolean
-          - 'null'
-        dealLocalIssueTypeDescription:
-          type:
-          - string
-          - 'null'
-        dealTypeCode:
-          type:
-          - string
-          - 'null'
-        dealPfandbriefMarketTypeDescription:
-          type:
-          - string
-          - 'null'
-        trancheDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsDto'
-        dealCoveredBondStructureTypes:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyDto:
-      type: object
-      properties:
-        companyParentName:
-          type:
-          - string
-          - 'null'
-        companyParentBrandName:
-          type:
-          - string
-          - 'null'
-        parentUsState:
-          type:
-          - string
-          - 'null'
-        parentNationality:
-          type:
-          - string
-          - 'null'
-        parentCompanyTypeDescription:
-          type:
-          - string
-          - 'null'
-        parentUsStateDescription:
-          type:
-          - string
-          - 'null'
-        parentNationalityOfIncorporationDescription:
-          type:
-          - string
-          - 'null'
-        companyType:
-          type:
-          - string
-          - 'null'
-        companyDescription:
-          type:
-          - string
-          - 'null'
-        companyUSState:
-          type:
-          - string
-          - 'null'
-        dealNationality:
-          type:
-          - string
-          - 'null'
-        nationalityInc:
-          type:
-          - string
-          - 'null'
-        emergingMarket:
-          type:
-          - boolean
-          - 'null'
-        companyEid:
+        sponsorEid:
           type:
           - integer
           - 'null'
           format: int32
-        gig:
+        financialSponsor:
           type:
           - string
           - 'null'
-        sig:
+        sponsorProfileLink:
           type:
           - string
           - 'null'
-        sicCode:
-          type:
-          - string
-          - 'null'
-        sicDescription:
-          type:
-          - string
-          - 'null'
-        naicsCode:
-          type:
-          - string
-          - 'null'
-        naicsDescription:
-          type:
-          - string
-          - 'null'
-        spRatingCode:
-          type:
-          - string
-          - 'null'
-        moodysRatingCode:
-          type:
-          - string
-          - 'null'
-        fitchRatingCode:
-          type:
-          - string
-          - 'null'
-        effectiveRatingCode:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.DealDto:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.HeaderDto'
-        advisors:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.AdvisorsDto'
-        banks:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.BankListDto'
-        companies:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.CompanyListDto'
-        dealBase:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealBaseDto'
-        dealDetails:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.DealDetailsDto'
-        sponsors:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto'
-        trancheBanks:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBankListDto'
-        trancheBase:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheBaseListDto'
-        trancheDetails:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.TrancheDetailsListDto'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Deal.Dcm.BankDto:
       type: object
@@ -1270,30 +1285,15 @@ components:
           - 'null'
           format: double
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Deal.Dcm.DealTrancheDetailsDto:
+    IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorListDto:
       type: object
       properties:
-        trancheId:
-          type: integer
-          format: int64
-        isHeadTranche:
-          type: boolean
-        trancheMarketTypeDescription:
+        sponsorDetails:
           type:
-          - string
+          - array
           - 'null'
-        trancheSecRegisteredYn:
-          type:
-          - boolean
-          - 'null'
-        trancheRegSYn:
-          type:
-          - boolean
-          - 'null'
-        trancheCurrencyCode:
-          type:
-          - string
-          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Deal.Dcm.SponsorDetailsDto'
       additionalProperties: false
   securitySchemes:
     oauth2:

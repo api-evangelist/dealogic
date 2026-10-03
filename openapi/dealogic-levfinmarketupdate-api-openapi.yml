@@ -492,6 +492,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion:
+      enum:
+      - LevFinUS
+      - LevFinEU
+      type: string
     IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevFinReportSection:
       type: object
       properties:
@@ -518,11 +523,6 @@ components:
           items:
             $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.MarketUpdateCommentary'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateRequest_LevFinRegion:
-      enum:
-      - LevFinUS
-      - LevFinEU
-      type: string
     IONA.Profiles.API.Interfaces.Organization.USLevfin.Model.LevfinMarketUpdateResult:
       type: object
       properties:
