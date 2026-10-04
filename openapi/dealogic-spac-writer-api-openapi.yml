@@ -472,6 +472,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    LoadAllStatus:
+      type: object
+      properties:
+        runtimeStatus:
+          type:
+          - string
+          - 'null'
+        customStatus: {}
+        lastUpdatedTime:
+          type: string
+          format: date-time
+        output:
+          type:
+          - string
+          - 'null'
+        instanceId:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     LoadError:
       required:
       - entityId
@@ -499,26 +519,6 @@ components:
           - string
           - 'null'
         exceptionType:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    LoadAllStatus:
-      type: object
-      properties:
-        runtimeStatus:
-          type:
-          - string
-          - 'null'
-        customStatus: {}
-        lastUpdatedTime:
-          type: string
-          format: date-time
-        output:
-          type:
-          - string
-          - 'null'
-        instanceId:
           type:
           - string
           - 'null'

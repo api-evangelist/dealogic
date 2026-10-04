@@ -96,30 +96,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserInfoWithToggles:
-      type: object
-      properties:
-        userInfo:
-          $ref: '#/components/schemas/UserInfo'
-        toggles:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-      additionalProperties: false
-    GroupItem:
-      type: object
-      properties:
-        groupType:
-          type:
-          - string
-          - 'null'
-        groupName:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     UserInfo:
       type: object
       properties:
@@ -185,6 +161,30 @@ components:
         isImpersonating:
           type: boolean
           readOnly: true
+      additionalProperties: false
+    UserInfoWithToggles:
+      type: object
+      properties:
+        userInfo:
+          $ref: '#/components/schemas/UserInfo'
+        toggles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+      additionalProperties: false
+    GroupItem:
+      type: object
+      properties:
+        groupType:
+          type:
+          - string
+          - 'null'
+        groupName:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
   securitySchemes:
     oauth2:

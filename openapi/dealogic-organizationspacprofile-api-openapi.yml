@@ -236,6 +236,343 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult:
+      type: object
+      properties:
+        profileSpacFinancials:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        days:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        minDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        priceHurdle:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals:
+      type: object
+      properties:
+        cortexDealId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        securityTypeName:
+          type:
+          - string
+          - 'null'
+        subTypeName:
+          type:
+          - string
+          - 'null'
+        pricingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        totalSharesInitialExcludingOverallotment:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        totalValueExcludingOverallotmentUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        syndicateDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails'
+        investors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors'
+        offerPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_EBITDAEntry:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult:
+      type: object
+      properties:
+        spacStatus:
+          type:
+          - string
+          - 'null'
+        listings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        roleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        bankSymbol:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry:
+      type: object
+      properties:
+        fullName:
+          type:
+          - string
+          - 'null'
+        position:
+          type:
+          - string
+          - 'null'
+        biography:
+          type:
+          - string
+          - 'null'
+        age:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        affiliations:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials:
+      type: object
+      properties:
+        revenueEntries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_RevenueEntry'
+        ebitdaEntries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_EBITDAEntry'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult:
+      type: object
+      properties:
+        profileSpacFinancing:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails:
+      type: object
+      properties:
+        cortexDealId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        spacStatus:
+          type:
+          - string
+          - 'null'
+        totalValueUsd:
+          type:
+          - number
+          - 'null'
+          format: double
+        ipoSize:
+          type:
+          - number
+          - 'null'
+          format: double
+        primarySharesOffered:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        offerPriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        expectedDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        filingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        pricingDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        firstTradeDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        securityTypeName:
+          type:
+          - string
+          - 'null'
+        warrantCover:
+          type:
+          - number
+          - 'null'
+          format: double
+        initialExercisePriceUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        syndicateDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails'
+        attorneyDetails:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        roleName:
+          type:
+          - string
+          - 'null'
+        participationPercent:
+          type:
+          - number
+          - 'null'
+          format: double
+        companyId:
+          type: integer
+          format: int64
+        companyParentId:
+          type: integer
+          format: int64
+        bankSymbol:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation:
+      type: object
+      properties:
+        regionCode:
+          type:
+          - string
+          - 'null'
+        regionName:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        countryName:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        entityName:
+          type:
+          - string
+          - 'null'
+        roleName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary:
       type: object
       properties:
@@ -431,424 +768,43 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_RevenueEntry:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA:
       type: object
       properties:
-        year:
-          type: integer
-          format: int32
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals:
-      type: object
-      properties:
-        cortexDealId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        securityTypeName:
-          type:
-          - string
-          - 'null'
-        subTypeName:
-          type:
-          - string
-          - 'null'
-        pricingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        totalSharesInitialExcludingOverallotment:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        totalValueExcludingOverallotmentUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        syndicateDetails:
+        dealDetails:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails'
+        financialAdvisors:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails'
-        investors:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor'
+        legalAdvisors:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors'
-        offerPriceUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors:
-      type: object
-      properties:
-        entityName:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        spacEntryId:
-          type: integer
-          format: int64
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type:
-          - number
-          - 'null'
-          format: double
-        timeFrameInYears:
-          type:
-          - number
-          - 'null'
-          format: double
-        details:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        name:
-          type:
-          - string
-          - 'null'
-        role:
-          type:
-          - string
-          - 'null'
-        reserved1:
-          type:
-          - string
-          - 'null'
-        reserved2:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation:
-      type: object
-      properties:
-        entityName:
-          type:
-          - string
-          - 'null'
-        entityId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult:
-      type: object
-      properties:
-        profileSpacMNA:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry:
-      type: object
-      properties:
-        fullName:
-          type:
-          - string
-          - 'null'
-        position:
-          type:
-          - string
-          - 'null'
-        biography:
-          type:
-          - string
-          - 'null'
-        age:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        affiliations:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor'
+        sponsorForfeits:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry:
-      type: object
-      properties:
-        name:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - string
-          - 'null'
-        date:
-          type: string
-          format: date-time
-        details:
-          type:
-          - object
-          - 'null'
-          additionalProperties: {}
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing:
-      type: object
-      properties:
-        spacStatus:
-          type:
-          - string
-          - 'null'
-        deals:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit'
+        lockups:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult:
-      type: object
-      properties:
-        profileSpacCompanyManagementEntries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials:
-      type: object
-      properties:
-        revenueEntries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_RevenueEntry'
-        ebitdaEntries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_EBITDAEntry'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails:
-      type: object
-      properties:
-        cortexDealId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        dealStatus:
-          type:
-          - string
-          - 'null'
-        announcementDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        completionDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        mnaValueUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        returnFromIPO:
-          type:
-          - number
-          - 'null'
-          format: double
-        target:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant'
-        divestors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSecondaryPricingResult:
-      type: object
-      properties:
-        spacStatus:
-          type:
-          - string
-          - 'null'
-        listings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult:
-      type: object
-      properties:
-        profileSpacIpoDetails:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_EBITDAEntry:
-      type: object
-      properties:
-        year:
-          type: integer
-          format: int32
-        type:
-          type:
-          - string
-          - 'null'
-        value:
-          type: number
-          format: double
-        currency:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult:
-      type: object
-      properties:
-        profileSpacTimelineEntries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry_PriceHistoryEntry:
-      type: object
-      properties:
-        reportDate:
-          type: string
-          format: date-time
-        midPrice:
-          type:
-          - number
-          - 'null'
-          format: double
-        volume:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails:
-      type: object
-      properties:
-        cortexDealId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        spacStatus:
-          type:
-          - string
-          - 'null'
-        totalValueUsd:
-          type:
-          - number
-          - 'null'
-          format: double
-        ipoSize:
-          type:
-          - number
-          - 'null'
-          format: double
-        primarySharesOffered:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        offerPriceUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        expectedDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        filingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        pricingDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        firstTradeDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        securityTypeName:
-          type:
-          - string
-          - 'null'
-        warrantCover:
-          type:
-          - number
-          - 'null'
-          format: double
-        initialExercisePriceUSD:
-          type:
-          - number
-          - 'null'
-          format: double
-        syndicateDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails'
-        attorneyDetails:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails'
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup'
+        earnout:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout'
+        transactionSources:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources'
+        transactionUses:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses'
+        transactionProForma:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses:
       type: object
@@ -922,134 +878,195 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacManagementResult:
       type: object
       properties:
-        trustCash:
+        profileSpacCompanyManagementEntries:
           type:
-          - number
+          - array
           - 'null'
-          format: double
-        balanceSheetCash:
-          type:
-          - number
-          - 'null'
-          format: double
-        fpaCash:
-          type:
-          - number
-          - 'null'
-          format: double
-        pipeCash:
-          type:
-          - number
-          - 'null'
-          format: double
-        otherCash:
-          type:
-          - number
-          - 'null'
-          format: double
-        targetEquity:
-          type:
-          - number
-          - 'null'
-          format: double
-        sponsorEquity:
-          type:
-          - number
-          - 'null'
-          format: double
-        rolloverDebt:
-          type:
-          - number
-          - 'null'
-          format: double
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementEntry'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingSyndicateDetails:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights:
+      type: object
+      properties:
+        ecmSpacIpoRankedYearToDate:
+          type:
+          - string
+          - 'null'
+        spacApiEcmSpacIpoFiledCountYearToDate:
+          type:
+          - string
+          - 'null'
+        ecmSpacIpoSeekingTargetCount:
+          type:
+          - string
+          - 'null'
+        ecmSpacIpoSponsorDealCount:
+          type:
+          - string
+          - 'null'
+        ecmSpacIpoCompletedMnaAverageSinceLastYear:
+          type:
+          - string
+          - 'null'
+        spacApiEcmSpacIpoFiledPriceChange:
+          type:
+          - string
+          - 'null'
+        spacApiMnaDeSpacLargestAnnounced:
+          type:
+          - string
+          - 'null'
+        spacApiMnaDeSpacLargestCompleted:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult:
+      type: object
+      properties:
+        profileSpacSummary:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit:
       type: object
       properties:
         name:
           type:
           - string
           - 'null'
-        roleName:
-          type:
-          - string
-          - 'null'
-        participationPercent:
+        numberAtMNA:
           type:
           - number
           - 'null'
           format: double
-        companyId:
+        numberAtMNAClose:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger:
+      type: object
+      properties:
+        id:
           type: integer
           format: int64
-        companyParentId:
+        spacEntryId:
           type: integer
           format: int64
-        bankSymbol:
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - number
+          - 'null'
+          format: double
+        timeFrameInYears:
+          type:
+          - number
+          - 'null'
+          format: double
+        details:
           type:
           - string
           - 'null'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancingResult:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry_PriceHistoryEntry:
       type: object
       properties:
-        profileSpacFinancing:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing'
+        reportDate:
+          type: string
+          format: date-time
+        midPrice:
+          type:
+          - number
+          - 'null'
+          format: double
+        volume:
+          type:
+          - number
+          - 'null'
+          format: double
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoSyndicateDetails:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoResult:
+      type: object
+      properties:
+        profileSpacIpoDetails:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacIpoDetails'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ManagementAffiliation:
+      type: object
+      properties:
+        entityName:
+          type:
+          - string
+          - 'null'
+        entityId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingInvestors:
+      type: object
+      properties:
+        entityName:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNAResult:
+      type: object
+      properties:
+        profileSpacMNA:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry:
       type: object
       properties:
         name:
           type:
           - string
           - 'null'
-        roleName:
+        status:
           type:
           - string
           - 'null'
-        participationPercent:
+        date:
+          type: string
+          format: date-time
+        details:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        companyId:
-          type: integer
-          format: int64
-        companyParentId:
-          type: integer
-          format: int64
-        bankSymbol:
-          type:
-          - string
-          - 'null'
+          additionalProperties: {}
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacProfileLocation:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor:
       type: object
       properties:
-        regionCode:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        name:
           type:
           - string
           - 'null'
-        regionName:
+        role:
           type:
           - string
           - 'null'
-        country:
+        reserved1:
           type:
           - string
           - 'null'
-        countryName:
-          type:
-          - string
-          - 'null'
-        state:
-          type:
-          - string
-          - 'null'
-        city:
+        reserved2:
           type:
           - string
           - 'null'
@@ -1105,84 +1122,26 @@ components:
           items:
             $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacListingEntry_PriceHistoryEntry'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacMNA:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant:
       type: object
       properties:
-        dealDetails:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails'
-        financialAdvisors:
+        id:
           type:
-          - array
+          - integer
           - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor'
-        legalAdvisors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAAdvisor'
-        sponsorForfeits:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit'
-        lockups:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup'
-        earnout:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout'
-        transactionSources:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources'
-        transactionUses:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionUses'
-        transactionProForma:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNASponsorForfeit:
-      type: object
-      properties:
+          format: int64
         name:
           type:
           - string
           - 'null'
-        numberAtMNA:
-          type:
-          - number
-          - 'null'
-          format: double
-        numberAtMNAClose:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNALockup:
-      type: object
-      properties:
-        name:
+        nationality:
           type:
           - string
           - 'null'
-        days:
+        industry:
           type:
-          - integer
+          - string
           - 'null'
-          format: int32
-        minDays:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        priceHurdle:
-          type:
-          - number
-          - 'null'
-          format: double
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAEarnout:
       type: object
@@ -1214,85 +1173,122 @@ components:
           items:
             $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MnaEarnoutTargetTrigger'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials_RevenueEntry:
       type: object
       properties:
-        id:
+        year:
+          type: integer
+          format: int32
+        type:
+          type:
+          - string
+          - 'null'
+        value:
+          type: number
+          format: double
+        currency:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionSources:
+      type: object
+      properties:
+        trustCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        balanceSheetCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        fpaCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        pipeCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        otherCash:
+          type:
+          - number
+          - 'null'
+          format: double
+        targetEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        sponsorEquity:
+          type:
+          - number
+          - 'null'
+          format: double
+        rolloverDebt:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNADealDetails:
+      type: object
+      properties:
+        cortexDealId:
           type:
           - integer
           - 'null'
           format: int64
-        name:
+        dealStatus:
           type:
           - string
           - 'null'
-        nationality:
+        announcementDate:
           type:
           - string
           - 'null'
-        industry:
+          format: date-time
+        completionDate:
           type:
           - string
           - 'null'
+          format: date-time
+        mnaValueUSD:
+          type:
+          - number
+          - 'null'
+          format: double
+        returnFromIPO:
+          type:
+          - number
+          - 'null'
+          format: double
+        target:
+          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant'
+        divestors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNAParticipant'
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryInsights:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancing:
       type: object
       properties:
-        ecmSpacIpoRankedYearToDate:
+        spacStatus:
           type:
           - string
           - 'null'
-        spacApiEcmSpacIpoFiledCountYearToDate:
+        deals:
           type:
-          - string
+          - array
           - 'null'
-        ecmSpacIpoSeekingTargetCount:
-          type:
-          - string
-          - 'null'
-        ecmSpacIpoSponsorDealCount:
-          type:
-          - string
-          - 'null'
-        ecmSpacIpoCompletedMnaAverageSinceLastYear:
-          type:
-          - string
-          - 'null'
-        spacApiEcmSpacIpoFiledPriceChange:
-          type:
-          - string
-          - 'null'
-        spacApiMnaDeSpacLargestAnnounced:
-          type:
-          - string
-          - 'null'
-        spacApiMnaDeSpacLargestCompleted:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacIpoAttorneyDetails:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        entityName:
-          type:
-          - string
-          - 'null'
-        roleName:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummaryResult:
-      type: object
-      properties:
-        profileSpacSummary:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacSummary'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.ProfileSpacFinancingDeals'
       additionalProperties: false
     IONA.Profiles.API.Interfaces.Organization.Spac.Model.MNATransactionProForma:
       type: object
@@ -1338,11 +1334,15 @@ components:
           - 'null'
           format: double
       additionalProperties: false
-    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancialsResult:
+    IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacTimelineResult:
       type: object
       properties:
-        profileSpacFinancials:
-          $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.SpacFinancials'
+        profileSpacTimelineEntries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/IONA.Profiles.API.Interfaces.Organization.Spac.Model.TimelineEntry'
       additionalProperties: false
   securitySchemes:
     oauth2:
