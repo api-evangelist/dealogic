@@ -766,6 +766,9 @@ apis:
   - type: Console
     url: https://api.profiles.dealogic.com/index.html
 common:
+- type: CapabilityMap
+  url: capabilities/dealogic-capability-edges.yml
+  name: Dealogic Business Capability Map
 - type: Overlay
   url: overlays/dealogic-analytics-spac-v2-overlay.yaml
 - type: Overlay

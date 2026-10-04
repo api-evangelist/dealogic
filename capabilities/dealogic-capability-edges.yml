@@ -1,0 +1,26 @@
+slug: dealogic
+provider: Dealogic
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: ReportData
+  spec_file: dealogic-reportdata-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: '"Execute Report By Report Id", "Get Criteria By Report Id", "Create api execute with drilldown
+    by report id"; schemas ReportResult, VisualizationData, Pagination'
+  reason: 'A reporting-engine surface: execute saved report definitions with criteria and drilldown, returning
+    result sets and visualisation data. That is Analytics & BI delivery; the content domain is incidental
+    to what the operations do.'
