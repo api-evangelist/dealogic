@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/dealogic/integrations
+- https://n8n.io/integrations/dealogic/
+- https://composio.dev/toolkits/dealogic
+- https://monid.ai/tools/dealogic
+checked:
+- https://composio.dev/toolkits/dealogic
+- https://monid.ai/tools/dealogic
+- https://n8n.io/integrations/dealogic/
+- https://zapier.com/apps/dealogic/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
