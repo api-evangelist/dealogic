@@ -472,6 +472,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    LoadAllKey:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     LoadAllStatus:
       type: object
       properties:
@@ -519,14 +527,6 @@ components:
           - string
           - 'null'
         exceptionType:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    LoadAllKey:
-      type: object
-      properties:
-        id:
           type:
           - string
           - 'null'
