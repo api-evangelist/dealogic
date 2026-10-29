@@ -1,4 +1,4 @@
-# Dealogic (dealogic)
+# Dealogic
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,67 +64,153 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dealogic is a global provider of content and software for the capital markets — deal management, analytics, league tables and compliance — used by investment banks, syndicate and sales/trading desks, investment managers and corporates. Dealogic is part of ION Analytics.
+Dealogic is a global provider of content and software for the capital markets — deal management, analytics, league tables and compliance — used by investment banks, syndicate and sales/trading desks, investment managers and corporates, and is part of ION Analytics. Its platforms are Cortex, Dealogic Connect, Analytics and ComplianceManager. Dealogic runs no developer portal of its own: its APIs are catalogued on the ION Analytics Data Portal, and eight OpenAPI 3.0.1 documents covering 153 operations are served from Dealogic's own Swagger UIs on spac/bank/company/sponsor.analytics.dealogic.com, api.reporting.dealogic.com, api.reporting.cortex.dealogic.com and api.profiles.dealogic.com. The SPAC API is OData v4; the rest are plain REST. All are read-only and gated by OAuth 2.0 at login.dealogic.com with one 'dealogic' scope — no self-service signup, no published pricing, no SDK. Bulk delivery is the Primary Market Deals & Entities Feed: XML over secure FTP or a service bus.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml)
+**Areas:** Analytics · Capital Markets · Compliance · Deal Management · Debt Capital Markets · Equity Capital Markets · Finance · Financial Data · Investment Banking · League Tables · M&A · OData
 
-## Scope
+## Dealogic on APIs.io
 
-- **Type:** Index
-- **Position:** Producing
-- **Access:** Customer
-- **x-type:** company
+Everything profiled for Dealogic is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dealogic/](https://apis.io/providers/dealogic/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (15)
 
-- Analytics, Capital Markets, Compliance, Deal Management, Debt Capital Markets, Equity Capital Markets, Finance, Financial Data, Investment Banking, League Tables, M&A, OData, Private Equity, Reporting, SPAC, Syndicated Loans
+- [Dealogic Primary Market Deals & Entities Feed](https://apis.io/apis/dealogic/dealogic-primary-market-deals-entities-feed/) — File-based bulk data feed of Dealogic's investment banking content: over 2 million transactions since 1995 across Equity Capital Markets, Debt Capital…
+- [Dealogic Admin API](https://apis.io/apis/dealogic/dealogic-admin-api/) — The Admin API from Dealogic — 1 operation(s) for admin.
+- [Dealogic Data API](https://apis.io/apis/dealogic/dealogic-data-api/) — The Data API from Dealogic — 27 operation(s) for data.
+- [Dealogic Dcm Deal API](https://apis.io/apis/dealogic/dealogic-dcmdeal-api/) — The DcmDeal API from Dealogic — 1 operation(s) for dcmdeal.
+- [Dealogic Entity Navigation API](https://apis.io/apis/dealogic/dealogic-entity-navigation-api/) — The Entity Navigation API from Dealogic — 44 operation(s) for entity navigation.
+- [Dealogic Levfin Market Update API](https://apis.io/apis/dealogic/dealogic-levfinmarketupdate-api/) — The LevfinMarketUpdate API from Dealogic — 16 operation(s) for levfinmarketupdate.
+- [Dealogic Loan Deal API](https://apis.io/apis/dealogic/dealogic-loandeal-api/) — The LoanDeal API from Dealogic — 1 operation(s) for loandeal.
+- [Dealogic Organization Spac Profile API](https://apis.io/apis/dealogic/dealogic-organizationspacprofile-api/) — The OrganizationSpacProfile API from Dealogic — 8 operation(s) for organizationspacprofile.
+- [Dealogic Related Entities API](https://apis.io/apis/dealogic/dealogic-related-entities-api/) — The Related Entities API from Dealogic — 32 operation(s) for related entities.
+- [Dealogic Report Data API](https://apis.io/apis/dealogic/dealogic-reportdata-api/) — The ReportData API from Dealogic — 7 operation(s) for reportdata.
+- [Dealogic Root Entity API](https://apis.io/apis/dealogic/dealogic-root-entity-api/) — The Root Entity API from Dealogic — 1 operation(s) for root entity.
+- [Dealogic Spac Admin API](https://apis.io/apis/dealogic/dealogic-spac-admin-api/) — The Spac Admin API from Dealogic — 4 operation(s) for spac admin.
+- [Dealogic Spac Reader API](https://apis.io/apis/dealogic/dealogic-spac-reader-api/) — The Spac Reader API from Dealogic — 1 operation(s) for spac reader.
+- [Dealogic Spac Writer API](https://apis.io/apis/dealogic/dealogic-spac-writer-api/) — The Spac Writer API from Dealogic — 9 operation(s) for spac writer.
+- [Dealogic Test API](https://apis.io/apis/dealogic/dealogic-test-api/) — The Test API from Dealogic — 1 operation(s) for test.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-20
-- **Modified:** 2026-09-05
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-Dealogic operates no developer portal on `dealogic.com`. Its APIs and data feeds are catalogued on the **ION Analytics Data Portal**, and the machine-readable contracts are served from Dealogic's own Swagger UIs on `*.dealogic.com` hosts. Eight OpenAPI 3.0.1 documents covering **153 operations** were harvested verbatim on 2026-09-05:
+Event-driven and webhook contracts.
 
-| API | Host | Operations |
-|---|---|---|
-| Dealogic Analytics SPAC API (v2.0, OData v4) | `spac.analytics.dealogic.com` | 78 |
-| Dealogic Analytics SPAC API (v1.0, loader/admin) | `spac.analytics.dealogic.com` | 13 |
-| Dealogic Analytics Bank API | `bank.analytics.dealogic.com` | 13 |
-| Dealogic Analytics Company API | `company.analytics.dealogic.com` | 7 |
-| Dealogic Analytics Sponsor API | `sponsor.analytics.dealogic.com` | 7 |
-| Dealogic Reporting API | `api.reporting.dealogic.com` | 4 |
-| Cortex Reporting API | `api.reporting.cortex.dealogic.com` | 4 |
-| IONA Profiles API | `api.profiles.dealogic.com` | 27 |
+- [Dealogic Events](https://apis.io/asyncapis/dealogic/dealogic-events/)
 
-Alongside them, the **Dealogic Primary Market Deals & Entities Feed** delivers over 2 million investment banking transactions since 1995 as XML over the Dealogic secure FTP server or a service-bus topic, loaded into MS SQL Server by the client-installed Dealogic Data Loader.
+#### MCP servers (1)
 
-Every HTTP API is **read-only for customers** and gated by OAuth 2.0 against the shared identity provider at `login.dealogic.com`, which advertises a single product scope, `dealogic`. There is no self-service signup, no published pricing, no rate limit, no error contract and no SDK in any language.
+Model Context Protocol servers that expose the API to agents.
 
-The sibling APIs on the same ION Analytics Data Portal that are served from `api.acuris.com` — the Acuris, Mergermarket, Merger Review, Entities and Private Equity APIs — belong to other ION Analytics brands and are **not** attributed to Dealogic here.
+- [dealogic-mcp.yml](https://apis.io/servers/dealogic/dealogic-mcp-yml/)
 
-## Common Properties
+#### Overlays (8)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Dealogic Analytics Bank Overlay](https://apis.io/overlays/dealogic/dealogic-analytics-bank-overlay/)
+- [Dealogic Analytics Company Overlay](https://apis.io/overlays/dealogic/dealogic-analytics-company-overlay/)
+- [Dealogic Analytics Spac V1 Overlay](https://apis.io/overlays/dealogic/dealogic-analytics-spac-v1-overlay/)
+- [Dealogic Analytics Spac V2 Overlay](https://apis.io/overlays/dealogic/dealogic-analytics-spac-v2-overlay/)
+- [Dealogic Analytics Sponsor Overlay](https://apis.io/overlays/dealogic/dealogic-analytics-sponsor-overlay/)
+- [Dealogic Cortex Reporting Overlay](https://apis.io/overlays/dealogic/dealogic-cortex-reporting-overlay/)
+- [Dealogic Iona Profiles Overlay](https://apis.io/overlays/dealogic/dealogic-iona-profiles-overlay/)
+- [Dealogic Reporting Overlay](https://apis.io/overlays/dealogic/dealogic-reporting-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dealogic Authentication](https://apis.io/security/dealogic/dealogic-authentication/)
+- [Dealogic Domain Security](https://apis.io/security/dealogic/dealogic-domain-security/)
+- [Dealogic Trust Center](https://apis.io/security/dealogic/dealogic-trust-center/)
+- [Dealogic Vulnerability Disclosure](https://apis.io/security/dealogic/dealogic-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Dealogic Scopes](https://apis.io/scopes/dealogic/dealogic-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dealogic Plans Pricing](https://apis.io/plans/dealogic/dealogic-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dealogic Rate Limits](https://apis.io/rate-limits/dealogic/dealogic-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.dealogic.com/)
-- [Cortex Login](https://cortex.dealogic.com/)
-- [Developer Portal — ION Analytics Data Portal](https://iongroup.com/analytics/data-portal/)
-- [API Reference — SPAC API low-level documentation](https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/)
-- [Platform](https://dealogic.com/platform/)
-- [Investment Banking / Capital Markets](https://www.dealogic.com/our-platforms/investment-banking/)
-- [Syndicate / Sales, Trading & Research](https://dealogic.com/platform/syndicate-str/)
-- [Investment Managers](https://www.dealogic.com/our-platforms/investment-managers/)
-- [Corporations](https://www.dealogic.com/our-platforms/corporations/)
-- [ComplianceManager](https://dealogic.com/product/compliancemanager/)
-- [Security](https://dealogic.com/security/)
-- [Terms of Use](https://dealogic.com/terms-of-use/)
-- [Privacy Policy](https://dealogic.com/privacy-policy/)
-- [Insights](https://dealogic.com/insights/)
-- [Contact](https://dealogic.com/about-us/contact-us/)
+- [Documentation](https://iongroup.com/analytics/data-portal/apis-data-feeds/)
+- [API reference](https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/)
+- [Sign up](https://iongroup.com/analytics/data-portal/request-info/)
+- [Support](https://dealogic.com/about-us/contact-us/)
+- [Blog](https://dealogic.com/insights/)
+- [Terms of service](https://dealogic.com/terms-of-use/)
+- [Privacy policy](https://dealogic.com/privacy-policy/)
+- [GitHub](https://github.com/Dealogic)
 
-Three product links carried in earlier revisions of this profile were confirmed dead on 2026-09-05 and removed: `/our-platforms/sales-trading-research/`, `/products/analytics/` and `/products/connect/` all return HTTP 404.
+## API Evangelist rating
 
-## Maintainers
+**Kin Score 40.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-- **Kin Lane** - kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 70.5 |
+| Contract quality | 41.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 54.2 |
+| Access clarity | 50.0 |
+
+**Agent readiness 39.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 37.0** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dealogic/](https://apis.io/providers/dealogic/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dealogic: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dealogic/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
