@@ -1,0 +1,885 @@
+aid: dealogic
+name: Dealogic
+url: https://raw.githubusercontent.com/api-evangelist/dealogic/refs/heads/main/apis.yml
+type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service - you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - swagger-ui
+  - pricing
+  generated: '2026-09-05'
+  method: probed
+  note: 'Upgraded from callable_host: false on 2026-09-05. Eight OpenAPI documents were harvested from
+    six live Dealogic-operated Swagger UIs; the hosts answer 401, not 404, to unauthenticated calls.'
+accessModel:
+  pricing: contact-sales
+  onboarding: sales-gated
+  trial: false
+  try_now: false
+  public: false
+  label: Licensed - contact sales
+  confidence: high
+  source:
+  - https://iongroup.com/analytics/data-portal/request-info/
+  - https://dealogic.com/request-a-demo/
+  - https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/
+  generated: '2026-09-05'
+  method: searched
+  note: No pricing page exists anywhere on dealogic.com or the ION Analytics Data Portal; every product
+    path ends at a request-information or demo form. Entitlements are granted per subscribed dataset.
+position: Producing
+access: Customer
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+tags:
+- Analytics
+- Capital Markets
+- Compliance
+- Deal Management
+- Debt Capital Markets
+- Equity Capital Markets
+- Finance
+- Financial Data
+- Investment Banking
+- League Tables
+- M&A
+- OData
+- Private Equity
+- Reporting
+- SPAC
+- Syndicated Loans
+created: '2024-01-20'
+modified: '2026-09-05'
+specificationVersion: '0.23'
+kind: company
+description: 'Dealogic is a global provider of content and software for the capital markets — deal management,
+  analytics, league tables and compliance — used by investment banks, syndicate and sales/trading desks,
+  investment managers and corporates, and is part of ION Analytics. Its platforms are Cortex, Dealogic
+  Connect, Analytics and ComplianceManager. Dealogic runs no developer portal of its own: its APIs are
+  catalogued on the ION Analytics Data Portal, and eight OpenAPI 3.0.1 documents covering 153 operations
+  are served from Dealogic''s own Swagger UIs on spac/bank/company/sponsor.analytics.dealogic.com, api.reporting.dealogic.com,
+  api.reporting.cortex.dealogic.com and api.profiles.dealogic.com. The SPAC API is OData v4; the rest
+  are plain REST. All are read-only and gated by OAuth 2.0 at login.dealogic.com with one ''dealogic''
+  scope — no self-service signup, no published pricing, no SDK. Bulk delivery is the Primary Market Deals
+  & Entities Feed: XML over secure FTP or a service bus.'
+apis:
+- name: Dealogic Primary Market Deals & Entities Feed
+  description: >-
+    File-based bulk data feed of Dealogic's investment banking content: over 2 million transactions since
+    1995 across Equity Capital Markets, Debt Capital Markets, syndicated loans and M&A, plus 1.1 million
+    entities (issuers, banks, financial sponsors, lawyers) and Dealogic Revenue Analytics. XML files in
+    six groups (Reference, Company, DCM, ECM, M&A, Loan) are posted to the Dealogic secure FTP server,
+    or pushed continuously over a service bus topic, and loaded into a predefined MS SQL Server schema
+    by the client-installed Dealogic Data Loader application. Delivery is up to hourly; authentication
+    is username/password on the SFTP server. This is a file/message feed, not an HTTP API, so it has no
+    HTTP base URL.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/documentation/
+  tags:
+  - Data Feed
+  - Investment Banking
+  - M&A
+  - Equity Capital Markets
+  - Debt Capital Markets
+  - Syndicated Loans
+  - Financial Data
+  properties:
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/documentation/
+  - type: Authentication
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/authentication-and-authorization/
+  - type: X-DataGlossary
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/data-glossary/
+  - type: Support
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/faq-and-support/
+  - type: Summary
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/dealogic-origination-data-feed/
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealogic.png
+- aid: dealogic:dealogic-admin-api
+  name: Dealogic Admin API
+  description: The Admin API from Dealogic — 1 operation(s) for admin.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-admin-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-data-api
+  name: Dealogic Data API
+  description: The Data API from Dealogic — 27 operation(s) for data.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-data-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-dcmdeal-api
+  name: Dealogic Dcm Deal API
+  description: The DcmDeal API from Dealogic — 1 operation(s) for dcmdeal.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - DcmDeal
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-dcmdeal-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-entity-navigation-api
+  name: Dealogic Entity Navigation API
+  description: The Entity Navigation API from Dealogic — 44 operation(s) for entity navigation.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Entity Navigation
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-entity-navigation-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-levfinmarketupdate-api
+  name: Dealogic Levfin Market Update API
+  description: The LevfinMarketUpdate API from Dealogic — 16 operation(s) for levfinmarketupdate.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - LevfinMarketUpdate
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-levfinmarketupdate-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-loandeal-api
+  name: Dealogic Loan Deal API
+  description: The LoanDeal API from Dealogic — 1 operation(s) for loandeal.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - LoanDeal
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-loandeal-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-organizationspacprofile-api
+  name: Dealogic Organization Spac Profile API
+  description: >-
+    The OrganizationSpacProfile API from Dealogic — 8 operation(s) for organizationspacprofile.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - OrganizationSpacProfile
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-organizationspacprofile-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-related-entities-api
+  name: Dealogic Related Entities API
+  description: The Related Entities API from Dealogic — 32 operation(s) for related entities.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Related Entities
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-related-entities-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-reportdata-api
+  name: Dealogic Report Data API
+  description: The ReportData API from Dealogic — 7 operation(s) for reportdata.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Report data
+  tags_raw:
+  - ReportData
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-reportdata-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-root-entity-api
+  name: Dealogic Root Entity API
+  description: The Root Entity API from Dealogic — 1 operation(s) for root entity.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Root Entity
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-root-entity-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-spac-admin-api
+  name: Dealogic Spac Admin API
+  description: The Spac Admin API from Dealogic — 4 operation(s) for spac admin.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Spac Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-spac-admin-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-spac-reader-api
+  name: Dealogic Spac Reader API
+  description: The Spac Reader API from Dealogic — 1 operation(s) for spac reader.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Spac Reader
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-spac-reader-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-spac-writer-api
+  name: Dealogic Spac Writer API
+  description: The Spac Writer API from Dealogic — 9 operation(s) for spac writer.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags:
+  - Spac Writer
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-spac-writer-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+- aid: dealogic:dealogic-test-api
+  name: Dealogic Test API
+  description: The Test API from Dealogic — 1 operation(s) for test.
+  humanURL: >-
+    https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  baseURL: https://spac.analytics.dealogic.com/
+  tags: []
+  tags_raw:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/dealogic-test-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: APIReference
+    url: >-
+      https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  - type: Authentication
+    url: authentication/dealogic-authentication.yml
+  - type: OAuthScopes
+    url: scopes/dealogic-scopes.yml
+  - type: Conventions
+    url: conventions/dealogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dealogic-problem-types.yml
+  - type: Conformance
+    url: conformance/dealogic-conformance.yml
+  - type: DataModel
+    url: data-model/dealogic-data-model.yml
+  - type: Console
+    url: https://spac.analytics.dealogic.com/index.html
+  - type: Documentation
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: APIReference
+    url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+  - type: Console
+    url: https://bank.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://company.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://sponsor.analytics.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.dealogic.com/index.html
+  - type: Console
+    url: https://api.reporting.cortex.dealogic.com/index.html
+  - type: Console
+    url: https://api.profiles.dealogic.com/index.html
+common:
+- type: CapabilityMap
+  url: capabilities/dealogic-capability-edges.yml
+  name: Dealogic Business Capability Map
+- type: Overlay
+  url: overlays/dealogic-analytics-spac-v2-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-analytics-spac-v1-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-analytics-bank-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-analytics-company-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-analytics-sponsor-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-reporting-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-cortex-reporting-overlay.yaml
+- type: Overlay
+  url: overlays/dealogic-iona-profiles-overlay.yaml
+- type: DomainSecurity
+  url: security/dealogic-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/Dealogic
+- type: LinkedIn
+  url: https://www.linkedin.com/company/dealogic
+- type: Website
+  url: https://www.dealogic.com/
+- type: Login
+  url: https://cortex.dealogic.com/
+- type: X-Product-InvestmentBanking
+  url: https://www.dealogic.com/our-platforms/investment-banking/
+- type: X-Product-InvestmentManagers
+  url: https://www.dealogic.com/our-platforms/investment-managers/
+- type: X-Product-Corporations
+  url: https://www.dealogic.com/our-platforms/corporations/
+- type: Contact
+  url: https://www.dealogic.com/contact/
+- type: LlmsText
+  url: https://dealogic.com/llms.txt
+- type: X-Product-SyndicateSalesTradingResearch
+  url: https://dealogic.com/platform/syndicate-str/
+  note: Replaces https://www.dealogic.com/our-platforms/sales-trading-research/, confirmed 404 on 2026-09-05.
+- type: X-Product-ComplianceManager
+  url: https://dealogic.com/product/compliancemanager/
+- type: X-Platform
+  url: https://dealogic.com/platform/
+- type: DeveloperPortal
+  url: https://iongroup.com/analytics/data-portal/
+  note: Dealogic's APIs and data feeds are documented on the ION Analytics Data Portal; dealogic.com carries
+    no developer portal of its own. dealogic.com's own footer reads '(c) 2026 Dealogic, part of ION Analytics'.
+- type: Documentation
+  url: https://iongroup.com/analytics/data-portal/apis-data-feeds/
+- type: APIReference
+  url: https://iongroup.com/analytics/data-portal/apis-data-feeds/spac-api/documentation/low-level-documentation/
+  note: This page iframes https://spac.analytics.dealogic.com/index.html, the provider's own Swagger UI.
+- type: TermsOfService
+  url: https://dealogic.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://dealogic.com/privacy-policy/
+- type: Privacy
+  url: https://dealogic.com/data-privacy/
+- type: Support
+  url: https://dealogic.com/about-us/contact-us/
+- type: Blog
+  url: https://dealogic.com/insights/
+- type: PressReleases
+  url: https://dealogic.com/about-us/press/
+- type: SignUp
+  url: https://iongroup.com/analytics/data-portal/request-info/
+  note: There is no self-service signup. This is the ION Analytics request-information form that starts
+    API/data-feed access.
+- type: TrustCenter
+  url: security/dealogic-trust-center.yml
+- type: Compliance
+  url: conformance/dealogic-conformance.yml
+- type: Conformance
+  url: conformance/dealogic-conformance.yml
+- type: Authentication
+  url: authentication/dealogic-authentication.yml
+- type: OAuthScopes
+  url: scopes/dealogic-scopes.yml
+- type: OpenIDConnect
+  url: well-known/dealogic-login-dealogic-com-openid-configuration.json
+- type: WellKnown
+  url: well-known/dealogic-well-known.yml
+- type: Conventions
+  url: conventions/dealogic-conventions.yml
+- type: ErrorCatalog
+  url: errors/dealogic-problem-types.yml
+- type: DataModel
+  url: data-model/dealogic-data-model.yml
+- type: Lifecycle
+  url: lifecycle/dealogic-lifecycle.yml
+- type: Plans
+  url: plans/dealogic-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dealogic-rate-limits.yml
+- type: Packages
+  url: packages/dealogic-packages.yml
+- type: X-MCPServerCandidate
+  url: mcp/dealogic-mcp.yml
+  note: 'status: candidate - a tool list derived from the published OpenAPI. Dealogic ships no MCP server;
+    no MCPServer pointer is wired.'
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/dealogic-llms.txt
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 47
+  pass: local-v3
